@@ -169,7 +169,7 @@ Return strictly a valid JSON object matching this schema:
 }}
 """
 
-        candidate_models = [Config.GEMINI_MODEL, "gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.1-flash-lite"]
+        candidate_models = ["gemini-3.5-flash-lite", "gemini-3.5-flash", Config.GEMINI_MODEL]
         # Remove duplicates while preserving order
         unique_models = []
         for m in candidate_models:

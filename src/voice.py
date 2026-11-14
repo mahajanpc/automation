@@ -132,14 +132,17 @@ class VoiceSynthesizer:
         Config.ensure_dirs()
         scene_audio_files = []
 
-        # 1. Synthesize all scenes in parallel
+        # 1. Synthesize all scenes in parallel with safety timeout
         synth_tasks = []
         for idx, scene in enumerate(scenes):
             scene_mp3 = Config.TEMP_DIR / f"scene_voice_{idx}.mp3"
             scene_audio_files.append(scene_mp3)
             synth_tasks.append(self._synthesize_single_scene_async(scene.telugu_speech, scene_mp3))
 
-        await asyncio.gather(*synth_tasks)
+        try:
+            await asyncio.wait_for(asyncio.gather(*synth_tasks), timeout=60.0)
+        except asyncio.TimeoutError:
+            logger.warning("Parallel TTS synthesis hit 60s timeout, proceeding with generated audio...")
 
         # 2. Measure exact duration of each scene's audio
         scene_durations = []

@@ -20,6 +20,23 @@ logging.basicConfig(level=logging.INFO)
 
 app = Flask(__name__)
 
+# Ensure Cloudinary SDK is globally authenticated on startup
+def configure_cloudinary():
+    if Config.is_valid_key(Config.CLOUDINARY_URL):
+        import urllib.parse
+        try:
+            parsed = urllib.parse.urlparse(Config.CLOUDINARY_URL)
+            cloudinary.config(
+                cloud_name=parsed.hostname,
+                api_key=parsed.username,
+                api_secret=parsed.password,
+                secure=True
+            )
+        except Exception as e:
+            logger.warning(f"Could not configure Cloudinary: {e}")
+
+configure_cloudinary()
+
 STATE_FILE = Config.ROOT_DIR / "current_reel.json"
 TOPICS_FILE = Config.ROOT_DIR / "topics.json"
 FEEDBACK_FILE = Config.ROOT_DIR / "feedback_history.json"
@@ -32,12 +49,29 @@ ENV_FILE = Config.ROOT_DIR / ".env"
 # -------------------------------------------------------------
 def get_current_state():
     state = None
+    local_path = None
+
     if STATE_FILE.exists():
         try:
             with open(STATE_FILE, "r", encoding="utf-8") as f:
                 state = json.load(f)
+                if state.get("video_path"):
+                    local_path = Path(state["video_path"])
         except Exception as e:
             logger.warning(f"Error reading state file: {e}")
+
+    # If running on Vercel or ephemeral container (where local_path does not exist on disk),
+    # fetch the freshest state committed to GitHub main
+    if not local_path or not local_path.exists():
+        try:
+            gh_raw_url = f"https://raw.githubusercontent.com/mahajanpc/automation/main/current_reel.json?t={int(time.time())}"
+            r = requests.get(gh_raw_url, timeout=3)
+            if r.status_code == 200:
+                remote_state = r.json()
+                if remote_state and remote_state.get("topic"):
+                    state = remote_state
+        except Exception as e:
+            logger.debug(f"GitHub remote state fetch: {e}")
 
     if not state:
         state = {
@@ -53,28 +87,25 @@ def get_current_state():
             "published_post_id": None
         }
 
-    # If running on Vercel (where local video_path doesn't exist) or cloudinary_url is not set,
-    # pull latest video stream from Cloudinary
-    local_path = Path(state.get("video_path", "")) if state.get("video_path") else None
-    if not local_path or not local_path.exists() or not state.get("cloudinary_url"):
-        if Config.is_valid_key(Config.CLOUDINARY_URL):
-            try:
-                res = cloudinary.api.resources(
-                    resource_type="video",
-                    type="upload",
-                    prefix="instagram_automation",
-                    max_results=30
-                )
-                resources = res.get("resources", [])
-                if resources:
-                    # Sort by created_at descending so the newest video is always first
-                    sorted_res = sorted(resources, key=lambda x: x.get("created_at", ""), reverse=True)
-                    latest = sorted_res[0]
-                    state["cloudinary_url"] = latest.get("secure_url")
-                    state["video_filename"] = latest.get("public_id")
-                    state["status"] = "ready_for_review"
-            except Exception as e:
-                logger.warning(f"Cloudinary fetch fallback: {e}")
+    # Query Cloudinary directly for the freshest uploaded stream
+    configure_cloudinary()
+    if Config.is_valid_key(Config.CLOUDINARY_URL):
+        try:
+            res = cloudinary.api.resources(
+                resource_type="video",
+                type="upload",
+                prefix="instagram_automation",
+                max_results=30
+            )
+            resources = res.get("resources", [])
+            if resources:
+                sorted_res = sorted(resources, key=lambda x: x.get("created_at", ""), reverse=True)
+                latest = sorted_res[0]
+                state["cloudinary_url"] = latest.get("secure_url")
+                state["video_filename"] = latest.get("public_id")
+                state["status"] = "ready_for_review"
+        except Exception as e:
+            logger.warning(f"Cloudinary fetch fallback: {e}")
 
     return state
 
@@ -1477,10 +1508,10 @@ def api_usage():
     try:
         from google import genai
         client = genai.Client(api_key=Config.GEMINI_API_KEY)
-        client.models.generate_content(model="gemini-3.1-flash-lite", contents="ping")
+        client.models.generate_content(model=Config.GEMINI_MODEL, contents="ping")
         data["gemini"] = {
             "status": "healthy",
-            "model": "gemini-3.1-flash-lite",
+            "model": Config.GEMINI_MODEL,
             "plan": "Free Tier (15 RPM / 1M TPM / 1500 RPD)",
             "message": "Connected and operating normally"
         }
