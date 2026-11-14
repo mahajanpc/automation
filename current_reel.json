@@ -1,59 +1,61 @@
 {
   "topic": "How soaking almonds overnight unlocks vital brain enzymes",
   "category": "Health & Wellness",
-  "hook": "Do you eat raw almonds? You're missing a secret brain boost!",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261114_143505.mp4",
-  "video_filename": "health_reel_20261114_143505.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794666917/instagram_automation/og5nrl75xsu0l8ixie2f.mp4",
-  "caption": "Did you know eating raw almonds is actually hard for your body to process? 🛑 The skin contains tannins that block nutrient absorption. \n\nBy soaking them overnight, you trigger a biological process that unlocks vital enzymes and makes them super easy to digest! It’s the simplest brain hack for better memory and focus. 🧠✨\n\nTry this from tomorrow and see the difference in your energy levels! \n\n#HealthyHabits #AlmondBenefits #BrainFood #NutritionTips #TeluguHealth #HealthyLifestyle #DigestionTips #WellnessJourney",
+  "hook": "Are you eating almonds the wrong way? Discover how soaking unlocks vital brain enzymes!",
+  "hook_title": "🚨 బాదం ఎలా తింటే బ్రెయిన్ పవర్ పెరుగుతుంది?",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261114_153427.mp4",
+  "video_filename": "health_reel_20261114_153427.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794670488/instagram_automation/kjvlqmvful6gxedqrcmg.mp4",
+  "caption": "Meeru daily almonds ni direct ga thintunnara? Stop right now! 🛑 Dry almond skin lo ఉండే Phytic Acid valla digestive strain perigi, Vitamin E & key nutrients blood lo correctly absorb avvavu. \n\n✨ Solution: 8 hours water lo soak chesthe, enzyme inhibitors break aiyi Lipase & vital enzymes release avthayi! Dynamic brain health and sharper memory ki idhe secret! 💡\n\nDaily morning 4-5 soaked and peeled almonds thinandi. Share this health update with your family! ❤️\n\n#TeluguHealthTips #AlmondBenefits #BrainPower #HealthyHabitsTelugu #WellnessTelugu #NutritionTips #TeluguReels #MindHealth",
   "scenes": [
     {
-      "telugu_speech": "రోజూ ఉదయాన్నే బాదం పప్పులు తింటున్నారా? కానీ, పైన ఉన్న తోలుతో తింటే అది మీ కడుపుకు ఎంత కష్టమో తెలుసా?",
+      "telugu_speech": "మీరు ప్రతిరోజూ బాదం పప్పులను నేరుగా పొడిగానే తింటున్నారా?",
       "subtitles": [
-        "Eating RAW ALMONDS?",
-        "Hard TO DIGEST",
-        "Stop THE MISTAKE"
+        "మీరు *బాదం పప్పులు*",
+        "నేరుగా *తింటున్నారా?*"
       ],
-      "visual_query": "raw almonds"
+      "visual_query": "healthy nuts",
+      "visual_concept": "Close-up of a person grabbing dry raw almonds from a wooden bowl"
     },
     {
-      "telugu_speech": "నిజానికి, ఆ తోలులో 'టానిన్స్' అనే పదార్థాలు ఉంటాయి. ఇవి మన మెదడుకు అందాల్సిన పోషకాలను అడ్డుకుంటాయి.",
+      "telugu_speech": "బాదం తోలులో ఉండే ఫైటిక్ యాసిడ్ జీర్ణవ్యవస్థపై ఒత్తిడి పెంచుతుంది.",
       "subtitles": [
-        "Hidden TANNINS",
-        "Blocking NUTRIENTS",
-        "Brain STARVATION"
+        "తోలులో ఉండే *ఫైటిక్ యాసిడ్*",
+        "జీర్ణ వ్యవస్థపై *ఒత్తిడి!*"
       ],
-      "visual_query": "almond skin"
+      "visual_query": "stomach anatomy",
+      "visual_concept": "Visual breakdown of stomach anatomy showing digestive strain"
     },
     {
-      "telugu_speech": "అందుకే, రాత్రంతా బాదం నానబెట్టడం చాలా ముఖ్యం. నానబెట్టడం వల్ల ఆ ఎంజైమ్ ఇన్హిబిటర్లు తొలగిపోతాయి.",
+      "telugu_speech": "దీనివల్ల అందులోని విటమిన్ ఈ, ప్రోటీన్లు శరీరానికి పూర్తిగా అందవు.",
       "subtitles": [
-        "Soak OVERNIGHT",
-        "Unlock ENZYMES",
-        "Better ABSORPTION"
+        "ముఖ్యమైన *విటమిన్ ఈ*",
+        "శరీరానికి *అందకుండా* పోతుంది!"
       ],
-      "visual_query": "almonds soaking"
+      "visual_query": "human cell",
+      "visual_concept": "Abstract view of blood cells and nutrients attempting absorption"
     },
     {
-      "telugu_speech": "నానబెట్టిన బాదం మెదడుకు అవసరమైన విటమిన్లు మరియు ఒమేగా ఫ్యాటీ యాసిడ్స్ ని అద్భుతంగా అందిస్తుంది.",
+      "telugu_speech": "కానీ రాత్రంతా నానబెడితే, పోషకాలను విడుదల చేసే ఎంజైమ్‌లు యాక్టివేట్ అవుతాయి!",
       "subtitles": [
-        "Boost BRAIN POWER",
-        "Healthy FATS",
-        "Maximum ENERGY"
+        "రాత్రంతా *నానబెడితే*",
+        "యాక్టివేట్ అయ్యే *శక్తివంతమైన ఎంజైమ్స్!*"
       ],
-      "visual_query": "brain health"
+      "visual_query": "drinking water glass",
+      "visual_concept": "Water being poured over almonds soaking in a clear glass bowl overnight"
     },
     {
-      "telugu_speech": "ఈరోజు నుంచే బాదం నానబెట్టి తినండి, ఆరోగ్యంగా ఉండండి. మీ ఫ్రెండ్స్‌కి కూడా ఈ చిన్న చిట్కా షేర్ చేయండి!",
+      "telugu_speech": "కాబట్టి ప్రతిరోజూ నానబెట్టి పొట్టు తీసి తినండి. ఈ ఉపయోగకరమైన విషయాన్ని షేర్ చేయండి!",
       "subtitles": [
-        "Simple HABIT",
-        "Stay HEALTHY",
-        "Share THE WISDOM"
+        "పొట్టు తీసి *ఉదయాన్నే* తినండి",
+        "*షేర్ చేయండి* మీ ఫ్రెండ్స్‌కి!",
+        "*నానబెట్టిన బాదం తినండి | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "peeled almonds"
+      "visual_query": "healthy lifestyle walking",
+      "visual_concept": "A smiling healthy person eating peeled soaked almonds in a bright morning kitchen"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
-  "created_at": "2026-11-14T14:35:18.911289"
+  "created_at": "2026-11-14T15:34:48.995681"
 }
