@@ -180,23 +180,34 @@ def update_env_variable(key: str, value: str):
 generation_lock = threading.Lock()
 generation_status = {
     "running": False,
+    "status": "idle",
     "progress": 0,
     "step": "Idle",
     "message": "Ready to generate",
+    "error": None,
+    "details": None,
     "target": "local",
-    "topic": None
+    "topic": None,
+    "run_id": None,
+    "run_url": None,
+    "start_time": 0
 }
 
 def run_local_generation(topic=None, category=None):
     global generation_status
+    import traceback
     with generation_lock:
         generation_status.update({
             "running": True,
+            "status": "running",
             "progress": 10,
             "step": "Initializing Pipeline",
             "message": "Starting generation pipeline...",
             "target": "local",
-            "topic": topic
+            "topic": topic,
+            "error": None,
+            "details": None,
+            "start_time": time.time()
         })
 
         cmd = [str(Config.ROOT_DIR / ".venv" / "bin" / "python3"), "main.py", "--mode", "review"]
@@ -205,6 +216,7 @@ def run_local_generation(topic=None, category=None):
         if category:
             cmd.extend(["--category", category])
 
+        recent_logs = []
         try:
             proc = subprocess.Popen(
                 cmd,
@@ -220,6 +232,9 @@ def run_local_generation(topic=None, category=None):
                 if not line_str:
                     continue
                 logger.info(f"[pipeline] {line_str}")
+                recent_logs.append(line_str)
+                if len(recent_logs) > 50:
+                    recent_logs.pop(0)
 
                 if "Step 2: Content Generation" in line_str:
                     generation_status.update({"progress": 25, "step": "Gemini AI Scriptwriting", "message": "Drafting 5-beat viral script..."})
@@ -237,22 +252,33 @@ def run_local_generation(topic=None, category=None):
             if proc.returncode == 0:
                 generation_status.update({
                     "running": False,
+                    "status": "completed",
                     "progress": 100,
                     "step": "Complete",
-                    "message": "Reel successfully generated and ready for review!"
+                    "message": "Reel successfully generated and ready for review!",
+                    "error": None,
+                    "details": None
                 })
             else:
+                err_lines = [l for l in recent_logs if "ERROR" in l or "Traceback" in l or "Exception" in l or "Error" in l]
+                err_summary = err_lines[-1] if err_lines else f"Pipeline process exited with error code {proc.returncode}"
                 generation_status.update({
                     "running": False,
+                    "status": "failed",
                     "progress": 0,
-                    "step": "Failed",
-                    "message": f"Generation exited with error code {proc.returncode}"
+                    "step": "Pipeline Process Error",
+                    "error": err_summary,
+                    "details": "\n".join(recent_logs),
+                    "message": f"Pipeline failed: {err_summary}"
                 })
         except Exception as e:
             generation_status.update({
                 "running": False,
+                "status": "failed",
                 "progress": 0,
-                "step": "Error",
+                "step": "Execution Exception",
+                "error": str(e),
+                "details": traceback.format_exc(),
                 "message": f"Execution error: {e}"
             })
 
@@ -833,6 +859,61 @@ HTML_TEMPLATE = """
                 </div>
             </div>
         </section>
+
+        <!-- Dedicated Exception & Diagnostic Modal -->
+        <div id="errorModal" class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+            <div class="glass-panel border border-red-500/50 bg-gray-950/95 max-w-2xl w-full rounded-2xl p-6 shadow-2xl shadow-red-950/60 transition-all max-h-[90vh] flex flex-col">
+                <div class="flex items-start justify-between gap-4 pb-4 border-b border-gray-800">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-xl font-bold border border-red-500/30">
+                            ⚠️
+                        </div>
+                        <div>
+                            <h3 class="text-base font-bold text-white tracking-wide" id="errorModalTitle">Pipeline Error</h3>
+                            <p class="text-xs text-red-400 mt-0.5" id="errorModalSubtitle">An exception occurred during generation</p>
+                        </div>
+                    </div>
+                    <button onclick="closeErrorModal()" class="text-gray-400 hover:text-white text-lg p-1">✕</button>
+                </div>
+                
+                <div class="py-4 space-y-3 overflow-y-auto flex-1">
+                    <div class="p-3.5 rounded-xl bg-red-950/30 border border-red-500/30 text-xs text-red-300 font-medium leading-relaxed" id="errorModalMessage">
+                        Error message goes here...
+                    </div>
+                    
+                    <div>
+                        <div class="flex items-center justify-between mb-1.5">
+                            <span class="text-[11px] font-bold uppercase tracking-wider text-gray-400">Diagnostic Details & Error Trace:</span>
+                            <button onclick="copyErrorDiagnostics()" class="text-[11px] text-emerald-400 hover:text-emerald-300 font-mono flex items-center gap-1" id="copyDiagnosticsBtn">
+                                <span>📋</span> Copy Log
+                            </button>
+                        </div>
+                        <pre class="p-3.5 rounded-xl bg-black/80 border border-gray-800 text-[11px] font-mono text-gray-300 overflow-x-auto max-h-56 select-all whitespace-pre-wrap leading-relaxed" id="errorModalDetails">No trace available.</pre>
+                    </div>
+
+                    <div id="errorTroubleshooting" class="p-3.5 rounded-xl bg-blue-950/20 border border-blue-500/30 text-[11px] text-blue-300 space-y-1">
+                        <p class="font-bold flex items-center gap-1.5 text-blue-200">
+                            <span>💡</span> Suggested Fix / Next Steps:
+                        </p>
+                        <p id="errorSuggestionText" class="leading-relaxed text-blue-200/90">Check API quota or try another topic.</p>
+                    </div>
+                </div>
+
+                <div class="pt-4 border-t border-gray-800 flex flex-wrap items-center justify-between gap-3">
+                    <div id="errorModalActionContainer">
+                        <!-- Dynamic external link (e.g. GitHub Actions Run) -->
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button onclick="closeErrorModal()" class="px-4 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-xs font-semibold text-gray-300 transition">
+                            Dismiss
+                        </button>
+                        <button onclick="closeErrorModal(); startInstantGeneration();" class="accent-gradient hover:opacity-95 text-white text-xs font-bold px-4 py-2 rounded-xl transition flex items-center gap-1.5">
+                            <span>🔄</span> Retry Generation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Client-Side Logic -->
@@ -864,6 +945,114 @@ HTML_TEMPLATE = """
             });
         }
 
+        // ==============================================================
+        // Global Error & Exception Diagnostic Handler
+        // ==============================================================
+        function showErrorModal(title, subtitle, message, details, suggestion, actionUrl) {
+            const modal = document.getElementById("errorModal");
+            if (!modal) return;
+
+            document.getElementById("errorModalTitle").innerText = title || "Pipeline Exception";
+            document.getElementById("errorModalSubtitle").innerText = subtitle || "An error occurred during operation";
+            document.getElementById("errorModalMessage").innerText = message || "Unknown error occurred.";
+            document.getElementById("errorModalDetails").innerText = details || "No technical error trace available.";
+
+            const suggEl = document.getElementById("errorSuggestionText");
+            if (suggEl) {
+                suggEl.innerText = suggestion || "Check your API keys in .env, verify server logs, or try another topic.";
+            }
+
+            const actionContainer = document.getElementById("errorModalActionContainer");
+            if (actionContainer) {
+                if (actionUrl) {
+                    actionContainer.innerHTML = `
+                        <a href="${actionUrl}" target="_blank" class="px-3.5 py-2 rounded-xl bg-gray-800 hover:bg-gray-700 text-xs font-semibold text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5 transition">
+                            <span>🔗</span> View Run Logs on GitHub
+                        </a>
+                    `;
+                } else {
+                    actionContainer.innerHTML = "";
+                }
+            }
+
+            modal.classList.remove("hidden");
+        }
+
+        function closeErrorModal() {
+            const modal = document.getElementById("errorModal");
+            if (modal) modal.classList.add("hidden");
+        }
+
+        function copyErrorDiagnostics() {
+            const text = document.getElementById("errorModalDetails").innerText;
+            const btn = document.getElementById("copyDiagnosticsBtn");
+            navigator.clipboard.writeText(text).then(() => {
+                if (btn) {
+                    btn.innerHTML = "<span>✅ Copied!</span>";
+                    setTimeout(() => { btn.innerHTML = "<span>📋 Copy Log</span>"; }, 2000);
+                }
+            }).catch(() => {
+                alert("Log text ready to copy from the box.");
+            });
+        }
+
+        function showStatusAlert(type, message, details) {
+            const alertBox = document.getElementById("statusAlert");
+            if (!alertBox) return;
+
+            if (type === "error") {
+                alertBox.className = "mb-6 p-4 rounded-xl border bg-red-500/10 border-red-500/40 text-red-300 flex items-start justify-between gap-4";
+                alertBox.innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <span class="text-xl">⚠️</span>
+                        <div>
+                            <p class="font-bold text-sm text-red-200">${message}</p>
+                            ${details ? `<p class="text-xs text-red-400 font-mono mt-1">${details}</p>` : ''}
+                        </div>
+                    </div>
+                    <button onclick="document.getElementById('statusAlert').classList.add('hidden')" class="text-red-400 hover:text-white text-xs">✕</button>
+                `;
+            } else if (type === "success") {
+                alertBox.className = "mb-6 p-4 rounded-xl border bg-emerald-500/10 border-emerald-500/40 text-emerald-300 flex items-start justify-between gap-4";
+                alertBox.innerHTML = `
+                    <div class="flex items-start gap-3">
+                        <span class="text-xl">✅</span>
+                        <div>
+                            <p class="font-bold text-sm text-emerald-200">${message}</p>
+                            ${details ? `<p class="text-xs text-emerald-400 mt-0.5">${details}</p>` : ''}
+                        </div>
+                    </div>
+                    <button onclick="document.getElementById('statusAlert').classList.add('hidden')" class="text-emerald-400 hover:text-white text-xs">✕</button>
+                `;
+            }
+            alertBox.classList.remove("hidden");
+            alertBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        // Global unhandled error interception
+        window.addEventListener('unhandledrejection', function (event) {
+            console.error('Unhandled Promise Rejection:', event.reason);
+            showErrorModal(
+                "Unhandled Client Exception",
+                "An unexpected JavaScript error occurred",
+                event.reason ? (event.reason.message || String(event.reason)) : "Unknown client error",
+                event.reason && event.reason.stack ? event.reason.stack : "See browser Developer Tools console for full trace."
+            );
+        });
+
+        window.addEventListener('error', function (event) {
+            console.error('Global Error:', event.error || event.message);
+            if (event.filename && !event.filename.includes(window.location.host) && !event.filename.includes('localhost')) {
+                return;
+            }
+            showErrorModal(
+                "UI Runtime Error",
+                "An error occurred in the dashboard script",
+                event.message || "Script execution error",
+                `${event.filename || ''}:${event.lineno || 0}:${event.colno || 0}\n${(event.error && event.error.stack) || ''}`
+            );
+        });
+
         // Publish to Instagram
         async function publishToInstagram() {
             const btn = document.getElementById("publishBtn");
@@ -878,35 +1067,42 @@ HTML_TEMPLATE = """
 
             try {
                 const res = await fetch("/api/publish", { method: "POST" });
-                const data = await res.json();
+                const data = await res.json().catch(() => ({}));
 
-                if (data.success) {
-                    alertBox.className = "mb-6 p-4 rounded-xl border bg-emerald-500/10 border-emerald-500/30 text-emerald-300 flex items-center justify-between";
-                    alertBox.innerHTML = `
-                        <div>
-                            <p class="font-bold text-base">🎉 Successfully Published to Instagram!</p>
-                            <p class="text-xs text-emerald-400 mt-0.5">Post ID: ${data.post_id} | Check your Instagram profile @arovia360</p>
-                        </div>
-                        <a href="https://instagram.com/arovia360" target="_blank" class="px-4 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-xs">
-                            View on Instagram
-                        </a>
-                    `;
-                    alertBox.classList.remove("hidden");
-                    btn.innerHTML = "<span>✅ Already Published</span>";
-                    document.getElementById("publishBadge").innerHTML = `
+                if (!res.ok || !data.success) {
+                    throw new Error(data.error || data.message || `Server returned HTTP ${res.status}`);
+                }
+
+                alertBox.className = "mb-6 p-4 rounded-xl border bg-emerald-500/10 border-emerald-500/30 text-emerald-300 flex items-center justify-between";
+                alertBox.innerHTML = `
+                    <div>
+                        <p class="font-bold text-base">🎉 Successfully Published to Instagram!</p>
+                        <p class="text-xs text-emerald-400 mt-0.5">Post ID: ${data.post_id} | Check your Instagram profile @arovia360</p>
+                    </div>
+                    <a href="https://instagram.com/arovia360" target="_blank" class="px-4 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-xs">
+                        View on Instagram
+                    </a>
+                `;
+                alertBox.classList.remove("hidden");
+                btn.innerHTML = "<span>✅ Already Published</span>";
+                const pBadge = document.getElementById("publishBadge");
+                if (pBadge) {
+                    pBadge.innerHTML = `
                         <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30 flex items-center gap-1.5">
                             <span>✅</span> Live on Instagram (@arovia360)
                         </span>
                     `;
-                } else {
-                    alert("Publishing Failed: " + (data.error || "Unknown error"));
-                    btn.disabled = false;
-                    btn.innerHTML = "<span>🚀</span> Retry Publishing to Instagram";
                 }
             } catch (err) {
-                alert("Network error: " + err);
+                showErrorModal(
+                    "Instagram Publishing Failed",
+                    "Meta Graph API rejected the publish request",
+                    err.message || String(err),
+                    err.stack || "Failed during Instagram video container creation or media publish.",
+                    "1. Verify your Instagram Access Token has not expired (generate a fresh token in Facebook Developer Portal).\n2. Ensure the Cloudinary video URL is publicly accessible."
+                );
                 btn.disabled = false;
-                btn.innerHTML = "<span>🚀</span> 1-Click Publish Live to Instagram (@arovia360)";
+                btn.innerHTML = "<span>🚀</span> Retry Publishing to Instagram";
             }
         }
 
@@ -960,6 +1156,65 @@ HTML_TEMPLATE = """
 
         let progressInterval = null;
 
+        function getErrorTroubleshootingAdvice(errorText) {
+            const err = (errorText || "").toLowerCase();
+            if (err.includes("gemini") || err.includes("503") || err.includes("resourceexhausted") || err.includes("quota")) {
+                return "Gemini API capacity limits hit. Switching to 'gemini-3.5-flash-lite' in .env or waiting 60s before retrying resolves this immediately.";
+            }
+            if (err.includes("pixabay") || err.includes("footage")) {
+                return "Pixabay API quota reached or query returned 0 vertical clips. Verify PIXABAY_API_KEY in .env.";
+            }
+            if (err.includes("fetch first") || err.includes("rejected") || err.includes("push") || err.includes("git")) {
+                return "GitHub concurrency lock or out-of-sync branch during git push. Automatic rebase handles this on retry.";
+            }
+            if (err.includes("edge-tts") || err.includes("tts") || err.includes("audio")) {
+                return "Edge-TTS audio synthesis timed out or network disconnected. Try retrying the generation.";
+            }
+            if (err.includes("ffmpeg") || err.includes("filter") || err.includes("libass")) {
+                return "FFmpeg video assembly failed. Verify libass, subtitle filters, and Telugu fonts are installed.";
+            }
+            if (err.includes("cloudinary")) {
+                return "Cloudinary credentials missing or upload network timeout. Verify CLOUDINARY_URL in .env.";
+            }
+            return "Check your API credentials in .env, inspect server terminal logs, or retry with another health topic.";
+        }
+
+        function handleGenerationFailure(data, reason) {
+            if (progressInterval) clearInterval(progressInterval);
+            localStorage.removeItem("arovia_generating");
+            localStorage.removeItem("arovia_start_time");
+            localStorage.removeItem("arovia_initial_url");
+
+            const banner = document.getElementById("genProgressBanner");
+            if (banner) {
+                banner.className = "mb-8 p-5 rounded-2xl glass-panel border border-red-500/60 bg-gradient-to-r from-red-950/40 to-slate-900/60 shadow-xl transition-all";
+            }
+            const bar = document.getElementById("progressBar");
+            if (bar) bar.className = "h-full bg-gradient-to-r from-red-600 to-rose-400";
+            const titleEl = document.getElementById("progressStepTitle");
+            if (titleEl) titleEl.innerText = `🚨 Generation Failed: ${data.step || reason || 'Pipeline Error'}`;
+            const msgEl = document.getElementById("progressMsg");
+            if (msgEl) msgEl.innerText = data.error || data.message || "An exception occurred during generation. See diagnostics below.";
+
+            const advice = getErrorTroubleshootingAdvice((data.error || "") + " " + (data.details || ""));
+            showErrorModal(
+                `Reel Generation Failed (${data.target === 'github' ? 'Cloud Workflow' : 'Local Engine'})`,
+                `Failed during: ${data.step || reason || 'Pipeline Execution'}`,
+                data.error || data.message || "Generation pipeline terminated with an error.",
+                data.details || data.error || "No technical error trace was captured. Check terminal or GitHub Actions logs.",
+                advice,
+                data.run_url
+            );
+
+            showStatusAlert("error", `Generation failed at step: ${data.step || reason || 'Pipeline Error'}`, data.error || "Inspect diagnostics modal for full error log.");
+
+            const btn = document.getElementById("startGenBtn");
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = "<span>⚡</span> Start Instant Reel Generation";
+            }
+        }
+
         function startProgressTracker(initialUrl) {
             let startTime = parseInt(localStorage.getItem("arovia_start_time") || Date.now());
             if (!localStorage.getItem("arovia_start_time")) {
@@ -969,6 +1224,14 @@ HTML_TEMPLATE = """
             localStorage.setItem("arovia_initial_url", initialUrl || currentVideoUrl);
 
             switchTab('review');
+
+            // Reset banner to emerald styling if it was previously red
+            const banner = document.getElementById("genProgressBanner");
+            if (banner) {
+                banner.className = "mb-8 p-5 rounded-2xl glass-panel border border-emerald-500/30 bg-gradient-to-r from-emerald-950/20 to-slate-900/40 shadow-xl";
+            }
+            const bar = document.getElementById("progressBar");
+            if (bar) bar.className = "h-full accent-gradient";
 
             if (progressInterval) clearInterval(progressInterval);
 
@@ -989,30 +1252,44 @@ HTML_TEMPLATE = """
                 }
 
                 // Check server status
-                if (elapsed % 4 === 0 || elapsed > 35) {
+                if (elapsed % 3 === 0 || elapsed > 35) {
                     try {
                         const res = await fetch("/api/status");
                         const data = await res.json();
                         const initUrl = localStorage.getItem("arovia_initial_url") || currentVideoUrl;
 
+                        // Check for failure from local subprocess or GitHub workflow
+                        if (data.status === "failed" || (data.error && !data.running) || (data.step && data.step.startsWith("Failed"))) {
+                            handleGenerationFailure(data, data.step);
+                            return;
+                        }
+
+                        // Check for completion
                         if (data.cloudinary_url && data.cloudinary_url !== initUrl) {
                             clearInterval(progressInterval);
                             updateProgressStage(100, "🎉 Reel Generation Complete!", "New video is ready! Refreshing player...", 5);
                             localStorage.removeItem("arovia_generating");
                             localStorage.removeItem("arovia_start_time");
                             localStorage.removeItem("arovia_initial_url");
+                            showStatusAlert("success", "New Reel Generated Successfully!", `Cloudinary stream ready for topic: "${data.topic || 'Health'}"`);
                             setTimeout(() => location.reload(), 1500);
                             return;
                         }
                     } catch (e) {
-                        console.error("Status check:", e);
+                        console.error("Status check poll error:", e);
                     }
                 }
 
                 if (elapsed > 180) { // Safety timeout
                     clearInterval(progressInterval);
                     localStorage.removeItem("arovia_generating");
-                    location.reload();
+                    localStorage.removeItem("arovia_start_time");
+                    localStorage.removeItem("arovia_initial_url");
+                    handleGenerationFailure({
+                        step: "Timeout (180s Exceeded)",
+                        error: "Pipeline exceeded maximum wait time of 180 seconds without completing.",
+                        details: `Elapsed: ${elapsed}s\nInitial Video: ${localStorage.getItem("arovia_initial_url") || currentVideoUrl}\nCheck server terminal stdout or GitHub Actions runs tab for live status.`
+                    }, "Timeout");
                 }
             }, 1000);
         }
@@ -1035,7 +1312,8 @@ HTML_TEMPLATE = """
             const btn = document.getElementById("startGenBtn");
             const topic = document.getElementById("customTopicInput").value.trim();
             const category = document.getElementById("customCategoryInput").value;
-            const runner = document.querySelector('input[name="runnerType"]:checked').value;
+            const runnerEl = document.querySelector('input[name="runnerType"]:checked');
+            const runner = runnerEl ? runnerEl.value : 'local';
 
             btn.disabled = true;
             btn.innerHTML = "<span class='animate-spin'>⏳</span> Starting Engine...";
@@ -1046,19 +1324,29 @@ HTML_TEMPLATE = """
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ topic, category, runner })
                 });
-                const data = await res.json();
+                const data = await res.json().catch(err => {
+                    throw new Error("Invalid response from server: " + err.message);
+                });
 
-                if (data.success) {
-                    startProgressTracker(currentVideoUrl);
-                    btn.disabled = false;
-                    btn.innerHTML = "<span>⚡</span> Start Instant Reel Generation";
-                } else {
-                    alert(data.message || "Failed to start generation.");
-                    btn.disabled = false;
-                    btn.innerHTML = "<span>⚡</span> Start Instant Reel Generation";
+                if (!res.ok || !data.success) {
+                    throw new Error(data.message || data.error || `Server returned HTTP ${res.status}`);
                 }
+
+                showStatusAlert("success", `Generation Engine Launched (${runner.toUpperCase()})`, topic ? `Topic: "${topic}"` : "Auto-generating trending health topic...");
+                startProgressTracker(currentVideoUrl);
             } catch (e) {
-                alert("Network error: " + e);
+                console.error("Start generation error:", e);
+                showErrorModal(
+                    "Failed to Launch Generation",
+                    `Engine dispatch error (${runner})`,
+                    e.message || String(e),
+                    e.stack || "Failed when calling POST /api/generate",
+                    runner === "github"
+                        ? "Ensure GITHUB_TOKEN is set with 'repo' and 'workflow' scopes in .env, or GitHub CLI is authenticated."
+                        : "Ensure no other local generation is currently running and the server has permissions to execute python scripts."
+                );
+                showStatusAlert("error", "Failed to start generation engine", e.message || String(e));
+            } finally {
                 btn.disabled = false;
                 btn.innerHTML = "<span>⚡</span> Start Instant Reel Generation";
             }
@@ -1074,7 +1362,7 @@ HTML_TEMPLATE = """
             const time = document.getElementById("customTimeInput").value;
 
             if (!time) {
-                alert("Please select a valid time.");
+                showStatusAlert("error", "Schedule Validation Error", "Please select a valid time (e.g. 17:30 IST).");
                 return;
             }
 
@@ -1087,16 +1375,26 @@ HTML_TEMPLATE = """
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ time_ist: time, enabled: true })
                 });
-                const data = await res.json();
-                if (data.success) {
-                    document.getElementById("currentScheduleLabel").innerText = data.schedule.label;
-                    document.getElementById("currentCron").innerText = data.schedule.cron;
-                    alert("✅ Schedule updated and synchronized with GitHub Actions workflow!");
-                } else {
-                    alert("Error: " + data.message);
+                const data = await res.json().catch(err => {
+                    throw new Error("Invalid response from server: " + err.message);
+                });
+                if (!res.ok || !data.success) {
+                    throw new Error(data.message || data.error || `Server returned HTTP ${res.status}`);
                 }
+
+                document.getElementById("currentScheduleLabel").innerText = data.schedule.label;
+                document.getElementById("currentCron").innerText = data.schedule.cron;
+                showStatusAlert("success", "Schedule Updated & Synced", `Daily reel trigger set to ${data.schedule.label} (Cron: ${data.schedule.cron})`);
             } catch (e) {
-                alert("Network error: " + e);
+                console.error("Schedule error:", e);
+                showErrorModal(
+                    "Schedule Synchronization Failed",
+                    "Could not update cron schedule",
+                    e.message || String(e),
+                    e.stack || "Failed when calling POST /api/schedule",
+                    "Verify git permissions, ensure .github/workflows/daily_reel.yml exists, or inspect server error logs."
+                );
+                showStatusAlert("error", "Failed to update schedule", e.message || String(e));
             } finally {
                 btn.disabled = false;
                 btn.innerText = "💾 Save & Synchronize Schedule with GitHub Actions";
@@ -1107,7 +1405,10 @@ HTML_TEMPLATE = """
         async function addFeedback() {
             const input = document.getElementById("newFeedbackInput");
             const text = input.value.trim();
-            if (!text) return;
+            if (!text) {
+                showStatusAlert("error", "Empty Rule", "Please write a specific rule or topic guideline before saving.");
+                return;
+            }
 
             const btn = document.getElementById("addFeedbackBtn");
             btn.disabled = true;
@@ -1118,15 +1419,26 @@ HTML_TEMPLATE = """
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ action: "add", text })
                 });
-                const data = await res.json();
-                if (data.success) {
-                    input.value = "";
-                    renderFeedbackList(data.items);
-                } else {
-                    alert("Error adding feedback: " + data.message);
+                const data = await res.json().catch(err => {
+                    throw new Error("Invalid response from server: " + err.message);
+                });
+                if (!res.ok || !data.success) {
+                    throw new Error(data.message || data.error || `Server returned HTTP ${res.status}`);
                 }
+
+                input.value = "";
+                renderFeedbackList(data.items);
+                showStatusAlert("success", "AI Instruction Saved", `Added rule: "${text}"`);
             } catch (e) {
-                alert("Network error: " + e);
+                console.error("Add feedback error:", e);
+                showErrorModal(
+                    "Failed to Add Instruction",
+                    "Could not update feedback list",
+                    e.message || String(e),
+                    e.stack || "Failed when calling POST /api/feedback",
+                    "Check write permissions on config/feedback.json or server console logs."
+                );
+                showStatusAlert("error", "Failed to save AI instruction", e.message || String(e));
             } finally {
                 btn.disabled = false;
             }
@@ -1140,12 +1452,24 @@ HTML_TEMPLATE = """
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ action: "delete", index })
                 });
-                const data = await res.json();
-                if (data.success) {
-                    renderFeedbackList(data.items);
+                const data = await res.json().catch(err => {
+                    throw new Error("Invalid response from server: " + err.message);
+                });
+                if (!res.ok || !data.success) {
+                    throw new Error(data.message || data.error || `Server returned HTTP ${res.status}`);
                 }
+                renderFeedbackList(data.items);
+                showStatusAlert("success", "Instruction Removed", "The AI guideline has been removed from future generations.");
             } catch (e) {
-                alert("Error deleting: " + e);
+                console.error("Delete feedback error:", e);
+                showErrorModal(
+                    "Failed to Delete Instruction",
+                    "Could not remove feedback item",
+                    e.message || String(e),
+                    e.stack || "Failed when calling POST /api/feedback (delete)",
+                    "Check write permissions on config/feedback.json."
+                );
+                showStatusAlert("error", "Failed to delete instruction", e.message || String(e));
             }
         }
 
@@ -1174,7 +1498,12 @@ HTML_TEMPLATE = """
 
             try {
                 const res = await fetch("/api/usage");
-                const data = await res.json();
+                const data = await res.json().catch(err => {
+                    throw new Error("Invalid response from server: " + err.message);
+                });
+                if (!res.ok) {
+                    throw new Error(data.message || `Server returned HTTP ${res.status}`);
+                }
 
                 // Gemini
                 const gBadge = document.getElementById("geminiStatusBadge");
@@ -1185,7 +1514,7 @@ HTML_TEMPLATE = """
                 } else {
                     gBadge.className = "text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30";
                     gBadge.innerText = "Error";
-                    document.getElementById("geminiMsg").innerText = data.gemini.message;
+                    document.getElementById("geminiMsg").innerText = data.gemini ? data.gemini.message : "Service unreachable";
                 }
 
                 // Pixabay
@@ -1198,6 +1527,7 @@ HTML_TEMPLATE = """
                 } else {
                     pBadge.className = "text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30";
                     pBadge.innerText = "Error";
+                    document.getElementById("pixabayMsg").innerText = data.pixabay ? data.pixabay.message : "Service unreachable";
                 }
 
                 // Cloudinary
@@ -1210,6 +1540,7 @@ HTML_TEMPLATE = """
                 } else {
                     cBadge.className = "text-[10px] font-bold uppercase px-2.5 py-0.5 rounded-full bg-red-500/20 text-red-400 border border-red-500/30";
                     cBadge.innerText = "Error";
+                    document.getElementById("cloudinaryMsg").innerText = data.cloudinary ? data.cloudinary.message : "Connection failed";
                 }
 
                 // Instagram
@@ -1229,6 +1560,7 @@ HTML_TEMPLATE = """
                 }
             } catch (e) {
                 console.error("Usage fetch err:", e);
+                showStatusAlert("error", "API Status Check Error", e.message || String(e));
             } finally {
                 btn.innerHTML = "<span>🔄</span> Refresh Stats";
             }
@@ -1242,7 +1574,7 @@ HTML_TEMPLATE = """
         async function saveNewToken() {
             const token = document.getElementById("newTokenInput").value.trim();
             if (!token) {
-                alert("Please paste a token.");
+                showStatusAlert("error", "Empty Token Input", "Please paste your Meta Graph API User Access Token.");
                 return;
             }
 
@@ -1252,16 +1584,26 @@ HTML_TEMPLATE = """
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify({ token })
                 });
-                const data = await res.json();
-                if (data.success) {
-                    alert("✅ Token successfully verified and updated!");
-                    toggleTokenModal();
-                    refreshUsage();
-                } else {
-                    alert("❌ Token validation failed: " + data.message);
+                const data = await res.json().catch(err => {
+                    throw new Error("Invalid response from server: " + err.message);
+                });
+                if (!res.ok || !data.success) {
+                    throw new Error(data.message || data.error || `Server returned HTTP ${res.status}`);
                 }
+
+                showStatusAlert("success", "Instagram Token Verified & Updated!", "Your new access token was saved to .env and verified with Instagram Graph API.");
+                toggleTokenModal();
+                refreshUsage();
             } catch (e) {
-                alert("Network error: " + e);
+                console.error("Token save error:", e);
+                showErrorModal(
+                    "Instagram Token Validation Failed",
+                    "Meta Graph API rejected the token",
+                    e.message || String(e),
+                    e.stack || "Failed when calling POST /api/settings/token",
+                    "1. Verify that the token was generated for user @arovia360.\n2. Ensure permissions 'instagram_basic', 'instagram_content_publish', and 'pages_show_list' are granted in the Meta Graph API Explorer.\n3. Make sure to generate a Long-Lived Token if possible."
+                );
+                showStatusAlert("error", "Failed to update Instagram token", e.message || String(e));
             }
         }
     </script>
@@ -1402,7 +1744,7 @@ def api_status():
     state = get_current_state()
     res = dict(generation_status)
 
-    # Check if a GitHub Actions run is active in the cloud
+    # Check GitHub Actions runs if token is set or gh CLI is present
     gh_token = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
     if gh_token:
         try:
@@ -1411,9 +1753,86 @@ def api_status():
             r = requests.get(url, headers=headers, timeout=3)
             if r.status_code == 200:
                 runs = r.json().get("workflow_runs", [])
-                if runs and runs[0].get("status") in ("queued", "in_progress"):
-                    res["running"] = True
-                    res["target"] = "github"
+                if runs:
+                    latest = runs[0]
+                    r_status = latest.get("status")
+                    r_conclusion = latest.get("conclusion")
+                    r_id = latest.get("id")
+                    r_url = latest.get("html_url")
+                    res["run_id"] = r_id
+                    res["run_url"] = r_url
+
+                    if r_status in ("queued", "in_progress"):
+                        res["running"] = True
+                        res["status"] = "running"
+                        res["target"] = "github"
+                        res["step"] = "Cloud GitHub Runner Active"
+                        res["message"] = f"Workflow run #{r_id} is executing in GitHub Actions..."
+                    elif r_status == "completed":
+                        if r_conclusion == "failure":
+                            failed_step = "Execution Step"
+                            try:
+                                jobs_r = requests.get(
+                                    f"https://api.github.com/repos/mahajanpc/automation/actions/runs/{r_id}/jobs",
+                                    headers=headers,
+                                    timeout=3
+                                )
+                                if jobs_r.status_code == 200:
+                                    for j in jobs_r.json().get("jobs", []):
+                                        for s in j.get("steps", []):
+                                            if s.get("conclusion") == "failure":
+                                                failed_step = s.get("name", failed_step)
+                                                break
+                            except Exception:
+                                pass
+                            res["running"] = False
+                            res["status"] = "failed"
+                            res["step"] = f"Failed at {failed_step}"
+                            res["error"] = f"GitHub Actions workflow #{r_id} failed at step: '{failed_step}'"
+                            res["details"] = f"Job Step: {failed_step}\nWorkflow Run URL: {r_url}\nCheck the GitHub Actions tab for complete step logs."
+                        elif r_conclusion == "cancelled":
+                            res["running"] = False
+                            res["status"] = "failed"
+                            res["step"] = "Workflow Cancelled"
+                            res["error"] = f"GitHub Actions workflow run #{r_id} was cancelled."
+                            res["details"] = f"Workflow Run URL: {r_url}"
+                        elif r_conclusion == "success":
+                            if res.get("status") == "running" and res.get("target") == "github":
+                                res["running"] = False
+                                res["status"] = "completed"
+                                res["step"] = "Complete"
+                                res["message"] = "Cloud generation finished successfully!"
+        except Exception as e:
+            logger.debug(f"GitHub run check error: {e}")
+    else:
+        # Fallback to local gh CLI if present
+        try:
+            gh_res = subprocess.run(
+                ["gh", "run", "list", "--json", "databaseId,status,conclusion,url", "-L", "1"],
+                capture_output=True, text=True, timeout=2
+            )
+            if gh_res.returncode == 0:
+                gh_runs = json.loads(gh_res.stdout)
+                if gh_runs:
+                    latest = gh_runs[0]
+                    r_status = latest.get("status")
+                    r_conclusion = latest.get("conclusion")
+                    r_id = latest.get("databaseId")
+                    r_url = latest.get("url")
+                    res["run_id"] = r_id
+                    res["run_url"] = r_url
+
+                    if r_status in ("queued", "in_progress"):
+                        res["running"] = True
+                        res["status"] = "running"
+                        res["target"] = "github"
+                        res["step"] = "Cloud GitHub Runner Active"
+                    elif r_status == "completed" and r_conclusion == "failure" and res.get("running"):
+                        res["running"] = False
+                        res["status"] = "failed"
+                        res["step"] = "Cloud Workflow Failed"
+                        res["error"] = f"GitHub Actions run #{r_id} failed. See logs at {r_url}"
+                        res["details"] = f"Run URL: {r_url}"
         except Exception:
             pass
 
