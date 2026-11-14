@@ -10,9 +10,12 @@ class Config:
     ROOT_DIR = BASE_DIR
     OUTPUT_DIR = BASE_DIR / "output"
     TEMP_DIR = BASE_DIR / "temp"
+    ASSETS_DIR = BASE_DIR / "assets"
+    MUSIC_DIR = BASE_DIR / "assets" / "music"
 
     # API Keys & Credentials
     GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "")
+    GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
     PIXABAY_API_KEY = os.getenv("PIXABAY_API_KEY", "")
     PEXELS_API_KEY = os.getenv("PEXELS_API_KEY", "")
     INSTAGRAM_ACCOUNT_ID = os.getenv("INSTAGRAM_ACCOUNT_ID", "")
@@ -23,7 +26,8 @@ class Config:
     # Available Telugu voices: te-IN-ShrutiNeural (Female - Recommended), te-IN-MohanNeural (Male)
     VOICE_NAME = os.getenv("VOICE_NAME", "te-IN-ShrutiNeural")
     TARGET_DURATION = int(os.getenv("TARGET_DURATION_SECONDS", "30"))
-    SUBTITLE_FONT = os.getenv("SUBTITLE_FONT", "Arial")
+    SUBTITLE_FONT = os.getenv("SUBTITLE_FONT", "Noto Sans Telugu")
+    BGM_VOLUME = float(os.getenv("BGM_VOLUME", "0.20"))
 
     # Email Notification Settings
     SMTP_SERVER = os.getenv("SMTP_SERVER", "smtp.gmail.com")
@@ -40,6 +44,8 @@ class Config:
         """Create necessary working directories."""
         cls.OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         cls.TEMP_DIR.mkdir(parents=True, exist_ok=True)
+        cls.ASSETS_DIR.mkdir(parents=True, exist_ok=True)
+        cls.MUSIC_DIR.mkdir(parents=True, exist_ok=True)
 
     @classmethod
     def is_valid_key(cls, key: str) -> bool:

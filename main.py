@@ -51,7 +51,7 @@ def get_next_topic(topics_file: Path) -> dict:
     return topic_obj
 
 def main():
-    parser = argparse.ArgumentParser(description="Automated Daily Health Reel Creator (Native Telugu Audio + Tenglish Subtitles + Multi-scene Visuals)")
+    parser = argparse.ArgumentParser(description="Automated Daily Health Reel Creator (Native Telugu Audio + Telugu Subtitles + Multi-scene Visuals + Cinematic FFmpeg Editing)")
     parser.add_argument("--topic", type=str, help="Override and run a specific health topic")
     parser.add_argument("--category", type=str, default="Health & Wellness", help="Topic category")
     parser.add_argument("--mode", choices=["review", "publish", "dry-run"], default=Config.EXECUTION_MODE,
@@ -61,7 +61,7 @@ def main():
     args = parser.parse_args()
 
     logger.info("==================================================")
-    logger.info("   Starting Multi-Scene Health Reel Pipeline      ")
+    logger.info("   Starting Cinematic Health Reel Pipeline        ")
     logger.info(f"   Mode: {args.mode.upper()} | Voice: {Config.VOICE_NAME} | Target: {Config.TARGET_DURATION}s")
     logger.info("==================================================")
 
@@ -77,36 +77,47 @@ def main():
     topic_category = topic_info["category"]
     logger.info(f"Today's Topic (#{topic_info.get('id', 0)}): '{topic_title}' [{topic_category}]")
 
-    # Step 2: Content Generation with Gemini (Multi-scene Dual Architecture)
+    # Step 2: Content Generation with Gemini (5-Beat Viral Storytelling Arc)
     generator = ContentGenerator(api_key=None if args.mock else Config.GEMINI_API_KEY)
     script = generator.generate(topic_title, topic_category)
     logger.info("Script Generated:")
     logger.info(f"  Hook: {script.hook}")
+    logger.info(f"  Hook Title: {getattr(script, 'hook_title', topic_title)}")
     logger.info(f"  Scenes count: {len(script.scenes)}")
     for i, s in enumerate(script.scenes, 1):
-        logger.info(f"    Scene {i} [Speech: {s.telugu_speech[:30]}... | Sub: {s.tenglish_subtitle[:30]}... | Visual: '{s.visual_query}']")
+        subs_preview = " | ".join(s.subtitles) if s.subtitles else s.tenglish_subtitle
+        logger.info(f"    Scene {i} [Speech: {s.telugu_speech[:35]}... | Subs: {subs_preview[:35]}... | Visual: '{s.visual_query}']")
 
     # Step 3: Voiceover & Subtitles with Edge-TTS (Pure Telugu Speech -> Native Pronunciation)
     voice_synth = VoiceSynthesizer(Config.VOICE_NAME)
-    audio_path, srt_path, scene_durations = voice_synth.generate(script.scenes)
+    audio_path, srt_path, scene_durations = voice_synth.generate(
+        script.scenes,
+        hook_title=getattr(script, "hook_title", ""),
+        cta_text=getattr(script, "cta_text", "")
+    )
 
-    # Step 4: Multi-clip Visual Fetching (Pixabay HD clips per scene)
+    # Step 4: Multi-clip Visual Fetching (Pixabay HD clips per scene with strict relevance)
     media_fetcher = MediaFetcher(
         pixabay_key=None if args.mock else Config.PIXABAY_API_KEY,
         pexels_key=None if args.mock else Config.PEXELS_API_KEY
     )
-    queries = [s.visual_query for s in script.scenes]
-    video_clips = media_fetcher.get_multiple_background_clips(queries, scene_durations)
+    video_clips = media_fetcher.get_multiple_background_clips(script.scenes, scene_durations)
 
-    # Step 5: Video Assembly (Multi-clip Montage + Tenglish Subtitles + 9:16 Vertical Crop)
+    # Step 5: Video Assembly (Cinematic Camera Motion + Telugu Subtitles + BGM Ducking + 9:16 Vertical Crop)
     assembler = VideoAssembler()
-    final_video = assembler.assemble_multi_scene(video_clips, scene_durations, audio_path, srt_path)
-    logger.info(f"Final Multi-scene 30s Reel assembled: {final_video}")
+    final_video = assembler.assemble_multi_scene(
+        video_clips=video_clips,
+        scene_durations=scene_durations,
+        audio_path=audio_path,
+        ass_path=srt_path,
+        music_mood=getattr(script, "music_mood", "calm")
+    )
+    logger.info(f"Final Cinematic Multi-scene Reel assembled: {final_video}")
 
     # Step 6: Mode Dispatch
     if args.mode == "dry-run":
         logger.info("==================================================")
-        logger.info("DRY-RUN COMPLETE: Multi-scene video rendered locally.")
+        logger.info("DRY-RUN COMPLETE: Cinematic multi-scene video rendered locally.")
         logger.info(f"Video file: {final_video}")
         logger.info("Caption:\n" + script.caption)
         logger.info("==================================================")
@@ -126,6 +137,7 @@ def main():
         "topic": topic_title,
         "category": topic_category,
         "hook": script.hook,
+        "hook_title": getattr(script, "hook_title", topic_title),
         "video_path": str(final_video),
         "video_filename": final_video.name,
         "cloudinary_url": public_url,
@@ -134,7 +146,8 @@ def main():
             {
                 "telugu_speech": s.telugu_speech,
                 "subtitles": getattr(s, "subtitles", [s.tenglish_subtitle]),
-                "visual_query": s.visual_query
+                "visual_query": s.visual_query,
+                "visual_concept": getattr(s, "visual_concept", "")
             }
             for s in script.scenes
         ],
@@ -153,7 +166,7 @@ def main():
         mailer.send_review_email(
             topic=topic_title,
             category=topic_category,
-            telugu_script=script.full_tenglish_text,
+            telugu_script=script.full_telugu_voiceover,
             caption=script.caption,
             video_url=public_url,
             local_video_path=final_video

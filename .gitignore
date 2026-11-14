@@ -37,5 +37,8 @@ temp/
 *.srt
 *.vtt
 *.log
+!assets/
+!assets/music/
+!assets/music/*.mp3
 
 

@@ -19,8 +19,9 @@ else:
     try:
         from google import genai
         client = genai.Client(api_key=gemini_key)
+        model_to_use = os.getenv("GEMINI_MODEL", "gemini-3.5-flash")
         resp = client.models.generate_content(
-            model="gemini-3.1-flash-lite",
+            model=model_to_use,
             contents="Say 'healthy lifestyle' in Telugu in 3 words"
         )
         print(f"  ✅ SUCCESS: Gemini generated: '{resp.text.strip()}'")
