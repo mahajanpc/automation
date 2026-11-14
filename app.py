@@ -1225,6 +1225,29 @@ def api_generate():
 
     if runner == "github":
         # Dispatch to GitHub Actions workflow
+        gh_token = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
+        if gh_token:
+            headers = {
+                "Accept": "application/vnd.github.v3+json",
+                "Authorization": f"Bearer {gh_token}"
+            }
+            url = "https://api.github.com/repos/mahajanpc/automation/actions/workflows/daily_reel.yml/dispatches"
+            payload = {
+                "ref": "main",
+                "inputs": {
+                    "topic": topic or "",
+                    "mode": "review"
+                }
+            }
+            try:
+                r = requests.post(url, json=payload, headers=headers, timeout=10)
+                if r.status_code in (200, 204):
+                    return jsonify({"success": True, "runner": "github", "message": "Dispatched to GitHub Actions!"})
+                else:
+                    return jsonify({"success": False, "message": f"GitHub API error ({r.status_code}): {r.text}"}), 500
+            except Exception as e:
+                return jsonify({"success": False, "message": f"GitHub dispatch exception: {e}"}), 500
+
         cmd = ["gh", "workflow", "run", "daily_reel.yml"]
         if topic:
             cmd.extend(["-f", f"topic={topic}"])
