@@ -31,53 +31,52 @@ ENV_FILE = Config.ROOT_DIR / ".env"
 # Helpers
 # -------------------------------------------------------------
 def get_current_state():
+    state = None
     if STATE_FILE.exists():
         try:
             with open(STATE_FILE, "r", encoding="utf-8") as f:
-                return json.load(f)
+                state = json.load(f)
         except Exception as e:
             logger.warning(f"Error reading state file: {e}")
 
-    # Fallback to Cloudinary latest video (for Vercel or fresh clone)
-    if Config.is_valid_key(Config.CLOUDINARY_URL):
-        try:
-            res = cloudinary.api.resources(
-                resource_type="video",
-                type="upload",
-                prefix="instagram_automation",
-                max_results=1,
-                direction="desc"
-            )
-            resources = res.get("resources", [])
-            if resources:
-                latest = resources[0]
-                return {
-                    "topic": "Daily Health Reel",
-                    "category": "Nutrition and food",
-                    "hook": "Stay healthy with Arovia!",
-                    "video_path": None,
-                    "video_filename": latest.get("public_id"),
-                    "cloudinary_url": latest.get("secure_url"),
-                    "caption": "Daily health tips in Telugu! #TeluguHealth #Arovia360",
-                    "scenes": [],
-                    "status": "ready_for_review",
-                    "published_post_id": None
-                }
-        except Exception as e:
-            logger.warning(f"Cloudinary fetch fallback: {e}")
+    if not state:
+        state = {
+            "topic": "Daily Health Reel",
+            "category": "Nutrition and food",
+            "hook": "Stay healthy with Arovia!",
+            "video_path": None,
+            "video_filename": None,
+            "cloudinary_url": None,
+            "caption": "Daily health tips in Telugu! #TeluguHealth #Arovia360",
+            "scenes": [],
+            "status": "ready_for_review",
+            "published_post_id": None
+        }
 
-    return {
-        "topic": "Daily Health Reel",
-        "category": "Health",
-        "hook": "Stay healthy with Arovia!",
-        "video_path": None,
-        "video_filename": None,
-        "cloudinary_url": None,
-        "caption": "Daily health tips in Telugu! #Arovia360",
-        "scenes": [],
-        "status": "idle",
-        "published_post_id": None
-    }
+    # If running on Vercel (where local video_path doesn't exist) or cloudinary_url is not set,
+    # pull latest video stream from Cloudinary
+    local_path = Path(state.get("video_path", "")) if state.get("video_path") else None
+    if not local_path or not local_path.exists() or not state.get("cloudinary_url"):
+        if Config.is_valid_key(Config.CLOUDINARY_URL):
+            try:
+                res = cloudinary.api.resources(
+                    resource_type="video",
+                    type="upload",
+                    prefix="instagram_automation",
+                    max_results=1,
+                    direction="desc"
+                )
+                resources = res.get("resources", [])
+                if resources:
+                    latest = resources[0]
+                    state["cloudinary_url"] = latest.get("secure_url")
+                    if not state.get("video_filename"):
+                        state["video_filename"] = latest.get("public_id")
+                    state["status"] = "ready_for_review"
+            except Exception as e:
+                logger.warning(f"Cloudinary fetch fallback: {e}")
+
+    return state
 
 def get_feedback_items():
     if FEEDBACK_FILE.exists():
@@ -494,17 +493,17 @@ HTML_TEMPLATE = """
                         </label>
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                             <label class="p-3.5 rounded-xl border border-gray-800 bg-gray-950/60 hover:border-emerald-500/50 cursor-pointer flex items-start gap-3 transition">
-                                <input type="radio" name="runnerType" value="local" checked class="mt-1 accent-emerald-500">
+                                <input type="radio" name="runnerType" value="github" checked class="mt-1 accent-emerald-500">
                                 <div>
-                                    <p class="text-xs font-bold text-white">⚡ Local Fast Runner (Recommended)</p>
-                                    <p class="text-[11px] text-gray-400 mt-0.5">Renders immediately on your current server with live progress tracking (under 45s).</p>
+                                    <p class="text-xs font-bold text-white">☁️ Cloud Runner (GitHub Actions - Recommended)</p>
+                                    <p class="text-[11px] text-gray-400 mt-0.5">Renders on cloud runner with FFmpeg & Telugu fonts, uploads to Cloudinary, and emails preview.</p>
                                 </div>
                             </label>
                             <label class="p-3.5 rounded-xl border border-gray-800 bg-gray-950/60 hover:border-emerald-500/50 cursor-pointer flex items-start gap-3 transition">
-                                <input type="radio" name="runnerType" value="github" class="mt-1 accent-emerald-500">
+                                <input type="radio" name="runnerType" value="local" class="mt-1 accent-emerald-500">
                                 <div>
-                                    <p class="text-xs font-bold text-white">☁️ GitHub Actions Runner</p>
-                                    <p class="text-[11px] text-gray-400 mt-0.5">Dispatches to GitHub cloud runner (runs remotely in the background).</p>
+                                    <p class="text-xs font-bold text-white">⚡ Local Machine Runner</p>
+                                    <p class="text-[11px] text-gray-400 mt-0.5">For running app.py locally on your own PC (http://localhost:5000).</p>
                                 </div>
                             </label>
                         </div>
@@ -882,13 +881,18 @@ HTML_TEMPLATE = """
                 const data = await res.json();
 
                 if (data.success) {
+                    switchTab('review');
+                    showProgressBanner();
+                    btn.disabled = false;
+                    btn.innerHTML = "<span>⚡</span> Start Instant Reel Generation";
+
                     if (runner === "github") {
-                        alert("☁️ Dispatched to GitHub Actions! Check Actions tab or email for completion.");
-                        btn.disabled = false;
-                        btn.innerHTML = "<span>⚡</span> Start Instant Reel Generation";
+                        document.getElementById("progressStepTitle").innerText = "☁️ GitHub Cloud Runner Active";
+                        document.getElementById("progressMsg").innerText = "Rendering 1080x1920 video with FFmpeg, burning Telugu subtitles & uploading to Cloudinary... (Takes ~60-90s)";
+                        document.getElementById("progressBar").style.width = "45%";
+                        document.getElementById("progressPercent").innerText = "Rendering";
+                        pollCloudinaryForNewVideo();
                     } else {
-                        switchTab('review');
-                        showProgressBanner();
                         pollGenerationStatus();
                     }
                 } else {
@@ -905,6 +909,33 @@ HTML_TEMPLATE = """
 
         function showProgressBanner() {
             document.getElementById("genProgressBanner").classList.remove("hidden");
+        }
+
+        function pollCloudinaryForNewVideo() {
+            let initialUrl = "{{ state.cloudinary_url or '' }}";
+            let attempts = 0;
+            const interval = setInterval(async () => {
+                attempts++;
+                try {
+                    const res = await fetch("/api/status");
+                    const data = await res.json();
+                    if (data.cloudinary_url && data.cloudinary_url !== initialUrl) {
+                        clearInterval(interval);
+                        document.getElementById("progressBar").style.width = "100%";
+                        document.getElementById("progressPercent").innerText = "100%";
+                        document.getElementById("progressStepTitle").innerText = "🎉 Video Ready!";
+                        document.getElementById("progressMsg").innerText = "Reel rendered and uploaded to Cloudinary! Refreshing player...";
+                        setTimeout(() => location.reload(), 1500);
+                        return;
+                    }
+                } catch (e) {
+                    console.error("Poll err:", e);
+                }
+                if (attempts >= 25) {
+                    clearInterval(interval);
+                    location.reload();
+                }
+            }, 5000);
         }
 
         function pollGenerationStatus() {
@@ -1268,7 +1299,11 @@ def api_generate():
 @app.route("/api/status")
 def api_status():
     global generation_status
-    return jsonify(generation_status)
+    state = get_current_state()
+    res = dict(generation_status)
+    res["cloudinary_url"] = state.get("cloudinary_url")
+    res["topic"] = state.get("topic")
+    return jsonify(res)
 
 @app.route("/api/schedule", methods=["GET", "POST"])
 def api_schedule():

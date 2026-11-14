@@ -1,0 +1,39 @@
+{
+  "topic": "What happens to your blood sugar when you eat white rice?",
+  "category": "Nutrition and food",
+  "hook": "White rice thintunnara? Mee body lo em jaruguthundo telusa?",
+  "video_path": null,
+  "video_filename": "vqfaehzmlp5rsaaoa2ed.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794666125/instagram_automation/vqfaehzmlp5rsaaoa2ed.mp4",
+  "caption": "White rice thintunnara? Mee body lo em jaruguthundo thelusthe shock avtharu! 🍚⚡\n\nWhite rice tinnaka blood sugar ela spike avthundo, insulin response ela untundo telusukondi. Healthy swaps tho meeru energy levels ela maintain cheyacho chudandi! Share with your family! 🩺✨\n\n#TeluguHealth #WhiteRice #BloodSugar #DiabetesPrevention #HealthTips #Arogyam #NutritionTips #Arovia360",
+  "scenes": [
+    {
+      "telugu_speech": "మధ్యాహ్నం భోజనంలో కడుపు నిండా తెల్ల అన్నం తిన్నారా?",
+      "subtitles": ["White rice THINTUNNARA?", "Enduku SLEEPY?", "After lunch!"],
+      "visual_query": "steaming rice"
+    },
+    {
+      "telugu_speech": "అన్నం తిన్న వెంటనే అది గ్లూకోజ్ గా మారి రక్తంలో షుగర్ లెవల్స్ ను అమాంతం పెంచేస్తుంది!",
+      "subtitles": ["Glucose SPIKE!", "Insulin EMERGENCY!", "Sugar surge!"],
+      "visual_query": "blood glucose"
+    },
+    {
+      "telugu_speech": "ఈ ఎక్స్‌ట్రా షుగర్ అంతా మన లివర్ లో ఫ్యాట్ గా నిల్వ అయ్యి, ఫ్యాటీ లివర్ కు దారితీస్తుంది!",
+      "subtitles": ["Fatty LIVER!", "Fat STORAGE!", "Internal impact!"],
+      "visual_query": "human liver"
+    },
+    {
+      "telugu_speech": "మీకు తెలుసా? ఒక ప్లేట్ తెల్ల అన్నం దాదాపు 10 స్పూన్ల షుగర్ తో సమానం!",
+      "subtitles": ["Shocking TRUTH!", "10 spoons SUGAR!", "Equal to white rice!"],
+      "visual_query": "soda bottle"
+    },
+    {
+      "telugu_speech": "తెల్ల అన్నానికి బదులుగా బ్రౌన్ రైస్ లేదా కొర్రలు వాడండి. మీ షుగర్ కంట్రోల్ లో ఉంచుకోండి!",
+      "subtitles": ["Brown RICE!", "Healthy SWAP!", "Stay Fit with Arovia!"],
+      "visual_query": "brown rice"
+    }
+  ],
+  "status": "ready_for_review",
+  "published_post_id": null,
+  "created_at": "2026-11-14T14:22:12Z"
+}
