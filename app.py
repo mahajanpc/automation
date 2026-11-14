@@ -63,15 +63,15 @@ def get_current_state():
                     resource_type="video",
                     type="upload",
                     prefix="instagram_automation",
-                    max_results=1,
-                    direction="desc"
+                    max_results=30
                 )
                 resources = res.get("resources", [])
                 if resources:
-                    latest = resources[0]
+                    # Sort by created_at descending so the newest video is always first
+                    sorted_res = sorted(resources, key=lambda x: x.get("created_at", ""), reverse=True)
+                    latest = sorted_res[0]
                     state["cloudinary_url"] = latest.get("secure_url")
-                    if not state.get("video_filename"):
-                        state["video_filename"] = latest.get("public_id")
+                    state["video_filename"] = latest.get("public_id")
                     state["status"] = "ready_for_review"
             except Exception as e:
                 logger.warning(f"Cloudinary fetch fallback: {e}")
@@ -368,7 +368,7 @@ HTML_TEMPLATE = """
                         <div class="w-full h-full rounded-[30px] overflow-hidden bg-black relative">
                             {% if video_exists %}
                             <video id="reelVideo" controls autoplay loop playsinline class="w-full h-full object-cover">
-                                <source src="/video?v={{ state.created_at }}" type="video/mp4">
+                                <source src="{{ state.cloudinary_url or '/video' }}?t={{ state.video_filename or state.created_at }}" type="video/mp4">
                                 Your browser does not support the video tag.
                             </video>
                             {% else %}
