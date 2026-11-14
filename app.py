@@ -299,18 +299,55 @@ HTML_TEMPLATE = """
         <!-- Top Status Alert Box -->
         <div id="statusAlert" class="hidden mb-6 p-4 rounded-xl border"></div>
 
-        <!-- Global Live Generation Progress Banner (Visible when generation running) -->
-        <div id="genProgressBanner" class="hidden mb-6 glass-panel p-5 rounded-2xl border-emerald-500/30">
-            <div class="flex items-center justify-between mb-2">
-                <div class="flex items-center gap-2.5">
-                    <div class="w-3 h-3 rounded-full bg-emerald-400 animate-ping"></div>
-                    <h3 class="font-bold text-sm text-white" id="progressStepTitle">Generating Reel...</h3>
+        <!-- Global Live Generation Progress Banner (Stays visible until video is 100% ready) -->
+        <div id="genProgressBanner" class="hidden mb-6 glass-panel p-6 rounded-2xl border border-emerald-500/40 shadow-2xl shadow-emerald-950/40 transition-all">
+            <div class="flex flex-wrap items-center justify-between gap-3 mb-3">
+                <div class="flex items-center gap-3">
+                    <div class="relative flex items-center justify-center">
+                        <div class="w-4 h-4 rounded-full bg-emerald-400 animate-ping"></div>
+                        <div class="absolute w-2.5 h-2.5 rounded-full bg-emerald-300"></div>
+                    </div>
+                    <div>
+                        <h3 class="font-extrabold text-base text-white tracking-wide flex items-center gap-2" id="progressStepTitle">
+                            Generating 30s Telugu Health Reel...
+                        </h3>
+                        <p class="text-xs text-gray-400 mt-0.5" id="progressMsg">Starting multi-scene pipeline...</p>
+                    </div>
                 </div>
-                <span class="text-xs font-mono font-bold text-emerald-400" id="progressPercent">0%</span>
+                <div class="flex items-center gap-2">
+                    <span class="text-xs px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono font-bold" id="progressPercent">
+                        15%
+                    </span>
+                </div>
             </div>
-            <p class="text-xs text-gray-400 mb-3" id="progressMsg">Pipeline is running...</p>
-            <div class="w-full bg-gray-800 rounded-full h-2.5 overflow-hidden">
-                <div id="progressBar" class="accent-gradient h-2.5 rounded-full transition-all duration-300" style="width: 0%"></div>
+
+            <!-- Animated Progress Bar -->
+            <div class="w-full bg-gray-950 rounded-full h-3 overflow-hidden p-0.5 border border-gray-800 my-4">
+                <div id="progressBar" class="accent-gradient h-full rounded-full transition-all duration-700 shadow-lg shadow-emerald-500/50" style="width: 15%"></div>
+            </div>
+
+            <!-- 5-Stage Stepper Indicators -->
+            <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 text-[11px] font-semibold text-gray-400">
+                <div id="step-pill-1" class="p-2 rounded-xl bg-gray-950/60 border border-gray-800 flex items-center gap-1.5 transition">
+                    <span class="text-xs">💡</span>
+                    <span>1. Gemini Script</span>
+                </div>
+                <div id="step-pill-2" class="p-2 rounded-xl bg-gray-950/60 border border-gray-800 flex items-center gap-1.5 transition">
+                    <span class="text-xs">🎙️</span>
+                    <span>2. Telugu Voice</span>
+                </div>
+                <div id="step-pill-3" class="p-2 rounded-xl bg-gray-950/60 border border-gray-800 flex items-center gap-1.5 transition">
+                    <span class="text-xs">🎥</span>
+                    <span>3. HD Pixabay</span>
+                </div>
+                <div id="step-pill-4" class="p-2 rounded-xl bg-gray-950/60 border border-gray-800 flex items-center gap-1.5 transition">
+                    <span class="text-xs">✂️</span>
+                    <span>4. FFmpeg Subtitles</span>
+                </div>
+                <div id="step-pill-5" class="p-2 rounded-xl bg-gray-950/60 border border-gray-800 flex items-center gap-1.5 transition">
+                    <span class="text-xs">☁️</span>
+                    <span>5. Cloud Staging</span>
+                </div>
             </div>
         </div>
 
@@ -862,6 +899,106 @@ HTML_TEMPLATE = """
             document.getElementById('customTopicInput').value = random;
         }
 
+        const currentVideoUrl = "{{ state.cloudinary_url or '' }}";
+
+        function updateProgressStage(percent, title, msg, activeStep) {
+            const banner = document.getElementById("genProgressBanner");
+            if (banner) banner.classList.remove("hidden");
+
+            const bar = document.getElementById("progressBar");
+            const pct = document.getElementById("progressPercent");
+            const titleEl = document.getElementById("progressStepTitle");
+            const msgEl = document.getElementById("progressMsg");
+
+            if (bar) bar.style.width = percent + "%";
+            if (pct) pct.innerText = percent + "%";
+            if (titleEl && title) titleEl.innerText = title;
+            if (msgEl && msg) msgEl.innerText = msg;
+
+            for (let i = 1; i <= 5; i++) {
+                const pill = document.getElementById("step-pill-" + i);
+                if (pill) {
+                    if (i <= activeStep) {
+                        pill.className = "p-2 rounded-xl bg-emerald-500/20 text-emerald-300 border border-emerald-500/40 flex items-center gap-1.5 transition";
+                    } else {
+                        pill.className = "p-2 rounded-xl bg-gray-950/60 text-gray-400 border border-gray-800 flex items-center gap-1.5 transition";
+                    }
+                }
+            }
+        }
+
+        let progressInterval = null;
+
+        function startProgressTracker(initialUrl) {
+            let startTime = parseInt(localStorage.getItem("arovia_start_time") || Date.now());
+            if (!localStorage.getItem("arovia_start_time")) {
+                localStorage.setItem("arovia_start_time", startTime);
+            }
+            localStorage.setItem("arovia_generating", "true");
+            localStorage.setItem("arovia_initial_url", initialUrl || currentVideoUrl);
+
+            switchTab('review');
+
+            if (progressInterval) clearInterval(progressInterval);
+
+            progressInterval = setInterval(async () => {
+                const elapsed = Math.floor((Date.now() - startTime) / 1000);
+
+                // Stage simulation based on real pipeline progression
+                if (elapsed < 12) {
+                    updateProgressStage(Math.min(20, Math.floor(10 + elapsed)), "💡 Drafting 5-Beat Viral Script...", "Gemini 3.1 Flash Lite is composing hooks & Telugu storytelling arc...", 1);
+                } else if (elapsed < 28) {
+                    updateProgressStage(Math.min(42, Math.floor(22 + (elapsed - 12) * 1.3)), "🎙️ Synthesizing Native Telugu Audio...", "Edge-TTS is generating authentic native Shruti Telugu voiceover...", 2);
+                } else if (elapsed < 50) {
+                    updateProgressStage(Math.min(65, Math.floor(45 + (elapsed - 28) * 1.0)), "🎥 Fetching 9:16 Vertical HD Footage...", "Pixabay is fetching high-relevance video scenes for each health beat...", 3);
+                } else if (elapsed < 75) {
+                    updateProgressStage(Math.min(88, Math.floor(67 + (elapsed - 50) * 0.9)), "✂️ Assembling Video & Burning Subtitles...", "FFmpeg is rendering full-bleed 1080x1920 montage with kinetic popping captions...", 4);
+                } else if (elapsed < 100) {
+                    updateProgressStage(Math.min(95, Math.floor(89 + (elapsed - 75) * 0.3)), "☁️ Staging Review Stream in Cloud...", "Uploading to Cloudinary and dispatching review email...", 5);
+                }
+
+                // Check server status
+                if (elapsed % 4 === 0 || elapsed > 35) {
+                    try {
+                        const res = await fetch("/api/status");
+                        const data = await res.json();
+                        const initUrl = localStorage.getItem("arovia_initial_url") || currentVideoUrl;
+
+                        if (data.cloudinary_url && data.cloudinary_url !== initUrl) {
+                            clearInterval(progressInterval);
+                            updateProgressStage(100, "🎉 Reel Generation Complete!", "New video is ready! Refreshing player...", 5);
+                            localStorage.removeItem("arovia_generating");
+                            localStorage.removeItem("arovia_start_time");
+                            localStorage.removeItem("arovia_initial_url");
+                            setTimeout(() => location.reload(), 1500);
+                            return;
+                        }
+                    } catch (e) {
+                        console.error("Status check:", e);
+                    }
+                }
+
+                if (elapsed > 180) { // Safety timeout
+                    clearInterval(progressInterval);
+                    localStorage.removeItem("arovia_generating");
+                    location.reload();
+                }
+            }, 1000);
+        }
+
+        // On Page Load: Check if a generation is currently running
+        window.addEventListener('DOMContentLoaded', () => {
+            if (localStorage.getItem("arovia_generating") === "true") {
+                const startTime = parseInt(localStorage.getItem("arovia_start_time") || "0");
+                const elapsed = (Date.now() - startTime) / 1000;
+                if (elapsed < 180) {
+                    startProgressTracker(localStorage.getItem("arovia_initial_url"));
+                } else {
+                    localStorage.removeItem("arovia_generating");
+                }
+            }
+        });
+
         // Start Generation
         async function startInstantGeneration() {
             const btn = document.getElementById("startGenBtn");
@@ -881,20 +1018,9 @@ HTML_TEMPLATE = """
                 const data = await res.json();
 
                 if (data.success) {
-                    switchTab('review');
-                    showProgressBanner();
+                    startProgressTracker(currentVideoUrl);
                     btn.disabled = false;
                     btn.innerHTML = "<span>⚡</span> Start Instant Reel Generation";
-
-                    if (runner === "github") {
-                        document.getElementById("progressStepTitle").innerText = "☁️ GitHub Cloud Runner Active";
-                        document.getElementById("progressMsg").innerText = "Rendering 1080x1920 video with FFmpeg, burning Telugu subtitles & uploading to Cloudinary... (Takes ~60-90s)";
-                        document.getElementById("progressBar").style.width = "45%";
-                        document.getElementById("progressPercent").innerText = "Rendering";
-                        pollCloudinaryForNewVideo();
-                    } else {
-                        pollGenerationStatus();
-                    }
                 } else {
                     alert(data.message || "Failed to start generation.");
                     btn.disabled = false;
@@ -905,63 +1031,6 @@ HTML_TEMPLATE = """
                 btn.disabled = false;
                 btn.innerHTML = "<span>⚡</span> Start Instant Reel Generation";
             }
-        }
-
-        function showProgressBanner() {
-            document.getElementById("genProgressBanner").classList.remove("hidden");
-        }
-
-        function pollCloudinaryForNewVideo() {
-            let initialUrl = "{{ state.cloudinary_url or '' }}";
-            let attempts = 0;
-            const interval = setInterval(async () => {
-                attempts++;
-                try {
-                    const res = await fetch("/api/status");
-                    const data = await res.json();
-                    if (data.cloudinary_url && data.cloudinary_url !== initialUrl) {
-                        clearInterval(interval);
-                        document.getElementById("progressBar").style.width = "100%";
-                        document.getElementById("progressPercent").innerText = "100%";
-                        document.getElementById("progressStepTitle").innerText = "🎉 Video Ready!";
-                        document.getElementById("progressMsg").innerText = "Reel rendered and uploaded to Cloudinary! Refreshing player...";
-                        setTimeout(() => location.reload(), 1500);
-                        return;
-                    }
-                } catch (e) {
-                    console.error("Poll err:", e);
-                }
-                if (attempts >= 25) {
-                    clearInterval(interval);
-                    location.reload();
-                }
-            }, 5000);
-        }
-
-        function pollGenerationStatus() {
-            const interval = setInterval(async () => {
-                try {
-                    const res = await fetch("/api/status");
-                    const data = await res.json();
-
-                    if (data.running) {
-                        showProgressBanner();
-                        document.getElementById("progressPercent").innerText = data.progress + "%";
-                        document.getElementById("progressBar").style.width = data.progress + "%";
-                        document.getElementById("progressStepTitle").innerText = data.step || "Generating...";
-                        document.getElementById("progressMsg").innerText = data.message || "Working...";
-                    } else {
-                        clearInterval(interval);
-                        document.getElementById("progressBar").style.width = "100%";
-                        document.getElementById("progressPercent").innerText = "100%";
-                        setTimeout(() => {
-                            location.reload();
-                        }, 1200);
-                    }
-                } catch (e) {
-                    console.error("Status poll err:", e);
-                }
-            }, 2500);
         }
 
         // Schedule Functions
@@ -1301,6 +1370,22 @@ def api_status():
     global generation_status
     state = get_current_state()
     res = dict(generation_status)
+
+    # Check if a GitHub Actions run is active in the cloud
+    gh_token = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
+    if gh_token:
+        try:
+            headers = {"Authorization": f"Bearer {gh_token}", "Accept": "application/vnd.github.v3+json"}
+            url = "https://api.github.com/repos/mahajanpc/automation/actions/runs?event=workflow_dispatch&per_page=1"
+            r = requests.get(url, headers=headers, timeout=3)
+            if r.status_code == 200:
+                runs = r.json().get("workflow_runs", [])
+                if runs and runs[0].get("status") in ("queued", "in_progress"):
+                    res["running"] = True
+                    res["target"] = "github"
+        except Exception:
+            pass
+
     res["cloudinary_url"] = state.get("cloudinary_url")
     res["topic"] = state.get("topic")
     return jsonify(res)
