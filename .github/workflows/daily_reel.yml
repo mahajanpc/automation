@@ -4,7 +4,20 @@ on:
   schedule:
     # Runs daily at 12:00 UTC (5:30 PM IST). Adjust as needed.
     - cron: '0 12 * * *'
-  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+  workflow_dispatch:
+    inputs:
+      topic:
+        description: 'Custom Health Topic (leave blank for next in catalog)'
+        required: false
+        default: ''
+      mode:
+        description: 'Execution Mode'
+        required: false
+        default: 'review'
+        type: choice
+        options:
+          - review
+          - publish
 
 jobs:
   publish-reel:
@@ -45,4 +58,8 @@ jobs:
           VOICE_NAME: "te-IN-ShrutiNeural"
           EXECUTION_MODE: ${{ secrets.EXECUTION_MODE || 'review' }}
         run: |
-          python main.py
+          if [ -n "${{ github.event.inputs.topic }}" ]; then
+            python main.py --mode "${{ github.event.inputs.mode || 'review' }}" --topic "${{ github.event.inputs.topic }}"
+          else
+            python main.py --mode "${{ github.event.inputs.mode || 'review' }}"
+          fi
