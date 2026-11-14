@@ -1,61 +1,61 @@
 {
-  "topic": "How soaking almonds overnight unlocks vital brain enzymes",
+  "topic": "The secret reason you feel exhausted even after 8 hours of sleep",
   "category": "Health & Wellness",
-  "hook": "Are you eating almonds the wrong way? Discover how soaking unlocks vital brain enzymes!",
-  "hook_title": "🚨 బాదం ఎలా తింటే బ్రెయిన్ పవర్ పెరుగుతుంది?",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261114_153427.mp4",
-  "video_filename": "health_reel_20261114_153427.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794670488/instagram_automation/kjvlqmvful6gxedqrcmg.mp4",
-  "caption": "Meeru daily almonds ni direct ga thintunnara? Stop right now! 🛑 Dry almond skin lo ఉండే Phytic Acid valla digestive strain perigi, Vitamin E & key nutrients blood lo correctly absorb avvavu. \n\n✨ Solution: 8 hours water lo soak chesthe, enzyme inhibitors break aiyi Lipase & vital enzymes release avthayi! Dynamic brain health and sharper memory ki idhe secret! 💡\n\nDaily morning 4-5 soaked and peeled almonds thinandi. Share this health update with your family! ❤️\n\n#TeluguHealthTips #AlmondBenefits #BrainPower #HealthyHabitsTelugu #WellnessTelugu #NutritionTips #TeluguReels #MindHealth",
+  "hook": "8 hours sleep but still exhausted? The hidden mitochondrial energy drain.",
+  "hook_title": "🚨 ఎనిమిది గంటలు పడుకున్నా అలసటగా ఉందా?",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261114_155434.mp4",
+  "video_filename": "health_reel_20261114_155434.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794671703/instagram_automation/ssmf6dlx9uxllrmkkqg8.mp4",
+  "caption": "8 gantaalu ninda nidra poyina, poddune lechaka enduku intha alasata? Idhi meeru choodalsina vishayam! Mee body lo mitochondria ki kavalsina proper micro-nutrition and cellular cleanse lekunte ilaage jaruguthundi. Rojoo poddune hydration and soaked nuts ni mee lifestyle lo include cheyandi. \n\nSave chesukondi, mee loved ones tho share cheyandi! 🌿✨\n\n#HealthTipsTelugu #WellnessTelugu #FatigueReasons #HealthyLiving #SleepTips #CellularHealth #TeluguHealth #NaturalHealing",
   "scenes": [
     {
-      "telugu_speech": "మీరు ప్రతిరోజూ బాదం పప్పులను నేరుగా పొడిగానే తింటున్నారా?",
+      "telugu_speech": "ఎనిమిది గంటలు హాయిగా నిద్రపోయినా, ఉదయాన్నే లేవగానే విపరీతమైన అలసటగా అనిపిస్తోందా?",
       "subtitles": [
-        "మీరు *బాదం పప్పులు*",
-        "నేరుగా *తింటున్నారా?*"
+        "ఎనిమిది గంటలు *నిద్రపోయినా*",
+        "ఉదయాన్నే విపరీతమైన *అలసటగా* ఉందా?"
       ],
-      "visual_query": "healthy nuts",
-      "visual_concept": "Close-up of a person grabbing dry raw almonds from a wooden bowl"
+      "visual_query": "tired woman morning",
+      "visual_concept": "A tired person waking up in bed looking exhausted and rubbing eyes"
     },
     {
-      "telugu_speech": "బాదం తోలులో ఉండే ఫైటిక్ యాసిడ్ జీర్ణవ్యవస్థపై ఒత్తిడి పెంచుతుంది.",
+      "telugu_speech": "మీ రాత్రి నిద్ర సరిపోక కాదు, మీ శరీరంలో కణాల లోపల శక్తిని ఉత్పత్తి చేసే మైటోకాండ్రియా నిద్రపోతోంది.",
       "subtitles": [
-        "తోలులో ఉండే *ఫైటిక్ యాసిడ్*",
-        "జీర్ణ వ్యవస్థపై *ఒత్తిడి!*"
-      ],
-      "visual_query": "stomach anatomy",
-      "visual_concept": "Visual breakdown of stomach anatomy showing digestive strain"
-    },
-    {
-      "telugu_speech": "దీనివల్ల అందులోని విటమిన్ ఈ, ప్రోటీన్లు శరీరానికి పూర్తిగా అందవు.",
-      "subtitles": [
-        "ముఖ్యమైన *విటమిన్ ఈ*",
-        "శరీరానికి *అందకుండా* పోతుంది!"
+        "నిద్ర సరిపోక కాదు, *కణాల లోపల*",
+        "శక్తిని ఇచ్చే *మైటోకాండ్రియా* ఆగిపోతుంది"
       ],
       "visual_query": "human cell",
-      "visual_concept": "Abstract view of blood cells and nutrients attempting absorption"
+      "visual_concept": "Microscopic view of cells inside the body and energy production"
     },
     {
-      "telugu_speech": "కానీ రాత్రంతా నానబెడితే, పోషకాలను విడుదల చేసే ఎంజైమ్‌లు యాక్టివేట్ అవుతాయి!",
+      "telugu_speech": "మనం తీసుకునే ఆహారంలోని పోషకాలు కణాలకు అందక, సెల్టాక్సిసిటీ పెరిగి ఈ నీరసం వస్తుంది.",
       "subtitles": [
-        "రాత్రంతా *నానబెడితే*",
-        "యాక్టివేట్ అయ్యే *శక్తివంతమైన ఎంజైమ్స్!*"
+        "పోషకాలు *కణాలకు* అందక",
+        "సెల్టాక్సిసిటీ పెరిగి *నీరసం* వస్తుంది"
+      ],
+      "visual_query": "junk food unhealthy",
+      "visual_concept": "Visualization of nutrient deficiency and sluggish body inner system"
+    },
+    {
+      "telugu_speech": "నిద్ర ఎంత ముఖ్యమో, కణాలకు కావాల్సిన పోషకాల మైక్రో న్యూట్రిషన్ కూడా అంతే ముఖ్యం.",
+      "subtitles": [
+        "నిద్ర ఎంత ముఖ్యమో, *పోషకాలు*",
+        "మైక్రో న్యూట్రిషన్ *అంతే ముఖ్యం*"
+      ],
+      "visual_query": "healthy vitamins",
+      "visual_concept": "Clean organic food and natural micro-nutrients displayed neatly"
+    },
+    {
+      "telugu_speech": "రోజూ ఉదయం హైడ్రేటింగ్ వాటర్ తో పాటు ఒక గుప్పెడు నానబెట్టిన గింజలు తీసుకోండి. తేడా చూడండి!",
+      "subtitles": [
+        "ఉదయం హైడ్రేటింగ్ వాటర్",
+        "*నానబెట్టిన గింజలు* తీసుకోండి",
+        "*మీ ఆరోగ్యం మీ చేతుల్లో | షేర్ చేయండి*"
       ],
       "visual_query": "drinking water glass",
-      "visual_concept": "Water being poured over almonds soaking in a clear glass bowl overnight"
-    },
-    {
-      "telugu_speech": "కాబట్టి ప్రతిరోజూ నానబెట్టి పొట్టు తీసి తినండి. ఈ ఉపయోగకరమైన విషయాన్ని షేర్ చేయండి!",
-      "subtitles": [
-        "పొట్టు తీసి *ఉదయాన్నే* తినండి",
-        "*షేర్ చేయండి* మీ ఫ్రెండ్స్‌కి!",
-        "*నానబెట్టిన బాదం తినండి | సేవ్ & షేర్ చేయండి*"
-      ],
-      "visual_query": "healthy lifestyle walking",
-      "visual_concept": "A smiling healthy person eating peeled soaked almonds in a bright morning kitchen"
+      "visual_concept": "A glass of fresh water and a small bowl of soaked nuts in the morning sunlight"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
-  "created_at": "2026-11-14T15:34:48.995681"
+  "created_at": "2026-11-14T15:55:04.276354"
 }
