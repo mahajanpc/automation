@@ -3,10 +3,11 @@ import logging
 import subprocess
 import threading
 from pathlib import Path
-from flask import Flask, jsonify, render_template_string, send_file, request
+from flask import Flask, jsonify, render_template_string, send_file, request, redirect
 from src.config import Config
 from src.uploader import MediaUploader
 from src.instagram import InstagramPublisher
+import cloudinary.api
 
 logger = logging.getLogger(__name__)
 logging.basicConfig(level=logging.INFO)
@@ -23,6 +24,36 @@ def get_current_state():
                 return json.load(f)
         except Exception as e:
             logger.warning(f"Error reading state file: {e}")
+
+    # Fallback to Cloudinary latest video (for Vercel serverless environment)
+    if Config.is_valid_key(Config.CLOUDINARY_URL):
+        try:
+            uploader = MediaUploader()
+            res = cloudinary.api.resources(
+                resource_type="video",
+                type="upload",
+                prefix="instagram_automation",
+                max_results=1,
+                direction="desc"
+            )
+            resources = res.get("resources", [])
+            if resources:
+                latest = resources[0]
+                return {
+                    "topic": "Daily Health Reel",
+                    "category": "Nutrition and food",
+                    "hook": "Stay healthy with Arovia!",
+                    "video_path": None,
+                    "video_filename": latest.get("public_id"),
+                    "cloudinary_url": latest.get("secure_url"),
+                    "caption": "Daily health tips in Telugu! #TeluguHealth #Arovia360",
+                    "scenes": [],
+                    "status": "ready_for_review",
+                    "published_post_id": None
+                }
+        except Exception as e:
+            logger.warning(f"Cloudinary fetch fallback: {e}")
+
     return {
         "topic": "Daily Health Reel",
         "category": "Health",
@@ -335,7 +366,7 @@ HTML_TEMPLATE = """
 def index():
     state = get_current_state()
     video_path = Path(state.get("video_path", "")) if state.get("video_path") else None
-    video_exists = bool(video_path and video_path.exists())
+    video_exists = bool((video_path and video_path.exists()) or state.get("cloudinary_url"))
     return render_template_string(HTML_TEMPLATE, state=state, video_exists=video_exists)
 
 @app.route("/video")
@@ -344,23 +375,22 @@ def serve_video():
     video_path = Path(state.get("video_path", "")) if state.get("video_path") else None
     if video_path and video_path.exists():
         return send_file(video_path, mimetype="video/mp4")
+    elif state.get("cloudinary_url"):
+        return redirect(state["cloudinary_url"])
     return "Video not found", 404
 
 @app.route("/api/publish", methods=["POST"])
 def api_publish():
     state = get_current_state()
-    video_path_str = state.get("video_path")
-    if not video_path_str or not Path(video_path_str).exists():
-        return jsonify({"success": False, "error": "No local video file found to publish."}), 400
-
-    video_path = Path(video_path_str)
     public_url = state.get("cloudinary_url")
 
-    # If not uploaded to Cloudinary yet, upload now
     if not public_url:
+        video_path_str = state.get("video_path")
+        if not video_path_str or not Path(video_path_str).exists():
+            return jsonify({"success": False, "error": "No video found to publish. Please generate a video first."}), 400
         try:
             uploader = MediaUploader()
-            public_url = uploader.upload_video(video_path)
+            public_url = uploader.upload_video(Path(video_path_str))
             state["cloudinary_url"] = public_url
         except Exception as e:
             return jsonify({"success": False, "error": f"Cloudinary upload failed: {e}"}), 500
@@ -376,8 +406,11 @@ def api_publish():
         post_id = result.get("id")
         state["status"] = "published"
         state["published_post_id"] = post_id
-        with open(STATE_FILE, "w", encoding="utf-8") as f:
-            json.dump(state, f, indent=2, ensure_ascii=False)
+        try:
+            with open(STATE_FILE, "w", encoding="utf-8") as f:
+                json.dump(state, f, indent=2, ensure_ascii=False)
+        except Exception:
+            pass
         return jsonify({"success": True, "post_id": post_id})
     except Exception as e:
         logger.error(f"Publishing failed: {e}")
