@@ -1,39 +1,59 @@
 {
-  "topic": "What happens to your blood sugar when you eat white rice?",
-  "category": "Nutrition and food",
-  "hook": "White rice thintunnara? Mee body lo em jaruguthundo telusa?",
-  "video_path": null,
-  "video_filename": "vqfaehzmlp5rsaaoa2ed.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794666125/instagram_automation/vqfaehzmlp5rsaaoa2ed.mp4",
-  "caption": "White rice thintunnara? Mee body lo em jaruguthundo thelusthe shock avtharu! 🍚⚡\n\nWhite rice tinnaka blood sugar ela spike avthundo, insulin response ela untundo telusukondi. Healthy swaps tho meeru energy levels ela maintain cheyacho chudandi! Share with your family! 🩺✨\n\n#TeluguHealth #WhiteRice #BloodSugar #DiabetesPrevention #HealthTips #Arogyam #NutritionTips #Arovia360",
+  "topic": "How soaking almonds overnight unlocks vital brain enzymes",
+  "category": "Health & Wellness",
+  "hook": "Do you eat raw almonds? You're missing a secret brain boost!",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261114_143505.mp4",
+  "video_filename": "health_reel_20261114_143505.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794666917/instagram_automation/og5nrl75xsu0l8ixie2f.mp4",
+  "caption": "Did you know eating raw almonds is actually hard for your body to process? 🛑 The skin contains tannins that block nutrient absorption. \n\nBy soaking them overnight, you trigger a biological process that unlocks vital enzymes and makes them super easy to digest! It’s the simplest brain hack for better memory and focus. 🧠✨\n\nTry this from tomorrow and see the difference in your energy levels! \n\n#HealthyHabits #AlmondBenefits #BrainFood #NutritionTips #TeluguHealth #HealthyLifestyle #DigestionTips #WellnessJourney",
   "scenes": [
     {
-      "telugu_speech": "మధ్యాహ్నం భోజనంలో కడుపు నిండా తెల్ల అన్నం తిన్నారా?",
-      "subtitles": ["White rice THINTUNNARA?", "Enduku SLEEPY?", "After lunch!"],
-      "visual_query": "steaming rice"
+      "telugu_speech": "రోజూ ఉదయాన్నే బాదం పప్పులు తింటున్నారా? కానీ, పైన ఉన్న తోలుతో తింటే అది మీ కడుపుకు ఎంత కష్టమో తెలుసా?",
+      "subtitles": [
+        "Eating RAW ALMONDS?",
+        "Hard TO DIGEST",
+        "Stop THE MISTAKE"
+      ],
+      "visual_query": "raw almonds"
     },
     {
-      "telugu_speech": "అన్నం తిన్న వెంటనే అది గ్లూకోజ్ గా మారి రక్తంలో షుగర్ లెవల్స్ ను అమాంతం పెంచేస్తుంది!",
-      "subtitles": ["Glucose SPIKE!", "Insulin EMERGENCY!", "Sugar surge!"],
-      "visual_query": "blood glucose"
+      "telugu_speech": "నిజానికి, ఆ తోలులో 'టానిన్స్' అనే పదార్థాలు ఉంటాయి. ఇవి మన మెదడుకు అందాల్సిన పోషకాలను అడ్డుకుంటాయి.",
+      "subtitles": [
+        "Hidden TANNINS",
+        "Blocking NUTRIENTS",
+        "Brain STARVATION"
+      ],
+      "visual_query": "almond skin"
     },
     {
-      "telugu_speech": "ఈ ఎక్స్‌ట్రా షుగర్ అంతా మన లివర్ లో ఫ్యాట్ గా నిల్వ అయ్యి, ఫ్యాటీ లివర్ కు దారితీస్తుంది!",
-      "subtitles": ["Fatty LIVER!", "Fat STORAGE!", "Internal impact!"],
-      "visual_query": "human liver"
+      "telugu_speech": "అందుకే, రాత్రంతా బాదం నానబెట్టడం చాలా ముఖ్యం. నానబెట్టడం వల్ల ఆ ఎంజైమ్ ఇన్హిబిటర్లు తొలగిపోతాయి.",
+      "subtitles": [
+        "Soak OVERNIGHT",
+        "Unlock ENZYMES",
+        "Better ABSORPTION"
+      ],
+      "visual_query": "almonds soaking"
     },
     {
-      "telugu_speech": "మీకు తెలుసా? ఒక ప్లేట్ తెల్ల అన్నం దాదాపు 10 స్పూన్ల షుగర్ తో సమానం!",
-      "subtitles": ["Shocking TRUTH!", "10 spoons SUGAR!", "Equal to white rice!"],
-      "visual_query": "soda bottle"
+      "telugu_speech": "నానబెట్టిన బాదం మెదడుకు అవసరమైన విటమిన్లు మరియు ఒమేగా ఫ్యాటీ యాసిడ్స్ ని అద్భుతంగా అందిస్తుంది.",
+      "subtitles": [
+        "Boost BRAIN POWER",
+        "Healthy FATS",
+        "Maximum ENERGY"
+      ],
+      "visual_query": "brain health"
     },
     {
-      "telugu_speech": "తెల్ల అన్నానికి బదులుగా బ్రౌన్ రైస్ లేదా కొర్రలు వాడండి. మీ షుగర్ కంట్రోల్ లో ఉంచుకోండి!",
-      "subtitles": ["Brown RICE!", "Healthy SWAP!", "Stay Fit with Arovia!"],
-      "visual_query": "brown rice"
+      "telugu_speech": "ఈరోజు నుంచే బాదం నానబెట్టి తినండి, ఆరోగ్యంగా ఉండండి. మీ ఫ్రెండ్స్‌కి కూడా ఈ చిన్న చిట్కా షేర్ చేయండి!",
+      "subtitles": [
+        "Simple HABIT",
+        "Stay HEALTHY",
+        "Share THE WISDOM"
+      ],
+      "visual_query": "peeled almonds"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
-  "created_at": "2026-11-14T14:22:12Z"
+  "created_at": "2026-11-14T14:35:18.911289"
 }
