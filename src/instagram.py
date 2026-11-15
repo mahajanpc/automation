@@ -38,6 +38,32 @@ class InstagramPublisher:
         logger.info(f"Successfully published! Post ID: {post_id}")
         return publish_res
 
+    def publish_image(self, image_url: str, caption: str) -> dict:
+        """
+        Publish a single image or infographic poster to Instagram feed via official Graph API.
+        """
+        if not self.account_id or not self.access_token:
+            raise ValueError("INSTAGRAM_ACCOUNT_ID and IG_ACCESS_TOKEN must be configured.")
+
+        logger.info("Step 1: Creating Instagram image media container...")
+        url = f"{self.BASE_URL}/{self.account_id}/media"
+        payload = {
+            "image_url": image_url,
+            "caption": caption,
+            "access_token": self.access_token
+        }
+        res = requests.post(url, data=payload, timeout=30)
+        res_data = res.json()
+        if res.status_code != 200 or "id" not in res_data:
+            raise RuntimeError(f"Failed to create image media container: {res_data}")
+
+        container_id = res_data["id"]
+        logger.info(f"Step 2: Publishing image container {container_id} to Instagram feed...")
+        publish_res = self._publish_container(container_id)
+        post_id = publish_res.get("id")
+        logger.info(f"Successfully published image post! Post ID: {post_id}")
+        return publish_res
+
     def _create_container(self, video_url: str, caption: str, media_type: str) -> str:
         url = f"{self.BASE_URL}/{self.account_id}/media"
         payload = {

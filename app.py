@@ -518,41 +518,83 @@ HTML_TEMPLATE = """
         <!-- ============================================================== -->
         <section id="view-review" class="tab-view">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                <!-- Phone Mockup (5 cols) -->
+                <!-- Media Mockup (5 cols) with Reel vs English Poster Switcher -->
                 <div class="lg:col-span-5 flex flex-col items-center">
-                    <div class="relative w-[320px] sm:w-[350px] aspect-[9/16] rounded-[40px] p-2.5 bg-gradient-to-b from-gray-800 to-gray-900 border-4 border-gray-700 shadow-2xl overflow-hidden shadow-emerald-950/40">
-                        <!-- Dynamic Island -->
-                        <div class="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-20 flex items-center justify-center">
-                            <div class="w-2.5 h-2.5 rounded-full bg-gray-900 ml-auto mr-2"></div>
+                    <!-- Media Type Switcher: Reel vs English Poster -->
+                    <div class="flex items-center gap-1 p-1 bg-gray-900/90 rounded-xl border border-gray-800 mb-4 w-full max-w-[350px]">
+                        <button onclick="switchMediaPreview('reel')" id="preview-tab-reel" class="flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">
+                            <span>🎬</span> Video Reel (9:16)
+                        </button>
+                        <button onclick="switchMediaPreview('poster')" id="preview-tab-poster" class="flex-1 py-1.5 px-3 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition flex items-center justify-center gap-1.5 border border-transparent">
+                            <span>📸</span> English Poster (4:5)
+                        </button>
+                    </div>
+
+                    <!-- 1. Video Container (9:16) -->
+                    <div id="reelPreviewContainer" class="flex flex-col items-center w-full">
+                        <div class="relative w-[320px] sm:w-[350px] aspect-[9/16] rounded-[40px] p-2.5 bg-gradient-to-b from-gray-800 to-gray-900 border-4 border-gray-700 shadow-2xl overflow-hidden shadow-emerald-950/40">
+                            <!-- Dynamic Island -->
+                            <div class="absolute top-4 left-1/2 -translate-x-1/2 w-24 h-5 bg-black rounded-full z-20 flex items-center justify-center">
+                                <div class="w-2.5 h-2.5 rounded-full bg-gray-900 ml-auto mr-2"></div>
+                            </div>
+
+                            <div class="w-full h-full rounded-[30px] overflow-hidden bg-black relative">
+                                {% if video_exists %}
+                                <video id="reelVideo" controls autoplay loop playsinline class="w-full h-full object-cover">
+                                    <source src="{{ state.cloudinary_url or '/video' }}?t={{ state.video_filename or state.created_at }}" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                                {% else %}
+                                <div class="w-full h-full flex flex-col items-center justify-center p-6 text-center text-gray-400">
+                                    <span class="text-4xl mb-3">🎬</span>
+                                    <p class="font-medium">No Reel generated yet</p>
+                                    <p class="text-xs text-gray-500 mt-1">Use the Instant Studio or wait for daily schedule</p>
+                                </div>
+                                {% endif %}
+                            </div>
                         </div>
 
-                        <!-- Video Container -->
-                        <div class="w-full h-full rounded-[30px] overflow-hidden bg-black relative">
-                            {% if video_exists %}
-                            <video id="reelVideo" controls autoplay loop playsinline class="w-full h-full object-cover">
-                                <source src="{{ state.cloudinary_url or '/video' }}?t={{ state.video_filename or state.created_at }}" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            {% else %}
-                            <div class="w-full h-full flex flex-col items-center justify-center p-6 text-center text-gray-400">
-                                <span class="text-4xl mb-3">🎬</span>
-                                <p class="font-medium">No Reel generated yet</p>
-                                <p class="text-xs text-gray-500 mt-1">Use the Instant Studio or wait for daily schedule</p>
-                            </div>
+                        <!-- Video Controls -->
+                        <div class="mt-4 flex items-center gap-3 w-[320px] sm:w-[350px]">
+                            <a href="/video" download="{{ state.video_filename or 'health_reel.mp4' }}" class="flex-1 py-2.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-center text-xs font-semibold flex items-center justify-center gap-2 transition">
+                                <span>📥</span> Download MP4
+                            </a>
+                            {% if state.cloudinary_url %}
+                            <a href="{{ state.cloudinary_url }}" target="_blank" class="py-2.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-xs font-semibold flex items-center gap-1.5 transition">
+                                <span>☁️</span> Cloud Link
+                            </a>
                             {% endif %}
                         </div>
                     </div>
 
-                    <!-- Video Controls -->
-                    <div class="mt-4 flex items-center gap-3 w-[320px] sm:w-[350px]">
-                        <a href="/video" download="{{ state.video_filename or 'health_reel.mp4' }}" class="flex-1 py-2.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-center text-xs font-semibold flex items-center justify-center gap-2 transition">
-                            <span>📥</span> Download MP4
-                        </a>
-                        {% if state.cloudinary_url %}
-                        <a href="{{ state.cloudinary_url }}" target="_blank" class="py-2.5 px-4 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-xs font-semibold flex items-center gap-1.5 transition">
-                            <span>☁️</span> Cloud Link
-                        </a>
-                        {% endif %}
+                    <!-- 2. Poster Container (4:5 Portrait Feed Format) -->
+                    <div id="posterPreviewContainer" class="hidden flex flex-col items-center w-full">
+                        <div class="relative w-[320px] sm:w-[350px] aspect-[4/5] rounded-3xl p-1.5 bg-gradient-to-b from-gray-800 to-gray-900 border-2 border-emerald-500/30 shadow-2xl overflow-hidden shadow-emerald-950/40">
+                            {% if poster_exists or state.poster_cloudinary_url %}
+                            <img src="{{ state.poster_cloudinary_url or '/poster' }}?t={{ state.poster_filename or state.created_at }}" alt="English Companion Poster" class="w-full h-full object-cover rounded-2xl">
+                            {% else %}
+                            <div class="w-full h-full flex flex-col items-center justify-center p-6 text-center text-gray-400 rounded-2xl bg-black/60">
+                                <span class="text-4xl mb-3">📸</span>
+                                <p class="font-medium">No English Poster generated yet</p>
+                                <button onclick="generatePosterNow()" class="mt-3 px-4 py-2 rounded-xl accent-gradient text-white text-xs font-bold transition">
+                                    ⚡ Generate English Poster Now
+                                </button>
+                            </div>
+                            {% endif %}
+                        </div>
+
+                        <!-- Poster Controls -->
+                        <div class="mt-4 flex items-center gap-2 w-[320px] sm:w-[350px]">
+                            <a href="/poster" download="{{ state.poster_filename or 'health_poster.png' }}" class="flex-1 py-2.5 px-3 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-center text-xs font-semibold flex items-center justify-center gap-1.5 transition">
+                                <span>📥</span> Download PNG
+                            </a>
+                            <a href="{{ state.poster_cloudinary_url or '/poster' }}" target="_blank" class="py-2.5 px-3 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-xs font-semibold flex items-center gap-1 transition">
+                                <span>🔍</span> Full Size
+                            </a>
+                            <button onclick="generatePosterNow()" class="py-2.5 px-3 rounded-xl bg-emerald-950/60 hover:bg-emerald-900/60 border border-emerald-500/40 text-xs font-semibold text-emerald-300 flex items-center gap-1 transition" title="Regenerate Poster">
+                                <span>🔄</span> Re-create
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -564,14 +606,20 @@ HTML_TEMPLATE = """
                                 {{ state.category }}
                             </span>
 
-                            <div id="publishBadge">
+                            <div id="publishBadge" class="flex items-center gap-2">
                                 {% if state.status == 'published' %}
                                 <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30 flex items-center gap-1.5">
-                                    <span>✅</span> Live on Instagram (@arovia360)
+                                    <span>✅</span> Reel Live
                                 </span>
                                 {% else %}
                                 <span class="px-3 py-1 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
-                                    <span>📝</span> Draft (Ready for Review)
+                                    <span>📝</span> Reel Draft
+                                </span>
+                                {% endif %}
+
+                                {% if state.poster_status == 'published' %}
+                                <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30 flex items-center gap-1.5">
+                                    <span>✅</span> Poster Live
                                 </span>
                                 {% endif %}
                             </div>
@@ -584,26 +632,42 @@ HTML_TEMPLATE = """
                             "{{ state.hook }}"
                         </p>
 
-                        <!-- 1-Click Publish Button -->
-                        <div class="pt-2 border-t border-gray-800 flex flex-wrap items-center gap-4">
-                            <button onclick="publishToInstagram()" id="publishBtn" class="flex-1 ig-gradient hover:opacity-95 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg shadow-pink-600/25 flex items-center justify-center gap-2 transition transform active:scale-95 text-sm sm:text-base">
-                                <span>🚀</span> 1-Click Publish Live to Instagram (@arovia360)
+                        <!-- Multi-Action Publish Buttons -->
+                        <div class="pt-3 border-t border-gray-800 space-y-2.5">
+                            <div class="flex flex-wrap sm:flex-nowrap items-center gap-2.5">
+                                <button onclick="publishToInstagram('reel')" id="publishBtn" class="flex-1 ig-gradient hover:opacity-95 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-pink-600/25 flex items-center justify-center gap-2 transition transform active:scale-95 text-xs sm:text-sm">
+                                    <span>🚀</span> Publish Video Reel (9:16)
+                                </button>
+                                <button onclick="publishToInstagram('poster')" id="publishPosterBtn" class="flex-1 bg-gradient-to-r from-teal-600 to-emerald-600 hover:opacity-95 text-white font-bold py-3 px-4 rounded-xl shadow-lg shadow-emerald-600/25 flex items-center justify-center gap-2 transition transform active:scale-95 text-xs sm:text-sm">
+                                    <span>📸</span> Publish English Poster (4:5)
+                                </button>
+                            </div>
+                            <button onclick="publishToInstagram('both')" id="publishBothBtn" class="w-full py-2.5 rounded-xl bg-gray-900/90 hover:bg-gray-800 border border-emerald-500/30 text-emerald-400 font-semibold text-xs flex items-center justify-center gap-2 transition">
+                                <span>⚡</span> Publish Package: Reel + English Poster Together
                             </button>
                         </div>
                     </div>
 
-                    <!-- Instagram Caption & Hashtags -->
-                    <div class="glass-panel p-6 rounded-2xl">
-                        <div class="flex items-center justify-between mb-3">
-                            <h3 class="text-sm font-bold text-gray-300 uppercase tracking-wider flex items-center gap-2">
-                                <span>📋</span> Instagram Caption & Hashtags
-                            </h3>
-                            <button onclick="copyCaption()" id="copyBtn" class="text-xs bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg transition flex items-center gap-1 font-semibold">
+                    <!-- Instagram Captions (Telugu Reel & English Poster) -->
+                    <div class="glass-panel p-6 rounded-2xl space-y-3">
+                        <div class="flex items-center justify-between border-b border-gray-800/80 pb-3">
+                            <div class="flex items-center gap-2">
+                                <button onclick="switchCaptionTab('reel')" id="cap-tab-reel" class="px-3 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition">
+                                    🗣️ Telugu Reel Caption
+                                </button>
+                                <button onclick="switchCaptionTab('poster')" id="cap-tab-poster" class="px-3 py-1 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition">
+                                    🇬🇧 English Poster Caption
+                                </button>
+                            </div>
+                            <button onclick="copyCurrentCaption()" id="copyBtn" class="text-xs bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-400 border border-emerald-500/30 px-3 py-1.5 rounded-lg transition flex items-center gap-1 font-semibold">
                                 <span>Copy</span>
                             </button>
                         </div>
-                        <div class="bg-gray-950/80 p-4 rounded-xl border border-gray-800/80 text-sm text-gray-300 whitespace-pre-line font-mono select-all" id="captionText">
+                        <div id="captionSectionReel" class="bg-gray-950/80 p-4 rounded-xl border border-gray-800/80 text-sm text-gray-300 whitespace-pre-line font-mono select-all">
 {{ state.caption }}
+                        </div>
+                        <div id="captionSectionPoster" class="hidden bg-gray-950/80 p-4 rounded-xl border border-gray-800/80 text-sm text-gray-300 whitespace-pre-line font-mono select-all">
+{{ state.poster_caption or state.caption }}
                         </div>
                     </div>
 
@@ -1158,61 +1222,132 @@ HTML_TEMPLATE = """
             );
         });
 
-        // Publish to Instagram
-        async function publishToInstagram() {
-            const btn = document.getElementById("publishBtn");
+        // Media & Caption Switchers
+        let activeMediaPreview = 'reel';
+        function switchMediaPreview(type) {
+            activeMediaPreview = type;
+            const reelBox = document.getElementById("reelPreviewContainer");
+            const posterBox = document.getElementById("posterPreviewContainer");
+            const tabReel = document.getElementById("preview-tab-reel");
+            const tabPoster = document.getElementById("preview-tab-poster");
+
+            if (type === 'reel') {
+                if (reelBox) reelBox.classList.remove("hidden");
+                if (posterBox) posterBox.classList.add("hidden");
+                if (tabReel) tabReel.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+                if (tabPoster) tabPoster.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition flex items-center justify-center gap-1.5 border border-transparent";
+            } else {
+                if (reelBox) reelBox.classList.add("hidden");
+                if (posterBox) posterBox.classList.remove("hidden");
+                if (tabPoster) tabPoster.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1.5 bg-emerald-500/20 text-emerald-300 border border-emerald-500/30";
+                if (tabReel) tabReel.className = "flex-1 py-1.5 px-3 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition flex items-center justify-center gap-1.5 border border-transparent";
+            }
+        }
+
+        let activeCaptionTab = 'reel';
+        function switchCaptionTab(type) {
+            activeCaptionTab = type;
+            const capReel = document.getElementById("captionSectionReel");
+            const capPoster = document.getElementById("captionSectionPoster");
+            const tabReel = document.getElementById("cap-tab-reel");
+            const tabPoster = document.getElementById("cap-tab-poster");
+
+            if (type === 'reel') {
+                if (capReel) capReel.classList.remove("hidden");
+                if (capPoster) capPoster.classList.add("hidden");
+                if (tabReel) tabReel.className = "px-3 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition";
+                if (tabPoster) tabPoster.className = "px-3 py-1 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition border border-transparent";
+            } else {
+                if (capReel) capReel.classList.add("hidden");
+                if (capPoster) capPoster.classList.remove("hidden");
+                if (tabPoster) tabPoster.className = "px-3 py-1 rounded-lg text-xs font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 transition";
+                if (tabReel) tabReel.className = "px-3 py-1 rounded-lg text-xs font-bold text-gray-400 hover:text-white transition border border-transparent";
+            }
+        }
+
+        function copyCurrentCaption() {
+            const el = activeCaptionTab === 'poster' 
+                ? document.getElementById("captionSectionPoster") 
+                : document.getElementById("captionSectionReel");
+            const text = el ? el.innerText : "";
+            navigator.clipboard.writeText(text).then(() => {
+                const btn = document.getElementById("copyBtn");
+                if (btn) {
+                    btn.innerHTML = "<span>Copied!</span>";
+                    btn.classList.add("bg-green-600/30", "text-green-300");
+                    setTimeout(() => {
+                        btn.innerHTML = "<span>Copy</span>";
+                        btn.classList.remove("bg-green-600/30", "text-green-300");
+                    }, 2000);
+                }
+            });
+        }
+
+        async function generatePosterNow() {
+            showStatusAlert("success", "Generating English Infographic Poster...", "Gemini is composing high-impact English points and rendering 1080x1350 graphic...");
+            try {
+                const res = await fetch("/api/poster/generate", { method: "POST" });
+                const data = await res.json();
+                if (!res.ok || !data.success) {
+                    throw new Error(data.error || data.message || `Server error ${res.status}`);
+                }
+                showStatusAlert("success", "English Poster Generated!", "Reloading preview...");
+                setTimeout(() => location.reload(), 1500);
+            } catch (err) {
+                showErrorModal("Poster Generation Failed", "Could not render English graphic", err.message || String(err), err.stack);
+            }
+        }
+
+        // Publish to Instagram (Reel, English Poster, or Both)
+        async function publishToInstagram(mediaType = "reel") {
+            const btnReel = document.getElementById("publishBtn");
+            const btnPoster = document.getElementById("publishPosterBtn");
+            const btnBoth = document.getElementById("publishBothBtn");
+            const targetBtn = mediaType === "poster" ? btnPoster : (mediaType === "both" ? btnBoth : btnReel);
             const alertBox = document.getElementById("statusAlert");
 
-            if (!confirm("Are you sure you want to publish this Reel LIVE to Instagram (@arovia360)?")) {
+            const label = mediaType === "poster" ? "English Poster" : (mediaType === "both" ? "Reel & Poster Package" : "Telugu Reel");
+            if (!confirm(`Are you sure you want to publish the ${label} LIVE to Instagram (@arovia360)?`)) {
                 return;
             }
 
-            btn.disabled = true;
-            btn.innerHTML = "<span class='animate-spin'>⏳</span> Publishing to Instagram Reels...";
+            if (targetBtn) {
+                targetBtn.disabled = true;
+                targetBtn.innerHTML = "<span class='animate-spin'>⏳</span> Publishing to Instagram...";
+            }
 
             try {
-                const res = await fetch("/api/publish", { method: "POST" });
+                const res = await fetch("/api/publish", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ type: mediaType })
+                });
                 const data = await res.json().catch(() => ({}));
 
                 if (!res.ok || !data.success) {
                     throw new Error(data.error || data.message || `Server returned HTTP ${res.status}`);
                 }
 
-                alertBox.className = "mb-6 p-4 rounded-xl border bg-emerald-500/10 border-emerald-500/30 text-emerald-300 flex items-center justify-between";
-                alertBox.innerHTML = `
-                    <div>
-                        <p class="font-bold text-base">🎉 Successfully Published to Instagram!</p>
-                        <p class="text-xs text-emerald-400 mt-0.5">Post ID: ${data.post_id} | Check your Instagram profile @arovia360</p>
-                    </div>
-                    <a href="https://instagram.com/arovia360" target="_blank" class="px-4 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-600 text-white font-semibold text-xs">
-                        View on Instagram
-                    </a>
-                `;
-                alertBox.classList.remove("hidden");
-                btn.innerHTML = "<span>✅ Already Published</span>";
-                const pBadge = document.getElementById("publishBadge");
-                if (pBadge) {
-                    pBadge.innerHTML = `
-                        <span class="px-3 py-1 rounded-full text-xs font-bold bg-green-500/20 text-green-400 border border-green-500/30 flex items-center gap-1.5">
-                            <span>✅</span> Live on Instagram (@arovia360)
-                        </span>
-                    `;
-                }
+                showStatusAlert("success", `🎉 Successfully Published ${label}!`, `Post ID: ${data.post_id || 'Live'} | Check your Instagram profile @arovia360`);
+                if (targetBtn) targetBtn.innerHTML = "<span>✅ Published</span>";
+                setTimeout(() => location.reload(), 2000);
             } catch (err) {
                 const errMsg = err.message || String(err);
-                let suggestion = "1. Verify your Instagram Access Token has not expired (generate a fresh token in Facebook Developer Portal). 2. Ensure the Cloudinary video URL is publicly accessible.";
+                let suggestion = "1. Verify your Instagram Access Token has not expired (generate a fresh token in Facebook Developer Portal). 2. Ensure the Cloudinary asset URL is publicly accessible.";
                 if (errMsg.includes("expired") || errMsg.includes("190") || errMsg.includes("OAuthException") || errMsg.includes("463")) {
-                    suggestion = "⚠️ Meta Session Expired (Error 190): Your Instagram User Access Token has expired. Click '🔑 Update Access Token' in the API Usage section below, generate a fresh token with 'instagram_content_publish' in Meta Graph API Explorer, and paste it to re-authorize.";
+                    suggestion = "⚠️ Meta Session Expired (Error 190): Your Instagram User Access Token has expired. Click '🔑 Update Access Token' in the API Usage section below, paste your renewed token, and save.";
                 }
                 showErrorModal(
                     "Instagram Publishing Failed",
-                    "Meta Graph API rejected the publish request",
+                    `Meta Graph API rejected ${label} publish request`,
                     errMsg,
-                    err.stack || "Failed during Instagram video container creation or media publish.",
+                    err.stack || "Failed during Instagram media publish.",
                     suggestion
                 );
-                btn.disabled = false;
-                btn.innerHTML = "<span>🚀</span> Retry Publishing to Instagram";
+                if (targetBtn) {
+                    targetBtn.disabled = false;
+                    targetBtn.innerHTML = `<span>🚀</span> Retry Publishing ${label}`;
+                }
             }
         }
 
@@ -1740,10 +1875,14 @@ def index():
     video_path = Path(state.get("video_path", "")) if state.get("video_path") else None
     video_exists = bool((video_path and video_path.exists()) or state.get("cloudinary_url"))
 
+    poster_path = Path(state.get("poster_path", "")) if state.get("poster_path") else None
+    poster_exists = bool((poster_path and poster_path.exists()) or state.get("poster_cloudinary_url"))
+
     return render_template_string(
         HTML_TEMPLATE,
         state=state,
         video_exists=video_exists,
+        poster_exists=poster_exists,
         feedback_items=feedback_items,
         schedule=schedule,
         topics_preview=topics_preview
@@ -1763,40 +1902,134 @@ def serve_video():
         return redirect(state["cloudinary_url"])
     return "Video not found", 404
 
+@app.route("/poster")
+def serve_poster():
+    state = get_current_state()
+    poster_path = Path(state.get("poster_path", "")) if state.get("poster_path") else None
+    if poster_path and poster_path.exists():
+        return send_file(poster_path, mimetype="image/png")
+    elif state.get("poster_cloudinary_url"):
+        return redirect(state["poster_cloudinary_url"])
+    output_posters = sorted(Config.OUTPUT_DIR.glob("poster_*.png"), key=os.path.getmtime, reverse=True)
+    if output_posters:
+        return send_file(output_posters[0], mimetype="image/png")
+    return "Poster not found", 404
+
 @app.route("/api/publish", methods=["POST"])
 def api_publish():
+    data = request.get_json(silent=True) or {}
+    publish_type = data.get("type", "reel")
     state = get_current_state()
-    public_url = state.get("cloudinary_url")
+    publisher = InstagramPublisher()
+    results = {}
 
-    if not public_url:
-        video_path_str = state.get("video_path")
-        if not video_path_str or not Path(video_path_str).exists():
-            return jsonify({"success": False, "error": "No video found to publish. Please generate a video first."}), 400
+    # 1. Publish Reel Video
+    if publish_type in ("reel", "both"):
+        public_url = state.get("cloudinary_url")
+        if not public_url:
+            video_path_str = state.get("video_path")
+            if video_path_str and Path(video_path_str).exists():
+                try:
+                    uploader = MediaUploader()
+                    public_url = uploader.upload_video(Path(video_path_str))
+                    state["cloudinary_url"] = public_url
+                except Exception as e:
+                    return jsonify({"success": False, "error": f"Cloudinary upload failed: {e}"}), 500
+        if not public_url:
+            return jsonify({"success": False, "error": "No Reel video available to publish."}), 400
+
         try:
-            uploader = MediaUploader()
-            public_url = uploader.upload_video(Path(video_path_str))
-            state["cloudinary_url"] = public_url
+            res = publisher.publish_video(
+                video_url=public_url,
+                caption=state.get("caption", "Health tips in Telugu #Arovia360"),
+                media_type="REELS"
+            )
+            reel_post_id = res.get("id")
+            state["status"] = "published"
+            state["published_post_id"] = reel_post_id
+            results["reel_post_id"] = reel_post_id
         except Exception as e:
-            return jsonify({"success": False, "error": f"Cloudinary upload failed: {e}"}), 500
+            logger.error(f"Reel publishing failed: {e}")
+            return jsonify({"success": False, "error": f"Reel publishing error: {e}"}), 500
+
+    # 2. Publish English Poster Image
+    if publish_type in ("poster", "both"):
+        poster_url = state.get("poster_cloudinary_url")
+        if not poster_url:
+            poster_path_str = state.get("poster_path")
+            if poster_path_str and Path(poster_path_str).exists():
+                try:
+                    uploader = MediaUploader()
+                    poster_url = uploader.upload_image(Path(poster_path_str))
+                    state["poster_cloudinary_url"] = poster_url
+                except Exception as e:
+                    return jsonify({"success": False, "error": f"Cloudinary poster upload failed: {e}"}), 500
+        if not poster_url:
+            return jsonify({"success": False, "error": "No English poster available to publish."}), 400
+
+        try:
+            poster_caption = state.get("poster_caption") or (state.get("poster_headline", "") + "\n\nFollow @arovia360 for daily wellness! #Arovia360")
+            res = publisher.publish_image(
+                image_url=poster_url,
+                caption=poster_caption
+            )
+            poster_post_id = res.get("id")
+            state["poster_status"] = "published"
+            state["poster_published_post_id"] = poster_post_id
+            results["poster_post_id"] = poster_post_id
+        except Exception as e:
+            logger.error(f"Poster publishing failed: {e}")
+            return jsonify({"success": False, "error": f"Poster publishing error: {e}"}), 500
 
     try:
-        publisher = InstagramPublisher()
-        result = publisher.publish_video(
-            video_url=public_url,
-            caption=state.get("caption", "Health tips in Telugu #Arovia360"),
-            media_type="REELS"
-        )
-        post_id = result.get("id")
-        state["status"] = "published"
-        state["published_post_id"] = post_id
+        with open(STATE_FILE, "w", encoding="utf-8") as f:
+            json.dump(state, f, indent=2, ensure_ascii=False)
+    except OSError:
+        pass
+
+    return jsonify({"success": True, "results": results, "post_id": results.get("reel_post_id") or results.get("poster_post_id")})
+
+@app.route("/api/poster/generate", methods=["POST"])
+def api_generate_poster():
+    data = request.get_json(silent=True) or {}
+    state = get_current_state()
+    topic = data.get("topic") or state.get("topic") or "Benefits of daily hydration"
+    category = data.get("category") or state.get("category") or "Health & Wellness"
+
+    try:
+        from src.poster import PosterGenerator
+        gen = PosterGenerator()
+        poster_path, poster_content = gen.generate(topic, category)
+
+        poster_url = None
+        if Config.is_valid_key(Config.CLOUDINARY_URL):
+            try:
+                uploader = MediaUploader()
+                poster_url = uploader.upload_image(poster_path)
+            except Exception as e:
+                logger.warning(f"Cloudinary poster upload warning: {e}")
+
+        state["poster_path"] = str(poster_path)
+        state["poster_filename"] = poster_path.name
+        state["poster_cloudinary_url"] = poster_url
+        state["poster_caption"] = poster_content.caption
+        state["poster_headline"] = poster_content.headline
+        state["poster_status"] = "ready_for_review"
+
         try:
             with open(STATE_FILE, "w", encoding="utf-8") as f:
                 json.dump(state, f, indent=2, ensure_ascii=False)
-        except Exception:
+        except OSError:
             pass
-        return jsonify({"success": True, "post_id": post_id})
+
+        return jsonify({
+            "success": True,
+            "poster_url": poster_url or "/poster",
+            "caption": poster_content.caption,
+            "headline": poster_content.headline
+        })
     except Exception as e:
-        logger.error(f"Publishing failed: {e}")
+        logger.error(f"Poster generation failed: {e}")
         return jsonify({"success": False, "error": str(e)}), 500
 
 @app.route("/api/generate", methods=["POST"])

@@ -90,3 +90,23 @@ class MediaUploader:
 
         logger.info(f"Uploaded successfully to Cloudinary. Public URL: {secure_url}")
         return secure_url
+
+    def upload_image(self, file_path: Path) -> str:
+        """
+        Uploads local infographic poster or image to Cloudinary and returns a public HTTPS URL.
+        """
+        if not self.cloudinary_url:
+            raise ValueError("CLOUDINARY_URL is not set. Cannot upload image to public host.")
+
+        logger.info(f"Uploading image poster {file_path.name} to Cloudinary...")
+        res = cloudinary.uploader.upload(
+            str(file_path),
+            resource_type="image",
+            folder="instagram_automation"
+        )
+        secure_url = res.get("secure_url")
+        if not secure_url:
+            raise RuntimeError(f"Cloudinary image upload failed: {res}")
+
+        logger.info(f"Image uploaded successfully to Cloudinary. Public URL: {secure_url}")
+        return secure_url

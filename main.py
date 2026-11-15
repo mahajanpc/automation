@@ -14,6 +14,7 @@ from src.video import VideoAssembler
 from src.uploader import MediaUploader
 from src.instagram import InstagramPublisher
 from src.mailer import EmailNotifier
+from src.poster import PosterGenerator
 
 logging.basicConfig(
     level=logging.INFO,
@@ -114,25 +115,43 @@ def main():
     )
     logger.info(f"Final Cinematic Multi-scene Reel assembled: {final_video}")
 
-    # Step 6: Mode Dispatch
+    # Step 6: Companion English Infographic Poster Generation
+    logger.info("Step 6: Generating Companion English Infographic Poster...")
+    poster_path = None
+    poster_content = None
+    try:
+        poster_gen = PosterGenerator(api_key=None if args.mock else Config.GEMINI_API_KEY)
+        poster_path, poster_content = poster_gen.generate(topic_title, topic_category)
+        logger.info(f"Companion English Poster rendered: {poster_path}")
+    except Exception as e:
+        logger.warning(f"Poster generation warning: {e}")
+
+    # Step 7: Mode Dispatch
     if args.mode == "dry-run":
         logger.info("==================================================")
-        logger.info("DRY-RUN COMPLETE: Cinematic multi-scene video rendered locally.")
+        logger.info("DRY-RUN COMPLETE: Multi-scene video and English poster generated.")
         logger.info(f"Video file: {final_video}")
-        logger.info("Caption:\n" + script.caption)
+        if poster_path:
+            logger.info(f"Poster file: {poster_path}")
+        logger.info("Reel Caption:\n" + script.caption)
+        if poster_content:
+            logger.info("Poster Caption:\n" + poster_content.caption)
         logger.info("==================================================")
         return
 
     # Upload to Cloudinary for safe cloud preview link
     public_url = None
+    poster_public_url = None
     if Config.is_valid_key(Config.CLOUDINARY_URL):
         try:
             uploader = MediaUploader()
             public_url = uploader.upload_video(final_video)
+            if poster_path and poster_path.exists():
+                poster_public_url = uploader.upload_image(poster_path)
         except Exception as e:
             logger.warning(f"Could not upload to Cloudinary: {e}")
 
-    # Save current reel state for Web Dashboard
+    # Save current reel & poster state for Web Dashboard
     reel_state = {
         "topic": topic_title,
         "category": topic_category,
@@ -142,6 +161,11 @@ def main():
         "video_filename": final_video.name,
         "cloudinary_url": public_url,
         "caption": script.caption,
+        "poster_path": str(poster_path) if poster_path else None,
+        "poster_filename": poster_path.name if poster_path else None,
+        "poster_cloudinary_url": poster_public_url,
+        "poster_caption": poster_content.caption if poster_content else None,
+        "poster_headline": poster_content.headline if poster_content else None,
         "scenes": [
             {
                 "telugu_speech": s.telugu_speech,
@@ -153,6 +177,7 @@ def main():
         ],
         "status": "ready_for_review",
         "published_post_id": None,
+        "poster_published_post_id": None,
         "created_at": datetime.datetime.now().isoformat()
     }
     state_file = Config.ROOT_DIR / "current_reel.json"
