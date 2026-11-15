@@ -121,7 +121,7 @@ def main():
     poster_content = None
     try:
         poster_gen = PosterGenerator(api_key=None if args.mock else Config.GEMINI_API_KEY)
-        poster_path, poster_content = poster_gen.generate(topic_title, topic_category)
+        poster_path, poster_content = poster_gen.generate(topic_title, topic_category, video_source=final_video)
         logger.info(f"Companion English Poster rendered: {poster_path}")
     except Exception as e:
         logger.warning(f"Poster generation warning: {e}")

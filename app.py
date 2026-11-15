@@ -1999,7 +1999,8 @@ def api_generate_poster():
     try:
         from src.poster import PosterGenerator
         gen = PosterGenerator()
-        poster_path, poster_content = gen.generate(topic, category)
+        video_src = state.get("video_path") or state.get("cloudinary_url")
+        poster_path, poster_content = gen.generate(topic, category, video_source=video_src)
 
         poster_url = None
         if Config.is_valid_key(Config.CLOUDINARY_URL):
