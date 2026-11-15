@@ -292,6 +292,7 @@ HTML_TEMPLATE = """
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Arovia 360 - Creator Studio & Automation Center</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
     <style>
@@ -1099,7 +1100,7 @@ HTML_TEMPLATE = """
                     "Meta Graph API rejected the publish request",
                     err.message || String(err),
                     err.stack || "Failed during Instagram video container creation or media publish.",
-                    "1. Verify your Instagram Access Token has not expired (generate a fresh token in Facebook Developer Portal).\n2. Ensure the Cloudinary video URL is publicly accessible."
+                    "1. Verify your Instagram Access Token has not expired (generate a fresh token in Facebook Developer Portal). 2. Ensure the Cloudinary video URL is publicly accessible."
                 );
                 btn.disabled = false;
                 btn.innerHTML = "<span>🚀</span> Retry Publishing to Instagram";
@@ -1601,7 +1602,7 @@ HTML_TEMPLATE = """
                     "Meta Graph API rejected the token",
                     e.message || String(e),
                     e.stack || "Failed when calling POST /api/settings/token",
-                    "1. Verify that the token was generated for user @arovia360.\n2. Ensure permissions 'instagram_basic', 'instagram_content_publish', and 'pages_show_list' are granted in the Meta Graph API Explorer.\n3. Make sure to generate a Long-Lived Token if possible."
+                    "1. Verify that the token was generated for user @arovia360. 2. Ensure permissions 'instagram_basic', 'instagram_content_publish', and 'pages_show_list' are granted in the Meta Graph API Explorer. 3. Make sure to generate a Long-Lived Token if possible."
                 );
                 showStatusAlert("error", "Failed to update Instagram token", e.message || String(e));
             }
@@ -1638,6 +1639,10 @@ def index():
         schedule=schedule,
         topics_preview=topics_preview
     )
+
+@app.route("/favicon.ico")
+def favicon():
+    return ('', 204)
 
 @app.route("/video")
 def serve_video():
