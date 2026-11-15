@@ -1,61 +1,61 @@
 {
-  "topic": "The secret reason you feel exhausted even after 8 hours of sleep",
-  "category": "Health & Wellness",
-  "hook": "8 hours sleep but still exhausted? The hidden mitochondrial energy drain.",
-  "hook_title": "🚨 ఎనిమిది గంటలు పడుకున్నా అలసటగా ఉందా?",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261114_155434.mp4",
-  "video_filename": "health_reel_20261114_155434.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794671703/instagram_automation/ssmf6dlx9uxllrmkkqg8.mp4",
-  "caption": "8 gantaalu ninda nidra poyina, poddune lechaka enduku intha alasata? Idhi meeru choodalsina vishayam! Mee body lo mitochondria ki kavalsina proper micro-nutrition and cellular cleanse lekunte ilaage jaruguthundi. Rojoo poddune hydration and soaked nuts ni mee lifestyle lo include cheyandi. \n\nSave chesukondi, mee loved ones tho share cheyandi! 🌿✨\n\n#HealthTipsTelugu #WellnessTelugu #FatigueReasons #HealthyLiving #SleepTips #CellularHealth #TeluguHealth #NaturalHealing",
+  "topic": "Iron-rich foods and iron deficiency",
+  "category": "Nutrition and food",
+  "hook": "Do you feel tired all the time? Your body might be missing iron!",
+  "hook_title": "🚨 రోజూ అలసటగా ఉంటుందా? కారణం ఇదే!",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261115_124334.mp4",
+  "video_filename": "health_reel_20261115_124334.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794746630/instagram_automation/ncbnrxugwagei5vgog1j.mp4",
+  "caption": "Day ki saripoye energy lekunda roju alaasata ga untunda? Idi iron deficiency lakshanam kavachu! 🌸 Palakoora, danimma pandlu, kharjooram lanti iron-rich foods manam roju tineti aaharamlo include cheyadam chala mukhyam. \n\nEe reel ni meeru save chesukoni, meeru telisina variki share cheyandi! ✨\n\n#IronDeficiency #HealthyDiet #TeluguHealthTips #NutritionTips #EnergyBoost #WellnessTelugu #HealthyLiving #EatHealthy",
   "scenes": [
     {
-      "telugu_speech": "ఎనిమిది గంటలు హాయిగా నిద్రపోయినా, ఉదయాన్నే లేవగానే విపరీతమైన అలసటగా అనిపిస్తోందా?",
+      "telugu_speech": "రోజూ ఉదయం లేవగానే విపరీతమైన అలసట మరియు నీరసంగా అనిపిస్తోందా?",
       "subtitles": [
-        "ఎనిమిది గంటలు *నిద్రపోయినా*",
-        "ఉదయాన్నే విపరీతమైన *అలసటగా* ఉందా?"
+        "రోజూ ఉదయం లేవగానే *విపరీతమైన అలసట*",
+        "నీరసంగా *అనిపిస్తోందా?*"
       ],
-      "visual_query": "tired woman morning",
-      "visual_concept": "A tired person waking up in bed looking exhausted and rubbing eyes"
+      "visual_query": "tired woman",
+      "visual_concept": "Tired woman waking up feeling exhausted in bed"
     },
     {
-      "telugu_speech": "మీ రాత్రి నిద్ర సరిపోక కాదు, మీ శరీరంలో కణాల లోపల శక్తిని ఉత్పత్తి చేసే మైటోకాండ్రియా నిద్రపోతోంది.",
+      "telugu_speech": "మన శరీరంలో రక్తం తయారಾಗడానికి ఐరన్ చాలా ముఖ్యం.",
       "subtitles": [
-        "నిద్ర సరిపోక కాదు, *కణాల లోపల*",
-        "శక్తిని ఇచ్చే *మైటోకాండ్రియా* ఆగిపోతుంది"
+        "శరీరంలో రక్తం *తయారಾಗడానికి*",
+        "ఐరన్ *చాలా ముఖ్యం*"
       ],
-      "visual_query": "human cell",
-      "visual_concept": "Microscopic view of cells inside the body and energy production"
+      "visual_query": "blood cells",
+      "visual_concept": "Animation or micro view of blood cells circulating"
     },
     {
-      "telugu_speech": "మనం తీసుకునే ఆహారంలోని పోషకాలు కణాలకు అందక, సెల్టాక్సిసిటీ పెరిగి ఈ నీరసం వస్తుంది.",
+      "telugu_speech": "ఐరన్ లోపం వల్ల ఆక్సిజన్ అందక కండరాలు త్వరగా అలిసిపోతాయి.",
       "subtitles": [
-        "పోషకాలు *కణాలకు* అందక",
-        "సెల్టాక్సిసిటీ పెరిగి *నీరసం* వస్తుంది"
+        "ఐరన్ లోపం వల్ల *ఆక్సిజన్ అందక*",
+        "కండరాలు *త్వరగా అలిసిపోతాయి*"
       ],
-      "visual_query": "junk food unhealthy",
-      "visual_concept": "Visualization of nutrient deficiency and sluggish body inner system"
+      "visual_query": "tired worker",
+      "visual_concept": "Person holding head experiencing weakness and fatigue"
     },
     {
-      "telugu_speech": "నిద్ర ఎంత ముఖ్యమో, కణాలకు కావాల్సిన పోషకాల మైక్రో న్యూట్రిషన్ కూడా అంతే ముఖ్యం.",
+      "telugu_speech": "పాలకూర, దానిమ్మ పండ్లు మరియు ఖర్జూరం రోజూ తీసుకుంటే ఈ సమస్య తగ్గుతుంది.",
       "subtitles": [
-        "నిద్ర ఎంత ముఖ్యమో, *పోషకాలు*",
-        "మైక్రో న్యూట్రిషన్ *అంతే ముఖ్యం*"
+        "పాలకూర మరియు దానిమ్మ *రోజూ తీసుకుంటే*",
+        "ఈ సమస్య *తగ్గుతుంది*"
       ],
-      "visual_query": "healthy vitamins",
-      "visual_concept": "Clean organic food and natural micro-nutrients displayed neatly"
+      "visual_query": "green spinach",
+      "visual_concept": "Fresh spinach leaves and pomegranate seeds on a wooden table"
     },
     {
-      "telugu_speech": "రోజూ ఉదయం హైడ్రేటింగ్ వాటర్ తో పాటు ఒక గుప్పెడు నానబెట్టిన గింజలు తీసుకోండి. తేడా చూడండి!",
+      "telugu_speech": "ఈ చిన్న ఆహార మార్పుతో మీ శక్తిని మళ్లీ సొంతం చేసుకోండి!",
       "subtitles": [
-        "ఉదయం హైడ్రేటింగ్ వాటర్",
-        "*నానబెట్టిన గింజలు* తీసుకోండి",
-        "*మీ ఆరోగ్యం మీ చేతుల్లో | షేర్ చేయండి*"
+        "చిన్న ఆహార మార్పుతో *మీ శక్తిని*",
+        "మళ్లీ *సొంతం చేసుకోండి!*",
+        "*ఆరోగ్యంగా ఉండండి | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "drinking water glass",
-      "visual_concept": "A glass of fresh water and a small bowl of soaked nuts in the morning sunlight"
+      "visual_query": "energetic woman",
+      "visual_concept": "Happy energetic woman smiling and holding a healthy plate of food"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
-  "created_at": "2026-11-14T15:55:04.276354"
+  "created_at": "2026-11-15T12:43:51.405843"
 }
