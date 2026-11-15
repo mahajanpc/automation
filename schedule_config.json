@@ -1,10 +1,9 @@
 {
-  "cron": "0 12 * * *",
-  "time_ist": "17:30",
-  "time_utc": "12:00",
+  "cron": "30 12 * * *",
+  "time_ist": "18:00",
+  "time_utc": "12:30",
   "timezone": "Asia/Kolkata",
-  "label": "Daily at 5:30 PM IST (12:00 UTC)",
+  "label": "Daily at 6:00 PM IST (12:30 UTC)",
   "enabled": true,
-  "last_updated": "2026-11-14T19:15:00"
+  "last_updated": "2026-11-15T21:08:46.808845"
 }
-

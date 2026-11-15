@@ -3,7 +3,7 @@ name: Daily Instagram Reel & Story Publisher
 on:
   schedule:
     # Runs daily at 12:00 UTC (5:30 PM IST). Adjust as needed.
-    - cron: '0 12 * * *'
+    - cron: '30 12 * * *'
   workflow_dispatch:
     inputs:
       topic:
