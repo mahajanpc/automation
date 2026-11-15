@@ -6,6 +6,7 @@ import subprocess
 import threading
 import time
 import datetime
+import base64
 from pathlib import Path
 from flask import Flask, jsonify, render_template_string, send_file, request, redirect
 
@@ -109,26 +110,114 @@ def get_current_state():
 
     return state
 
+def get_gh_token():
+    token = os.getenv("GITHUB_TOKEN") or os.getenv("GH_TOKEN")
+    if not token:
+        try:
+            token = subprocess.check_output(["gh", "auth", "token"], text=True, stderr=subprocess.DEVNULL).strip()
+        except Exception:
+            pass
+    return token
+
+def update_github_file(repo_path: str, new_content: str, commit_message: str) -> bool:
+    token = get_gh_token()
+    if not token:
+        return False
+    try:
+        headers = {
+            "Authorization": f"Bearer {token}",
+            "Accept": "application/vnd.github.v3+json"
+        }
+        url = f"https://api.github.com/repos/mahajanpc/automation/contents/{repo_path}"
+        r = requests.get(url, headers=headers, timeout=5)
+        sha = None
+        if r.status_code == 200:
+            sha = r.json().get("sha")
+
+        payload = {
+            "message": commit_message,
+            "content": base64.b64encode(new_content.encode("utf-8")).decode("utf-8"),
+            "branch": "main"
+        }
+        if sha:
+            payload["sha"] = sha
+
+        put_r = requests.put(url, json=payload, headers=headers, timeout=10)
+        if put_r.status_code in (200, 201):
+            logger.info(f"Successfully synced {repo_path} to GitHub main branch via API")
+            return True
+        else:
+            logger.warning(f"GitHub API update failed ({put_r.status_code}): {put_r.text}")
+            return False
+    except Exception as e:
+        logger.error(f"GitHub API file update exception for {repo_path}: {e}")
+        return False
+
 def get_feedback_items():
+    # 1. Check /tmp (for Vercel serverless)
+    tmp_file = Path("/tmp") / "feedback_history.json"
+    if tmp_file.exists():
+        try:
+            with open(tmp_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    # 2. Check local workspace file
     if FEEDBACK_FILE.exists():
         try:
             with open(FEEDBACK_FILE, "r", encoding="utf-8") as f:
                 return json.load(f)
         except Exception:
-            return []
+            pass
+    # 3. Check remote GitHub raw
+    try:
+        r = requests.get(f"https://raw.githubusercontent.com/mahajanpc/automation/main/feedback_history.json?t={int(time.time())}", timeout=2)
+        if r.status_code == 200:
+            return r.json()
+    except Exception:
+        pass
     return []
 
 def save_feedback_items(items):
-    with open(FEEDBACK_FILE, "w", encoding="utf-8") as f:
-        json.dump(items, f, indent=2, ensure_ascii=False)
+    content = json.dumps(items, indent=2, ensure_ascii=False)
+    # Always cache in /tmp for immediate serverless container persistence
+    try:
+        with open(Path("/tmp") / "feedback_history.json", "w", encoding="utf-8") as f:
+            f.write(content)
+    except Exception:
+        pass
+    # Try local write if filesystem is writable
+    try:
+        with open(FEEDBACK_FILE, "w", encoding="utf-8") as f:
+            f.write(content)
+    except OSError:
+        pass
+    # Sync with GitHub
+    update_github_file("feedback_history.json", content, "Update feedback instructions from Creator Studio")
 
 def get_schedule():
+    # 1. Check /tmp
+    tmp_file = Path("/tmp") / "schedule_config.json"
+    if tmp_file.exists():
+        try:
+            with open(tmp_file, "r", encoding="utf-8") as f:
+                return json.load(f)
+        except Exception:
+            pass
+    # 2. Check local workspace file
     if SCHEDULE_FILE.exists():
         try:
             with open(SCHEDULE_FILE, "r", encoding="utf-8") as f:
                 return json.load(f)
         except Exception:
             pass
+    # 3. Check remote GitHub raw
+    try:
+        r = requests.get(f"https://raw.githubusercontent.com/mahajanpc/automation/main/schedule_config.json?t={int(time.time())}", timeout=2)
+        if r.status_code == 200:
+            return r.json()
+    except Exception:
+        pass
     return {
         "cron": "0 12 * * *",
         "time_ist": "17:30",
@@ -153,26 +242,41 @@ def update_workflow_cron(new_cron: str):
         updated = re.sub(r"- cron:\s*'[^']*'", f"- cron: '{new_cron}'", content)
         WORKFLOW_FILE.write_text(updated, encoding="utf-8")
         return True
+    except OSError:
+        return False
     except Exception as e:
         logger.error(f"Error updating workflow cron: {e}")
         return False
 
 def update_env_variable(key: str, value: str):
-    if not ENV_FILE.exists():
-        return
-    lines = ENV_FILE.read_text(encoding="utf-8").splitlines()
-    found = False
-    new_lines = []
-    for line in lines:
-        if line.startswith(f"{key}="):
-            new_lines.append(f'{key}="{value}"')
-            found = True
-        else:
-            new_lines.append(line)
-    if not found:
-        new_lines.append(f'{key}="{value}"')
-    ENV_FILE.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
     os.environ[key] = value
+    setattr(Config, key, value)
+    
+    # Write to /tmp/.env
+    try:
+        tmp_env = Path("/tmp") / ".env"
+        with open(tmp_env, "a", encoding="utf-8") as f:
+            f.write(f'{key}="{value}"\n')
+    except Exception:
+        pass
+
+    # Try local .env write
+    try:
+        if ENV_FILE.exists():
+            lines = ENV_FILE.read_text(encoding="utf-8").splitlines()
+            found = False
+            new_lines = []
+            for line in lines:
+                if line.startswith(f"{key}="):
+                    new_lines.append(f'{key}="{value}"')
+                    found = True
+                else:
+                    new_lines.append(line)
+            if not found:
+                new_lines.append(f'{key}="{value}"')
+            ENV_FILE.write_text("\n".join(new_lines) + "\n", encoding="utf-8")
+    except OSError:
+        pass
 
 # -------------------------------------------------------------
 # Background Generation Tracker
@@ -1095,12 +1199,17 @@ HTML_TEMPLATE = """
                     `;
                 }
             } catch (err) {
+                const errMsg = err.message || String(err);
+                let suggestion = "1. Verify your Instagram Access Token has not expired (generate a fresh token in Facebook Developer Portal). 2. Ensure the Cloudinary video URL is publicly accessible.";
+                if (errMsg.includes("expired") || errMsg.includes("190") || errMsg.includes("OAuthException") || errMsg.includes("463")) {
+                    suggestion = "⚠️ Meta Session Expired (Error 190): Your Instagram User Access Token has expired. Click '🔑 Update Access Token' in the API Usage section below, generate a fresh token with 'instagram_content_publish' in Meta Graph API Explorer, and paste it to re-authorize.";
+                }
                 showErrorModal(
                     "Instagram Publishing Failed",
                     "Meta Graph API rejected the publish request",
-                    err.message || String(err),
+                    errMsg,
                     err.stack || "Failed during Instagram video container creation or media publish.",
-                    "1. Verify your Instagram Access Token has not expired (generate a fresh token in Facebook Developer Portal). 2. Ensure the Cloudinary video URL is publicly accessible."
+                    suggestion
                 );
                 btn.disabled = false;
                 btn.innerHTML = "<span>🚀</span> Retry Publishing to Instagram";
@@ -1876,19 +1985,49 @@ def api_schedule():
             "last_updated": datetime.datetime.now().isoformat()
         }
 
-        with open(SCHEDULE_FILE, "w", encoding="utf-8") as f:
-            json.dump(schedule_data, f, indent=2)
+        schedule_json = json.dumps(schedule_data, indent=2)
 
-        # Update workflow file directly
-        update_workflow_cron(new_cron)
-
-        # Sync with Git repository
+        # 1. Always cache in /tmp for immediate serverless container persistence
         try:
-            subprocess.run(["git", "add", str(SCHEDULE_FILE), str(WORKFLOW_FILE)], cwd=str(Config.ROOT_DIR), check=False)
-            subprocess.run(["git", "commit", "-m", f"Update automation schedule to {label}"], cwd=str(Config.ROOT_DIR), check=False)
-            subprocess.run(["git", "push", "origin", "main"], cwd=str(Config.ROOT_DIR), check=False)
-        except Exception as e:
-            logger.warning(f"Git push schedule sync warning: {e}")
+            with open(Path("/tmp") / "schedule_config.json", "w", encoding="utf-8") as f:
+                f.write(schedule_json)
+        except Exception:
+            pass
+
+        # 2. Try writing to local SCHEDULE_FILE if filesystem is writable
+        try:
+            with open(SCHEDULE_FILE, "w", encoding="utf-8") as f:
+                f.write(schedule_json)
+        except OSError as e:
+            logger.info(f"Read-only environment detected ({e}), relying on GitHub API sync.")
+
+        # 3. Update local workflow file if writable
+        local_wf_updated = update_workflow_cron(new_cron)
+        if local_wf_updated:
+            try:
+                subprocess.run(["git", "add", str(SCHEDULE_FILE), str(WORKFLOW_FILE)], cwd=str(Config.ROOT_DIR), check=False, stderr=subprocess.DEVNULL)
+                subprocess.run(["git", "commit", "-m", f"Update automation schedule to {label}"], cwd=str(Config.ROOT_DIR), check=False, stderr=subprocess.DEVNULL)
+                subprocess.run(["git", "push", "origin", "main"], cwd=str(Config.ROOT_DIR), check=False, stderr=subprocess.DEVNULL)
+            except Exception as e:
+                logger.warning(f"Git push schedule sync warning: {e}")
+
+        # 4. Sync directly with GitHub REST API (essential for Vercel serverless)
+        gh_token = get_gh_token()
+        if gh_token:
+            update_github_file("schedule_config.json", schedule_json, f"Update schedule to {label} via Creator Studio")
+            try:
+                headers = {"Authorization": f"Bearer {gh_token}", "Accept": "application/vnd.github.v3+json"}
+                wf_url = "https://api.github.com/repos/mahajanpc/automation/contents/.github/workflows/daily_reel.yml"
+                r = requests.get(wf_url, headers=headers, timeout=5)
+                if r.status_code == 200:
+                    wf_sha = r.json().get("sha")
+                    wf_content_b64 = r.json().get("content", "")
+                    wf_content = base64.b64decode(wf_content_b64).decode("utf-8")
+                    updated_wf = re.sub(r"- cron:\s*'[^']*'", f"- cron: '{new_cron}'", wf_content)
+                    if updated_wf != wf_content:
+                        update_github_file(".github/workflows/daily_reel.yml", updated_wf, f"Update cron to '{new_cron}' ({label})")
+            except Exception as e:
+                logger.warning(f"GitHub workflow cron API sync warning: {e}")
 
         return jsonify({"success": True, "schedule": schedule_data})
     except Exception as e:
