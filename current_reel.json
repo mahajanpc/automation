@@ -1,67 +1,67 @@
 {
-  "topic": "Iron-rich foods and iron deficiency",
+  "topic": "Vitamin B12 deficiency symptoms",
   "category": "Nutrition and food",
-  "hook": "Do you feel tired all the time? Your body might be missing iron!",
-  "hook_title": "🚨 రోజూ అలసటగా ఉంటుందా? కారణం ఇదే!",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261115_124334.mp4",
-  "video_filename": "health_reel_20261115_124334.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794746630/instagram_automation/ncbnrxugwagei5vgog1j.mp4",
-  "caption": "Day ki saripoye energy lekunda roju alaasata ga untunda? Idi iron deficiency lakshanam kavachu! 🌸 Palakoora, danimma pandlu, kharjooram lanti iron-rich foods manam roju tineti aaharamlo include cheyadam chala mukhyam. \n\nEe reel ni meeru save chesukoni, meeru telisina variki share cheyandi! ✨\n\n#IronDeficiency #HealthyDiet #TeluguHealthTips #NutritionTips #EnergyBoost #WellnessTelugu #HealthyLiving #EatHealthy",
+  "hook": "Constantly tired or feeling tingling in your hands? You might have Vitamin B12 deficiency!",
+  "hook_title": "🚨 బి12 లోపం లక్షణాలు!",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261116_153742.mp4",
+  "video_filename": "health_reel_20261116_153742.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794843537/instagram_automation/w1xsc5gp3k510pxhppym.mp4",
+  "caption": "ఎప్పుడూ అలసటగా, నిరసంగా అనిపిస్తుందా? కాళ్ళు చేతుల్లో తిమ్మిర్లు వస్తున్నాయా? Vitamin B12 deficiency symptoms need attention! Daily diet lo curd, milk చేర్చుకోండి & check your levels! 🌿 Share this with family! #VitaminB12 #TeluguHealth #HealthTips #NutritionTips #TeluguReels #Wellness #DietTips #HealthyLifestyle",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1794843533.png",
+  "poster_filename": "poster_1794843533.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1794843538/instagram_automation/akuvmvb9isbzw2lr00gn.png",
+  "poster_caption": "Are you suffering from unexplained brain fog, persistent fatigue, or tingling sensations in your hands and feet? You might be low in Vitamin B12.\n\nVitamin B12 is crucial for nervous system repair, DNA synthesis, and cellular energy production. Here is what happens when your levels drop:\n\n🩸 01. Chronic Fatigue: Impaired red blood cell formation starves tissues of vital oxygen.\n🧠 02. Brain Fog: Nerve insulation degrades, slowing down brain processing speed.\n⚡ 03. Pins & Needles: Lack of B12 damages peripheral nerves, causing numbness.\n\n📌 Save this guide for your daily health routine!\n\n#VitaminB12 #NutritionScience #BrainHealth #NerveHealth #EnergyBoost #DailyWellness #Arovia360 #HealthyLifestyle #AnemiaPrevention",
+  "poster_headline": "WHY YOU ARE ALWAYS EXHAUSTED: THE VITAMIN B12 DEFICIENCY GUIDE",
   "scenes": [
     {
-      "telugu_speech": "రోజూ ఉదయం లేవగానే విపరీతమైన అలసట మరియు నీరసంగా అనిపిస్తోందా?",
+      "telugu_speech": "ఎప్పుడూ నిరసంగా ఉంటుందా? కాళ్ళు చేతుల్లో సూదులు గుచ్చినట్లు తిమ్మిర్లు వస్తున్నాయా?",
       "subtitles": [
-        "రోజూ ఉదయం లేవగానే *విపరీతమైన అలసట*",
-        "నీరసంగా *అనిపిస్తోందా?*"
+        "ఎప్పుడూ *అలసటగా* ఉందా?",
+        "చేతుల్లో *తిమ్మిర్లు* వస్తున్నాయా?"
       ],
       "visual_query": "tired woman",
-      "visual_concept": "Tired woman waking up feeling exhausted in bed"
+      "visual_concept": "A person rubbing their numb hand with an exhausted expression"
     },
     {
-      "telugu_speech": "మన శరీరంలో రక్తం తయారಾಗడానికి ఐరన్ చాలా ముఖ్యం.",
+      "telugu_speech": "ఇది కేవలం సాధారణ అలసట కాదు. మీ శరీరంలో విటమిన్ బి12 లోపం వల్ల నరాలు బలహీనపడుతున్నాయి.",
       "subtitles": [
-        "శరీరంలో రక్తం *తయారಾಗడానికి*",
-        "ఐరన్ *చాలా ముఖ్యం*"
+        "ఇది *సాధారణ అలసట* కాదు!",
+        "నరాలు *బలహీనపడుతున్నాయి*"
       ],
-      "visual_query": "blood cells",
-      "visual_concept": "Animation or micro view of blood cells circulating"
+      "visual_query": "human nervous system",
+      "visual_concept": "Animation showing human nervous system or inner cellular structure"
     },
     {
-      "telugu_speech": "ఐరన్ లోపం వల్ల ఆక్సిజన్ అందక కండరాలు త్వరగా అలిసిపోతాయి.",
+      "telugu_speech": "బి12 తగ్గితే ఎర్ర రక్తకణాలు సరిగ్గా తయారవ్వవు. దాంతో మెదడుకు ఆక్సిజన్ తగ్గి మతిమరుపు, మైకం వస్తాయి.",
       "subtitles": [
-        "ఐరన్ లోపం వల్ల *ఆక్సిజన్ అందక*",
-        "కండరాలు *త్వరగా అలిసిపోతాయి*"
+        "రక్తకణాలు *తగ్గిపోతాయి*",
+        "మెదడుకు *ఆక్సిజన్* అందుదు!"
       ],
-      "visual_query": "tired worker",
-      "visual_concept": "Person holding head experiencing weakness and fatigue"
+      "visual_query": "brain anatomy",
+      "visual_concept": "Close up of red blood cells moving through blood vessels"
     },
     {
-      "telugu_speech": "పాలకూర, దానిమ్మ పండ్లు మరియు ఖర్జూరం రోజూ తీసుకుంటే ఈ సమస్య తగ్గుతుంది.",
+      "telugu_speech": "ఆశ్చర్యకరమైన విషయం ఏంటంటే, శాఖాహారులలో ఈ లోపం చాలా ఎక్కువగా కనిపిస్తుంది!",
       "subtitles": [
-        "పాలకూర మరియు దానిమ్మ *రోజూ తీసుకుంటే*",
-        "ఈ సమస్య *తగ్గుతుంది*"
+        "శాఖాహారుల్లో *ఎక్కువ లోపం*",
+        "మొక్కల ఆహారంలో *బి12 ఉండదు*!"
       ],
-      "visual_query": "green spinach",
-      "visual_concept": "Fresh spinach leaves and pomegranate seeds on a wooden table"
+      "visual_query": "fresh milk cheese",
+      "visual_concept": "Fresh vegetarian dairy food spread on table"
     },
     {
-      "telugu_speech": "ఈ చిన్న ఆహార మార్పుతో మీ శక్తిని మళ్లీ సొంతం చేసుకోండి!",
+      "telugu_speech": "రోజూ పాలు, పెరుగు తీసుకోండి. అవసరమైతే డాక్టర్ సలహాతో బి12 టెస్ట్ చేయించుకోండి.",
       "subtitles": [
-        "చిన్న ఆహార మార్పుతో *మీ శక్తిని*",
-        "మళ్లీ *సొంతం చేసుకోండి!*",
+        "పాలు *పెరుగు* తీసుకోండి",
+        "డాక్టర్ *సలహా* పొందండి!",
         "*ఆరోగ్యంగా ఉండండి | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "energetic woman",
-      "visual_concept": "Happy energetic woman smiling and holding a healthy plate of food"
+      "visual_query": "drinking milk",
+      "visual_concept": "Pouring fresh milk into a glass and a friendly doctor consultation"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
-  "created_at": "2026-11-15T12:43:51.405843",
-  "poster_path": "/home/mahajan-ashok/automation/output/poster_1794760356.png",
-  "poster_filename": "poster_1794760356.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1794760366/instagram_automation/glkrgevojgp7ml2lushn.png",
-  "poster_caption": "Struggling with low energy and brain fog? It might not be lack of sleep—it could be a hidden iron deficiency! 🩸✨\n\nHere is how to fix it:\n• Know your sources: Animal heme iron absorbs directly, while plant non-heme iron needs an acidic activator.\n• Supercharge absorption: Always pair plant-based greens with fresh citrus (Vitamin C) to boost uptake by up to 300%.\n• Avoid iron blockers: Keep coffee, tea, and calcium away from your iron-rich meals by at least 60 minutes.\n\n📌 Save this guide for your daily wellness routine!\n\n#IronDeficiency #NutritionScience #HealthyEating #EnergyBoost #AnemiaAwareness #GutHealth #WellnessTips #Arovia360",
-  "poster_headline": "WHY YOU'RE ALWAYS TIRED: THE IRON DEFICIENCY PROTOCOL",
-  "poster_status": "ready_for_review"
+  "poster_published_post_id": null,
+  "created_at": "2026-11-16T15:38:58.760248"
 }
