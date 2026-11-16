@@ -1,67 +1,67 @@
 {
-  "topic": "Vitamin B12 deficiency symptoms",
+  "topic": "Healthy breakfast myths",
   "category": "Nutrition and food",
-  "hook": "Constantly tired or feeling tingling in your hands? You might have Vitamin B12 deficiency!",
-  "hook_title": "🚨 బి12 లోపం లక్షణాలు!",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261116_153742.mp4",
-  "video_filename": "health_reel_20261116_153742.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794843537/instagram_automation/w1xsc5gp3k510pxhppym.mp4",
-  "caption": "ఎప్పుడూ అలసటగా, నిరసంగా అనిపిస్తుందా? కాళ్ళు చేతుల్లో తిమ్మిర్లు వస్తున్నాయా? Vitamin B12 deficiency symptoms need attention! Daily diet lo curd, milk చేర్చుకోండి & check your levels! 🌿 Share this with family! #VitaminB12 #TeluguHealth #HealthTips #NutritionTips #TeluguReels #Wellness #DietTips #HealthyLifestyle",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1794843533.png",
-  "poster_filename": "poster_1794843533.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1794843538/instagram_automation/akuvmvb9isbzw2lr00gn.png",
-  "poster_caption": "Are you suffering from unexplained brain fog, persistent fatigue, or tingling sensations in your hands and feet? You might be low in Vitamin B12.\n\nVitamin B12 is crucial for nervous system repair, DNA synthesis, and cellular energy production. Here is what happens when your levels drop:\n\n🩸 01. Chronic Fatigue: Impaired red blood cell formation starves tissues of vital oxygen.\n🧠 02. Brain Fog: Nerve insulation degrades, slowing down brain processing speed.\n⚡ 03. Pins & Needles: Lack of B12 damages peripheral nerves, causing numbness.\n\n📌 Save this guide for your daily health routine!\n\n#VitaminB12 #NutritionScience #BrainHealth #NerveHealth #EnergyBoost #DailyWellness #Arovia360 #HealthyLifestyle #AnemiaPrevention",
-  "poster_headline": "WHY YOU ARE ALWAYS EXHAUSTED: THE VITAMIN B12 DEFICIENCY GUIDE",
+  "hook": "Is drinking fruit juice for breakfast actually healthy or a metabolic trap?",
+  "hook_title": "🚨 ఫ్రూట్ జ్యూస్ నిజంగా మంచిదేనా?",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261116_154756.mp4",
+  "video_filename": "health_reel_20261116_154756.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794844102/instagram_automation/ytu4tigedbcl01hslo8f.mp4",
+  "caption": "Fruit juice tagadam healthy anukuntన్నారా? 🤔\n\nJuice chesinappudu fruits lo unde primary fiber poyi, refined fructose matrame miguluthundi. Idhi blood sugar 📈 spike chesi morning fatigue ki karanam avuthundi.\n\n✨ Practical Habit Swap:\nJuice ki badulu fresh whole fruits tinandi! Fiber retention valla digestion slow ga avvi energy steady ga untundi.\n\nSave this reel & share with your family! ❤️\n\n#TeluguHealth #HealthyBreakfast #NutritionMyths #FruitJuiceMyth #TeluguWellness #HealthyHabits #DietTips #TeluguReels",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1794844101.png",
+  "poster_filename": "poster_1794844101.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1794844103/instagram_automation/q6besr7mdmfmqeqgcejh.png",
+  "poster_caption": "Are you accidentally sabotaging your energy before 9 AM? 🍳\n\nMany popular 'health foods' are actually disguised sugar bombs that trigger massive glucose spikes and morning brain fog.\n\nHere is what to avoid:\n• Orange juice (stripped of fiber, pure sugar)\n• Plain toast (causes rapid insulin spikes)\n• Sweetened cereal (ultra-processed dessert)\n\n📌 Save this guide for your daily health routine!\n\n#HealthTips #NutritionScience #BreakfastMyths #BloodSugar #HealthyHabits #WellnessJourney #MetabolicHealth #Arovia360",
+  "poster_headline": "STOP RUINING YOUR MORNING: HEALTHY BREAKFAST MYTHS",
   "scenes": [
     {
-      "telugu_speech": "ఎప్పుడూ నిరసంగా ఉంటుందా? కాళ్ళు చేతుల్లో సూదులు గుచ్చినట్లు తిమ్మిర్లు వస్తున్నాయా?",
+      "telugu_speech": "రోజూ ఉదయాన్నే ఆరోగ్యంగా అని ఫ్రూట్ జ్యూస్ తాగుతున్నారా?",
       "subtitles": [
-        "ఎప్పుడూ *అలసటగా* ఉందా?",
-        "చేతుల్లో *తిమ్మిర్లు* వస్తున్నాయా?"
+        "ఉదయాన్నే *ఫ్రూట్ జ్యూస్*",
+        "తాగడం *ఆరోగ్యమేనా*?"
       ],
-      "visual_query": "tired woman",
-      "visual_concept": "A person rubbing their numb hand with an exhausted expression"
+      "visual_query": "drinking orange juice",
+      "visual_concept": "A person pouring fresh orange juice into a glass on a bright morning breakfast table"
     },
     {
-      "telugu_speech": "ఇది కేవలం సాధారణ అలసట కాదు. మీ శరీరంలో విటమిన్ బి12 లోపం వల్ల నరాలు బలహీనపడుతున్నాయి.",
+      "telugu_speech": "పండ్లను జ్యూస్ చేసినప్పుడు మంచి పీచు పదార్థం తగ్గిపోయి, కేవలం చక్కెర మాత్రమే మిగులుతుంది.",
       "subtitles": [
-        "ఇది *సాధారణ అలసట* కాదు!",
-        "నరాలు *బలహీనపడుతున్నాయి*"
+        "పీచు పదార్థం *తగ్గిపోయి*",
+        "కేవలం *చక్కెర* మిగులుతుంది"
       ],
-      "visual_query": "human nervous system",
-      "visual_concept": "Animation showing human nervous system or inner cellular structure"
+      "visual_query": "juicer machine fresh",
+      "visual_concept": "Juicer separating fiber pulp leaving refined liquid juice"
     },
     {
-      "telugu_speech": "బి12 తగ్గితే ఎర్ర రక్తకణాలు సరిగ్గా తయారవ్వవు. దాంతో మెదడుకు ఆక్సిజన్ తగ్గి మతిమరుపు, మైకం వస్తాయి.",
+      "telugu_speech": "ఇది రక్తంలో గ్లూకోజ్ స్థాయిలను వేగంగా పెంచి, లివర్‌పై భారం వేస్తుంది మరియు నీరసం తెస్తుంది.",
       "subtitles": [
-        "రక్తకణాలు *తగ్గిపోతాయి*",
-        "మెదడుకు *ఆక్సిజన్* అందుదు!"
+        "రక్తంలో *గ్లూకోజ్ స్పైక్*",
+        "లివర్‌పై *ఎక్కువ భారం*!"
       ],
-      "visual_query": "brain anatomy",
-      "visual_concept": "Close up of red blood cells moving through blood vessels"
+      "visual_query": "blood cells flow",
+      "visual_concept": "Microscopic view of bloodstream reaction followed by a tired person feeling lazy in morning"
     },
     {
-      "telugu_speech": "ఆశ్చర్యకరమైన విషయం ఏంటంటే, శాఖాహారులలో ఈ లోపం చాలా ఎక్కువగా కనిపిస్తుంది!",
+      "telugu_speech": "ఒక గ్లాస్ జ్యూస్ కన్నా, నేరుగా పండు తింటే శరీరానికి పూర్తి పోషకాలు లభిస్తాయి.",
       "subtitles": [
-        "శాఖాహారుల్లో *ఎక్కువ లోపం*",
-        "మొక్కల ఆహారంలో *బి12 ఉండదు*!"
+        "జ్యూస్ కంటే *పండు తినడం*",
+        "పూర్తి *పోషకాలు* ఇస్తుంది"
       ],
-      "visual_query": "fresh milk cheese",
-      "visual_concept": "Fresh vegetarian dairy food spread on table"
+      "visual_query": "eating fresh apple",
+      "visual_concept": "Hand picking a whole fresh red apple from a fruit bowl"
     },
     {
-      "telugu_speech": "రోజూ పాలు, పెరుగు తీసుకోండి. అవసరమైతే డాక్టర్ సలహాతో బి12 టెస్ట్ చేయించుకోండి.",
+      "telugu_speech": "ఇకపై జ్యూస్ బదులు పండ్లను అలాగే తినండి. మరిన్ని ఆరోగ్య చిట్కాల కోసం ఫాలో అవ్వండి!",
       "subtitles": [
-        "పాలు *పెరుగు* తీసుకోండి",
-        "డాక్టర్ *సలహా* పొందండి!",
-        "*ఆరోగ్యంగా ఉండండి | సేవ్ & షేర్ చేయండి*"
+        "పండ్లను *అలాగే తినండి*",
+        "ఆరోగ్యంగా *ఉండండి*!",
+        "*మంచి ఆరోగ్యం కోసం | షేర్ & ఫాలో అవ్వండి*"
       ],
-      "visual_query": "drinking milk",
-      "visual_concept": "Pouring fresh milk into a glass and a friendly doctor consultation"
+      "visual_query": "smiling healthy woman",
+      "visual_concept": "A happy person biting into a fresh fruit slice with a confident smile"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-16T15:38:58.760248"
+  "created_at": "2026-11-16T15:48:23.632102"
 }
