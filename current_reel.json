@@ -1,67 +1,67 @@
 {
-  "topic": "Healthy breakfast myths",
-  "category": "Nutrition and food",
-  "hook": "Is drinking fruit juice for breakfast actually healthy or a metabolic trap?",
-  "hook_title": "🚨 ఫ్రూట్ జ్యూస్ నిజంగా మంచిదేనా?",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261116_154756.mp4",
-  "video_filename": "health_reel_20261116_154756.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794844102/instagram_automation/ytu4tigedbcl01hslo8f.mp4",
-  "caption": "Fruit juice tagadam healthy anukuntన్నారా? 🤔\n\nJuice chesinappudu fruits lo unde primary fiber poyi, refined fructose matrame miguluthundi. Idhi blood sugar 📈 spike chesi morning fatigue ki karanam avuthundi.\n\n✨ Practical Habit Swap:\nJuice ki badulu fresh whole fruits tinandi! Fiber retention valla digestion slow ga avvi energy steady ga untundi.\n\nSave this reel & share with your family! ❤️\n\n#TeluguHealth #HealthyBreakfast #NutritionMyths #FruitJuiceMyth #TeluguWellness #HealthyHabits #DietTips #TeluguReels",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1794844101.png",
-  "poster_filename": "poster_1794844101.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1794844103/instagram_automation/q6besr7mdmfmqeqgcejh.png",
-  "poster_caption": "Are you accidentally sabotaging your energy before 9 AM? 🍳\n\nMany popular 'health foods' are actually disguised sugar bombs that trigger massive glucose spikes and morning brain fog.\n\nHere is what to avoid:\n• Orange juice (stripped of fiber, pure sugar)\n• Plain toast (causes rapid insulin spikes)\n• Sweetened cereal (ultra-processed dessert)\n\n📌 Save this guide for your daily health routine!\n\n#HealthTips #NutritionScience #BreakfastMyths #BloodSugar #HealthyHabits #WellnessJourney #MetabolicHealth #Arovia360",
-  "poster_headline": "STOP RUINING YOUR MORNING: HEALTHY BREAKFAST MYTHS",
+  "topic": "3 early warning signs of Vitamin D deficiency in adults",
+  "category": "Health & Wellness",
+  "hook": "3 early warning signs of Vitamin D deficiency that adults often ignore",
+  "hook_title": "🚨 విటమిన్ డి లోపం హెచ్చరికలు!",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261116_175313.mp4",
+  "video_filename": "health_reel_20261116_175313.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794851668/instagram_automation/eilld0qg9b82s6sbm4gu.mp4",
+  "caption": "Meeru roju entha nidrapoyina alasataga untundha? 😴 Bone pains, excess hair fall, and frequent cold infections mindha dhyanam pettandi! Vitamin D mana body ki calcium absorb cheskovadaniki chala avasaram. Daily morning 15 mins soft sunlight lo undatam valla Vitamin D deficiency nundi kapadukovachu. ✨\n\n📌 Save this video & share with family!\n\n#VitaminD #HealthTipsTelugu #TeluguWellness #BoneHealth #ImmunityBoost #WellnessTips #TeluguReels #HealthyLifestyle",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1794851667.png",
+  "poster_filename": "poster_1794851667.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1794851669/instagram_automation/i8f07wbsr0jmkk1dunkh.png",
+  "poster_caption": "Are you feeling constantly exhausted or dealing with stubborn muscle stiffness?\n\nOver 1 billion people worldwide suffer from insufficient Vitamin D levels without even knowing it.\n\nHere are 3 key warning signs to watch out for:\n\n01. Unexplained Bone & Joint Aches\n02. Chronic Daytime Fatigue\n03. Frequent Immune Breakdown\n\n☀️ Golden Rule: Pair your D3 with healthy fats (avocado, eggs, olive oil) to maximize absorption!\n\n📌 Save this guide for your daily health routine!\n\n#VitaminD #HealthTips #NutritionScience #DailyWellness #ImmuneHealth #Mitochondria #SunlightTherapy #WellnessProtocol #Arovia360",
+  "poster_headline": "FEELING CHRONICALLY TIRED AND SORE: VITAMIN D DEFICIENCY PROTOCOL",
   "scenes": [
     {
-      "telugu_speech": "రోజూ ఉదయాన్నే ఆరోగ్యంగా అని ఫ్రూట్ జ్యూస్ తాగుతున్నారా?",
+      "telugu_speech": "ఎంత సేపు నిద్రపోయినా ఉదయమే ఒళ్ళు నొప్పులు, తీవ్రమైన అలసటగా అనిపిస్తుందా?",
       "subtitles": [
-        "ఉదయాన్నే *ఫ్రూట్ జ్యూస్*",
-        "తాగడం *ఆరోగ్యమేనా*?"
+        "ఎంత నిద్రపోయినా *అలసటగా* ఉందా?",
+        "ఉదయమే *ఒళ్ళు నొప్పులు* వస్తున్నాయా?"
       ],
-      "visual_query": "drinking orange juice",
-      "visual_concept": "A person pouring fresh orange juice into a glass on a bright morning breakfast table"
+      "visual_query": "tired morning",
+      "visual_concept": "A person waking up in bed feeling extremely sluggish and rubbing their aching joints"
     },
     {
-      "telugu_speech": "పండ్లను జ్యూస్ చేసినప్పుడు మంచి పీచు పదార్థం తగ్గిపోయి, కేవలం చక్కెర మాత్రమే మిగులుతుంది.",
+      "telugu_speech": "మొదటి సంకేతం... ఎటువంటి కారణం లేకుండా నడుము నొప్పి లేదా ఎముకలలో నొప్పులు రావడం.",
       "subtitles": [
-        "పీచు పదార్థం *తగ్గిపోయి*",
-        "కేవలం *చక్కెర* మిగులుతుంది"
+        "మొదటి సంకేతం *నడుము నొప్పి*",
+        "ఎముకల్లో *తీవ్రమైన నొప్పులు*"
       ],
-      "visual_query": "juicer machine fresh",
-      "visual_concept": "Juicer separating fiber pulp leaving refined liquid juice"
+      "visual_query": "back pain",
+      "visual_concept": "Close-up shot of a person clutching their lower back in pain while sitting at a desk"
     },
     {
-      "telugu_speech": "ఇది రక్తంలో గ్లూకోజ్ స్థాయిలను వేగంగా పెంచి, లివర్‌పై భారం వేస్తుంది మరియు నీరసం తెస్తుంది.",
+      "telugu_speech": "రెండవది హఠాత్తుగా జుట్టు రాలడం, మూడవది చిన్నపాటి ఇన్ఫెక్షన్లకే పదే పదే జబ్బు పడటం.",
       "subtitles": [
-        "రక్తంలో *గ్లూకోజ్ స్పైక్*",
-        "లివర్‌పై *ఎక్కువ భారం*!"
+        "రెండవది *జుట్టు రాలడం*",
+        "పదే పదే *ఇన్ఫెక్షన్లు* రావడం"
       ],
-      "visual_query": "blood cells flow",
-      "visual_concept": "Microscopic view of bloodstream reaction followed by a tired person feeling lazy in morning"
+      "visual_query": "hair loss",
+      "visual_concept": "Person looking sadly at hair strands in a comb, followed by someone sneezing into a tissue"
     },
     {
-      "telugu_speech": "ఒక గ్లాస్ జ్యూస్ కన్నా, నేరుగా పండు తింటే శరీరానికి పూర్తి పోషకాలు లభిస్తాయి.",
+      "telugu_speech": "శరీరంలో విటమిన్ డి లేకపోతే మనం తినే ఆహారం నుండి క్యాల్షియం శోషణ పూర్తిగా ఆగిపోతుంది!",
       "subtitles": [
-        "జ్యూస్ కంటే *పండు తినడం*",
-        "పూర్తి *పోషకాలు* ఇస్తుంది"
+        "విటమిన్ డి లేకపోతే",
+        "*క్యాల్షియం* శోషణ ఆగిపోతుంది!"
       ],
-      "visual_query": "eating fresh apple",
-      "visual_concept": "Hand picking a whole fresh red apple from a fruit bowl"
+      "visual_query": "bone anatomy",
+      "visual_concept": "3D visualization or graphic showing calcium absorption in bones"
     },
     {
-      "telugu_speech": "ఇకపై జ్యూస్ బదులు పండ్లను అలాగే తినండి. మరిన్ని ఆరోగ్య చిట్కాల కోసం ఫాలో అవ్వండి!",
+      "telugu_speech": "రోజూ ఉదయం పదిహేను నిమిషాల లేత ఎండలో గడపండి. మరిన్ని హెల్త్ టిప్స్ కోసం ఫాలో అవ్వండి!",
       "subtitles": [
-        "పండ్లను *అలాగే తినండి*",
-        "ఆరోగ్యంగా *ఉండండి*!",
-        "*మంచి ఆరోగ్యం కోసం | షేర్ & ఫాలో అవ్వండి*"
+        "రోజూ *ఉదయం ఎండలో* గడపండి",
+        "మరిన్ని టిప్స్ కోసం *ఫాలో అవ్వండి*",
+        "*ఆరోగ్యంగా ఉండండి | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "smiling healthy woman",
-      "visual_concept": "A happy person biting into a fresh fruit slice with a confident smile"
+      "visual_query": "morning sunlight",
+      "visual_concept": "A person walking comfortably outdoors bathed in golden morning sunlight"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-16T15:48:23.632102"
+  "created_at": "2026-11-16T17:54:30.086577"
 }
