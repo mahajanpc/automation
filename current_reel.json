@@ -1,67 +1,67 @@
 {
-  "topic": "Benefits of walking 30 minutes daily",
+  "topic": "Walking vs running",
   "category": "Fitness and exercise",
-  "hook": "What happens inside your body when you walk 30 minutes daily?",
-  "hook_title": "🚶‍♂️ రోజూ 30 నిమిషాల నడకతో అద్భుతం!",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261117_134442.mp4",
-  "video_filename": "health_reel_20261117_134442.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1794923126/instagram_automation/yeqovvgovmhfivdrvfzf.mp4",
-  "caption": "Roju 30 mins nadavadam valla mee body lo entha pedda change osthundo telusa? 🚶‍♂️✨\n\nDaily walking keeps your heart healthy, controls blood sugar levels, and instantly boosts your mood by releasing endorphins! Gym ki velle time lekapoyina, roju morning leda evening 30 mins brisk walking cheyandi.\n\nHealth tips kosam follow avvandi & ee video ni mee loved ones tho share cheyandi! ❤️\n\n#TeluguHealth #FitnessMotivation #WalkingBenefits #DailyHabits #TeluguFitness #HeartHealth #HealthyLifestyle #TeluguReels",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1794923124.png",
-  "poster_filename": "poster_1794923124.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1794923127/instagram_automation/jfbmsie7hejetgtmwrh8.png",
-  "poster_caption": "Most people think you need an extreme gym routine to transform your health. The truth? A simple 30-minute daily walk is a biological cheat code.\n\nHere is what happens when you commit to daily walking:\n• 📉 Flattens post-meal glucose spikes by up to 30%\n• 🧠 Boosts brain health and triggers neurogenesis\n• 🔥 Trains your cells to efficiently burn fat for fuel\n\n📌 Save this guide for your daily health routine!\n\n#WalkingBenefits #FitnessScience #MetabolicHealth #DailyMovement #GlucoseControl #Biohacking #HealthyHabits #WellnessRoutine",
-  "poster_headline": "THE 30-MINUTE METABOLIC SHIFT: DAILY WALKING PROTOCOL",
+  "hook": "Walking vs Running - which one is better for daily fitness?",
+  "hook_title": "🚶‍♂️ వాకింగ్ vs రన్నింగ్ - ఏది బెటర్?",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261118_135730.mp4",
+  "video_filename": "health_reel_20261118_135730.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795010283/instagram_automation/pbmchqslavymm2gb7odp.mp4",
+  "caption": "🚶‍♂️ Walking vs Running: Meeku edi manchidi? Daily fitness kosam parugulu pettalanna pani ledu, brisk walk tho kuda chaala health benefits untayi! 🌿\n\nEe reel niku nachithe mee fitness friends ki share cheyyandi! ✨\n\n#WalkingVsRunning #FitnessTelugu #HealthTipsTelugu #WeightLossJourney #DailyWalk #HeartHealth #TeluguFitness #HealthyLifestyle",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1795010280.png",
+  "poster_filename": "poster_1795010280.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795010285/instagram_automation/urrjw5hspii1wp4qiso6.png",
+  "poster_caption": "Stop destroying your joints with endless daily running if your goal is sustainable fat loss and metabolic health! 🔥\n\nHere is what science actually shows:\n• Walking keeps you in the optimal fat-oxidation zone without spiking stress hormones.\n• Excessive running can elevate cortisol, leading to muscle loss and fat retention.\n• Running puts 3x your body weight in impact force on your joints every single stride.\n\n📌 Save this guide for your daily health routine!\n\n#FitnessTips #WalkingVsRunning #FatLossScience #MetabolicHealth #CardioWorkout #DailySteps #WellnessGuide #Arovia360",
+  "poster_headline": "WALKING VS RUNNING: THE FAT LOSS TRUTH",
   "scenes": [
     {
-      "telugu_speech": "రోజంతా ఒకే చోట కూర్చుని అలసిపోతున్నారా? రోజూ కేవలం ముప్పై నిమిషాలు నడిస్తే మీ శరీరంలో ఏం జరుగుతుందో తెలుసా?",
+      "telugu_speech": "రోజూ ఉదయం లేచి జిమ్ కి వెళ్లాలో లేక పార్క్ లో పరుగెత్తాలో అర్థం కాక కన్ఫ్యూజ్ అవుతున్నారా?",
       "subtitles": [
-        "రోజంతా *కూర్చుని అలసిపోతున్నారా*?",
-        "ముప్పై నిమిషాల *నడకతో అద్భుతం!*"
+        "రోజూ *ఉదయం లేచి*",
+        "పరుగెత్తాలో *కన్ఫ్యూజ్* అవుతున్నారా?"
       ],
-      "visual_query": "tired desk worker",
-      "visual_concept": "A tired person sitting at a desk transitioning to putting on walking shoes outdoors"
+      "visual_query": "morning workout",
+      "visual_concept": "Person looking confused wearing sportswear at home or park"
     },
     {
-      "telugu_speech": "మనం కూర్చున్నప్పుడు రక్తప్రసరణ మందగిస్తుంది. కానీ నడక ప్రారంభించగానే గుండె వేగంగా స్పందించి, శరీర కణాలకు ఆక్సిజన్ సరఫరాను పెంచుతుంది.",
+      "telugu_speech": "అసలు మన శరీరంలో ఏం జరుగుతుందో తెలుసా? రన్నింగ్ చేసినప్పుడు కీళ్ల మీద తీవ్రమైన ఒత్తిడి పడుతుంది.",
       "subtitles": [
-        "రక్తప్రసరణ *మందగిస్తుంది*",
-        "*ఆక్సిజన్ సరఫరా* పెరుగుతుంది"
+        "శరీరంలో *ఏం జరుగుతుంది*",
+        "కీళ్ల మీద *తీవ్రమైన ఒత్తిడి*"
       ],
-      "visual_query": "blood circulation organ",
-      "visual_concept": "Visualization of active blood circulation and a healthy beating heart"
+      "visual_query": "knee pain",
+      "visual_concept": "Close up of knee joints and running impact"
     },
     {
-      "telugu_speech": "ఇది మీ రక్తంలో చక్కెర స్థాయిలను అదుపులో ఉంచుతుంది. అంతేకాదు, మెదడులో ఆనందాన్ని ఇచ్చే ఎండోర్ఫిన్ రసాయనాలు విడుదలై ఒత్తిడి తగ్గుతుంది.",
+      "telugu_speech": "దీనివల్ల తొందరగా అలసిపోవడం, ఒక్కోసారి కండరాల నొप्पులు కూడా వచ్చే అవకాశం ఉంది.",
       "subtitles": [
-        "చక్కెర స్థాయిలు *అదుపులోకి*",
-        "*మానసిక ఒత్తిడి* మాయం"
+        "తొందరగా *అలసిపోవడం*",
+        "కండరాల *నొप्पులు*"
       ],
-      "visual_query": "happy walking park",
-      "visual_concept": "A cheerful person walking briskly in a green sunlit park feeling refreshed"
+      "visual_query": "tired runner",
+      "visual_concept": "Tired runner holding knee in pain"
     },
     {
-      "telugu_speech": "ప్రతిరోజూ ముప్పై నిమిషాలు నడవడం వల్ల గుండె జబ్బుల ప్రమాదం ముప్పై శాతం వరకు తగ్గుతుందని వైద్య పరిశోధనలు చెబుతున్నాయి!",
+      "telugu_speech": "కానీ రోజూ చురుగ్గా నడవడం వల్ల కేలరీలు కరిగి గుండె ఆరోగ్యం మెరుగవుతుంది, కీళ్లకు ఎలాంటి ప్రమాదం ఉండదు!",
       "subtitles": [
-        "గుండె జబ్బుల ప్రమాదం *ముప్పై శాతం తగ్గుతుంది*",
-        "వైద్య పరిశోధనల *నిజం!*"
+        "చురుగ్గా *నడవడం వల్ల*",
+        "గుండె *ఆరోగ్యం మెరుగవుతుంది*"
       ],
-      "visual_query": "healthy senior walking",
-      "visual_concept": "A healthy adult walking confidently while looking energetic and fit"
+      "visual_query": "healthy lifestyle walking",
+      "visual_concept": "Person brisk walking happily in green park"
     },
     {
-      "telugu_speech": "జిమ్ కి వెళ్లలేకపోయినా పర్వాలేదు, ఈరోజే మీ భోజనం తర్వాత చిన్న నడకతో మీ ఆరోగ్య ప్రయాణాన్ని మొదలుపెట్టండి!",
+      "telugu_speech": "మీ బరువును బట్టి సరైన వ్యాయామాన్ని ఎంచుకోండి. ఈ రోజే మీ వాకింగ్ ని స్టార్ట్ చేయండి!",
       "subtitles": [
-        "ఈరోజే *నడక ప్రారంభించండి*",
-        "మీ ఆరోగ్యం *మీ చేతుల్లోనే!*",
-        "*ఆరోగ్యంగా ఉండండి | సేవ్ & షేర్ చేయండి*"
+        "సరైన *వ్యాయామాన్ని ఎంచుకోండి*",
+        "వాకింగ్ *స్టార్ట్ చేయండి*",
+        "*మీ ఫిట్‌నెస్ లక్ష్యం ఏంటి? | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "walking path sunrise",
-      "visual_concept": "Person walking towards a bright, beautiful sunrise on a clean walking track"
+      "visual_query": "fitness goals",
+      "visual_concept": "Smiling person ready for walk tying shoes"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-17T13:45:28.516652"
+  "created_at": "2026-11-18T13:58:05.809002"
 }
