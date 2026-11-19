@@ -1,67 +1,67 @@
 {
-  "topic": "Walking vs running",
+  "topic": "Beginner strength training",
   "category": "Fitness and exercise",
-  "hook": "Walking vs Running - which one is better for daily fitness?",
-  "hook_title": "🚶‍♂️ వాకింగ్ vs రన్నింగ్ - ఏది బెటర్?",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261118_135730.mp4",
-  "video_filename": "health_reel_20261118_135730.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795010283/instagram_automation/pbmchqslavymm2gb7odp.mp4",
-  "caption": "🚶‍♂️ Walking vs Running: Meeku edi manchidi? Daily fitness kosam parugulu pettalanna pani ledu, brisk walk tho kuda chaala health benefits untayi! 🌿\n\nEe reel niku nachithe mee fitness friends ki share cheyyandi! ✨\n\n#WalkingVsRunning #FitnessTelugu #HealthTipsTelugu #WeightLossJourney #DailyWalk #HeartHealth #TeluguFitness #HealthyLifestyle",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1795010280.png",
-  "poster_filename": "poster_1795010280.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795010285/instagram_automation/urrjw5hspii1wp4qiso6.png",
-  "poster_caption": "Stop destroying your joints with endless daily running if your goal is sustainable fat loss and metabolic health! 🔥\n\nHere is what science actually shows:\n• Walking keeps you in the optimal fat-oxidation zone without spiking stress hormones.\n• Excessive running can elevate cortisol, leading to muscle loss and fat retention.\n• Running puts 3x your body weight in impact force on your joints every single stride.\n\n📌 Save this guide for your daily health routine!\n\n#FitnessTips #WalkingVsRunning #FatLossScience #MetabolicHealth #CardioWorkout #DailySteps #WellnessGuide #Arovia360",
-  "poster_headline": "WALKING VS RUNNING: THE FAT LOSS TRUTH",
+  "hook": "Gym lo weights eththgalani undha, kani bhayama?",
+  "hook_title": "🚨 జిమ్ భయాలు వదిలేయండి!",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261119_134640.mp4",
+  "video_filename": "health_reel_20261119_134640.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795096037/instagram_automation/tseubeds37rmfphigrzm.mp4",
+  "caption": "Gym lo weights eththadam modalupettalani undha? Bhayam vadhileseyandi! Proper form tho light weights nundi start cheyandi, chala easy ga untundhi. Ee reel mee friend ki share cheyandi!\n\n#TeluguFitness #BeginnerWorkout #StrengthTraining #GymMotivation #HealthyLife #TeluguHealth #FitnessJourney #WorkoutTips",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1795096037.png",
+  "poster_filename": "poster_1795096037.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795096039/instagram_automation/p0q9mdoegas0aegcjy6d.png",
+  "poster_caption": "🏋️‍♂️ Tired of working out hard with zero muscle gains? Most beginners make the mistake of random training instead of following a structured system.\n\nHere is how to fast-track your strength safely:\n• Master foundational compound movements\n• Apply progressive overload consistently every week\n• Never skip the mandatory 48-hour recovery window\n\n📌 Save this guide for your daily fitness routine!\n\n#StrengthTraining #FitnessTips #BeginnerWorkout #MuscleBuilding #WorkoutRoutine #FitnessScience #HealthyHabits #Arovia360",
+  "poster_headline": "BUILD MUSCLE WITHOUT BURNOUT: THE BEGINNER STRENGTH BLUEPRINT",
   "scenes": [
     {
-      "telugu_speech": "రోజూ ఉదయం లేచి జిమ్ కి వెళ్లాలో లేక పార్క్ లో పరుగెత్తాలో అర్థం కాక కన్ఫ్యూజ్ అవుతున్నారా?",
+      "telugu_speech": "జిమ్ కి వెళ్లాలని ఉందా, కానీ బరువైన బార్‌బెల్స్ చూసి భయంగా ఉందా?",
       "subtitles": [
-        "రోజూ *ఉదయం లేచి*",
-        "పరుగెత్తాలో *కన్ఫ్యూజ్* అవుతున్నారా?"
+        "జిమ్ కి *వెళ్లాలని ఉందా*,",
+        "బార్‌బెల్స్ చూసి *భయంగా ఉందా*?"
       ],
-      "visual_query": "morning workout",
-      "visual_concept": "Person looking confused wearing sportswear at home or park"
+      "visual_query": "gym beginner",
+      "visual_concept": "A beginner looking at heavy weights in a gym with hesitation"
     },
     {
-      "telugu_speech": "అసలు మన శరీరంలో ఏం జరుగుతుందో తెలుసా? రన్నింగ్ చేసినప్పుడు కీళ్ల మీద తీవ్రమైన ఒత్తిడి పడుతుంది.",
+      "telugu_speech": "మొదట్లో అందరికీ ఈ భయం ఉంటుంది, కండరాలు సరిగ్గా పనిచేయక ఇబ్బంది పడతారు.",
       "subtitles": [
-        "శరీరంలో *ఏం జరుగుతుంది*",
-        "కీళ్ల మీద *తీవ్రమైన ఒత్తిడి*"
+        "మొదట్లో ఈ *భయం* ఉంటుంది,",
+        "కండరాలకు *ఇబ్బంది* పడతారు."
       ],
-      "visual_query": "knee pain",
-      "visual_concept": "Close up of knee joints and running impact"
+      "visual_query": "tired workout",
+      "visual_concept": "Person feeling tired or confused during initial workout attempts"
     },
     {
-      "telugu_speech": "దీనివల్ల తొందరగా అలసిపోవడం, ఒక్కోసారి కండరాల నొप्पులు కూడా వచ్చే అవకాశం ఉంది.",
+      "telugu_speech": "సరైన పద్ధతిలో మొదలుపెట్టకపోతే నొప్పులు వచ్చి త్వరగా అలసిపోతారు.",
       "subtitles": [
-        "తొందరగా *అలసిపోవడం*",
-        "కండరాల *నొप्पులు*"
+        "సరైన పద్ధతి లేకపోతే *నొప్పులు*,",
+        "త్వరగా *అలసిపోతారు*."
       ],
-      "visual_query": "tired runner",
-      "visual_concept": "Tired runner holding knee in pain"
+      "visual_query": "muscle pain",
+      "visual_concept": "Person touching sore muscles after a workout"
     },
     {
-      "telugu_speech": "కానీ రోజూ చురుగ్గా నడవడం వల్ల కేలరీలు కరిగి గుండె ఆరోగ్యం మెరుగవుతుంది, కీళ్లకు ఎలాంటి ప్రమాదం ఉండదు!",
+      "telugu_speech": "అసలు రహస్యం బరువ并不是 కాదు, మీ సరైన రూపం మరియు స్థిరత్వం ముఖ్యం!",
       "subtitles": [
-        "చురుగ్గా *నడవడం వల్ల*",
-        "గుండె *ఆరోగ్యం మెరుగవుతుంది*"
+        "అసలు రహస్యం *బరువు* కాదు,",
+        "సరైన *రూపం* ముఖ్యం!"
       ],
-      "visual_query": "healthy lifestyle walking",
-      "visual_concept": "Person brisk walking happily in green park"
+      "visual_query": "correct form gym",
+      "visual_concept": "A trainer guiding a beginner with proper posture using light dumbbells"
     },
     {
-      "telugu_speech": "మీ బరువును బట్టి సరైన వ్యాయామాన్ని ఎంచుకోండి. ఈ రోజే మీ వాకింగ్ ని స్టార్ట్ చేయండి!",
+      "telugu_speech": "ఈ రోజే తేలికపాటి బరువులతో మీ ప్రయాణం మొదలుపెట్టండి, ఆరోగ్యంగా ఉండండి!",
       "subtitles": [
-        "సరైన *వ్యాయామాన్ని ఎంచుకోండి*",
-        "వాకింగ్ *స్టార్ట్ చేయండి*",
-        "*మీ ఫిట్‌నెస్ లక్ష్యం ఏంటి? | సేవ్ & షేర్ చేయండి*"
+        "తేలికపాటి బరువులతో *ప్రయాణం*,",
+        "ఆరోగ్యంగా *ఉండండి*!",
+        "*ఫిట్‌నెస్ ప్రారంభించండి | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "fitness goals",
-      "visual_concept": "Smiling person ready for walk tying shoes"
+      "visual_query": "smiling gym",
+      "visual_concept": "A confident beginner smiling while holding light dumbbells"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-18T13:58:05.809002"
+  "created_at": "2026-11-19T13:47:20.216734"
 }
