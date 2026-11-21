@@ -1,67 +1,69 @@
 {
-  "topic": "Benefits of stretching",
+  "topic": "What happens when you stop exercising?",
   "category": "Fitness and exercise",
-  "hook": "Do you feel stiff and tired every morning? Here is why stretching changes everything!",
-  "hook_title": "🚨 రోజూ స్ట్రెచింగ్ చేయడం లేదా?",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261120_134413.mp4",
-  "video_filename": "health_reel_20261120_134413.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795182340/instagram_automation/qbaas5uvfvrkntqnmjxf.mp4",
-  "caption": "రోజూ ఉదయం లేవగానే ఒళ్ళు నొప్పులతో ఇబ్బంది పడుతున్నారా? అయితే ఈ చిన్న మార్పు మీ శరీరాన్ని పూర్తిగా మార్చేస్తుంది! 🌿\n\nStretching వల్ల కండరాలు రిలాక్స్ అవ్వడమే కాకుండా, రక్త ప్రసరణ మెరుగుపడుతుంది మరియు రోజంతా ఉత్సాహంగా ఉండవచ్చు. కేవలం 5 నిమిషాల సమయం కేటాయಿಸಿ మీ రోజును ఆరోగ్యంగా ప్రారంభించండి! ✨\n\nఈ వీడియో మీకు నచ్చితే సేవ్ చేసుకోండి మరియు మీ మిత్రులతో షేర్ చేయండి!\n\n#TeluguFitness #StretchingBenefits #MorningRoutine #HealthyLifestyle #FitnessTelugu #BodyStiffness #WellnessTips #HealthyHabits",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1795182339.png",
-  "poster_filename": "poster_1795182339.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795182341/instagram_automation/plfzppgzoukjen4sbxu6.png",
-  "poster_caption": "Feeling constantly tight, sore, or sluggish after workouts? 🧘‍♂️\n\nStretching isn't just about flexibility—it is a biological reset for your nervous system and circulatory health.\n\nHere is what happens inside your body when you stretch daily:\n\n• 01 | Lowers Nervous System Stress: Deep holds activate parasympathetic tone to lower cortisol instantly.\n• 02 | Boosts Microvascular Flow: Increases blood circulation to flush out cellular waste and speed up repair.\n• 03 | Prevents Fascial Stiffening: Hydrates connective tissue to protect joints and prevent chronic stiffness.\n\n📌 Save this guide for your daily health routine!\n\n#FitnessScience #MobilityWork #StretchingRoutine #RecoveryProtocol #HealthTips #PhysicalTherapy #DailyWellness #Arovia360 #MuscleRecovery #MindBodyHealth",
-  "poster_headline": "WHY YOUR BODY FEELS STIFF: THE SCIENTIFIC STRETCHING GUIDE",
+  "hook": "What happens to your body when you suddenly stop exercising?",
+  "hook_title": "🚨 వ్యాయామం ఆపేస్తే ఏమవుతుంది?",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261121_132934.mp4",
+  "video_filename": "health_reel_20261121_132934.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795267817/instagram_automation/knuhynfriom1cehjin19.mp4",
+  "caption": "Fitness manchi alavatu, kaani konni sarlu pani ఒత్తిడి valla vyayamam aapestham. Mari ala aapesthe manassu meedha, shareeram meedha ela prabhavam chupisthundo telusa? Just 2 weeks lo muscle strength thaggi, energy level padipothundi. Kaani chinna roju vari nadaka ledha yoga tho manam malli active ga undocchu! \n\nEe information mi friends ki kuda share cheyandi! \n\n#FitnessTelugu #HealthTips #WorkoutMotivation #StayActive #TeluguHealth #HeartHealth #HealthyHabits #WellnessJourney",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1795267816.png",
+  "poster_filename": "poster_1795267816.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795267818/instagram_automation/k6gdge3uidv3yrrxklwc.png",
+  "poster_caption": "What actually happens inside your body when you take a workout break? 🏋️‍♂️\n\nFitness declines faster than it builds, but knowing the biological timeline helps you plan smarter recovery without losing your gains.\n\nHere's the breakdown:\n1️⃣ Days 10–14: VO2 Max and plasma volume drop rapidly, making cardio feel noticeably harder.\n2️⃣ Weeks 2–4: Muscle mass decreases and insulin sensitivity drops as glycogen stores shrink.\n3️⃣ The Good News: Muscle memory keeps trained myonuclei intact, helping you regain strength up to 2x faster!\n\n📌 Save this guide for your daily health routine!\n\n#FitnessScience #ExercisePhysiology #WorkoutRecovery #MuscleMemory #VO2Max #DailyWellness #Arovia360 #HealthyHabits #FitnessTips #MetabolicHealth",
+  "poster_headline": "WHEN YOU STOP WORKING OUT: THE DETRAINING TIMELINE",
   "scenes": [
     {
-      "telugu_speech": "ఉదయాన్నే లేవగానే ఒళ్ళంతా నొప్పులు మరియు బిగువుగా అనిపిస్తోందా?",
+      "telugu_speech": "రోజూ చేసే వ్యాయామం ఆపేస్తే, మీ శరీరంలో ఏలాంటి మార్పులు వస్తాయో తెలుసా?",
       "subtitles": [
-        "ఉదయాన్నే లేవగానే *ఒళ్ళంతా నొప్పులు*",
-        "బిగువుగా *అనిపిస్తోందా?*"
+        "*వ్యాయామం* ఆపేస్తే",
+        "శరీరంలో ఎలాంటి *మార్పులు* వస్తాయి?"
       ],
-      "visual_query": "morning stretch",
-      "visual_concept": "A person waking up in bed looking tired and stretching stiff arms"
+      "visual_query": "fitness lifestyle",
+      "visual_concept": "A person sitting tired on a couch, looking at workout shoes."
     },
     {
-      "telugu_speech": "నిద్రపోతున్నప్పుడు మన కండరాలు గంటల తరబడి కదలక బిగుసుకుపోతాయి.",
+      "telugu_speech": "కేవలం రెండు వారాల్లోనే మీ కండరాల బలం తగ్గి, శక్తి స్థాయిలు పడిపోతాయి.",
       "subtitles": [
-        "నిద్రపోతున్నప్పుడు మన *కండరాలు*",
-        "గంటల తరబడి *బిగుసుకుపోతాయి*"
+        "కేవలం రెండు వారాల్లోనే",
+        "*కండరాల బలం* తగ్గిపోతుంది",
+        "*శక్తి స్థాయిలు* పడిపోతాయి"
       ],
-      "visual_query": "muscle anatomy",
-      "visual_concept": "Close-up visual representation of tight muscle fibers relaxing"
+      "visual_query": "tired person",
+      "visual_concept": "Close up of person stretching feeling stiff and low energy."
     },
     {
-      "telugu_speech": "దీనివల్ల రక్త ప్రసరణ తగ్గి నరాలపై తీవ్రమైన ఒత్తిడి పెరుగుతుంది.",
+      "telugu_speech": "దీనివల్ల రక్తనాళాలలో కొవ్వు చేరి, గుండెపై అదనపు భారం పడుతుంది.",
       "subtitles": [
-        "రక్త ప్రసరణ తగ్గి *నరాలపై*",
-        "తీవ్రమైన *ఒత్తిడి పెరుగుతుంది*"
+        "రక్తనాళాలలో *కొవ్వు* చేరి",
+        "గుండెపై అదనపు *భారం* పడుతుంది"
       ],
-      "visual_query": "blood circulation",
-      "visual_concept": "Animation or visual metaphor of restricted blood flow in limbs"
+      "visual_query": "heart health",
+      "visual_concept": "Subtle medical visualization of blood flow and heart strain."
     },
     {
-      "telugu_speech": "కానీ కేవలం ఐదు నిమిషాలు స్ట్రెచ్ చేస్తే శరీరంలో ఎనర్జీ లెవెల్స్ అద్భుతంగా పెరుగుతాయి!",
+      "telugu_speech": "ఆశ్చర్యకరంగా, మెదడు పనితీరు కూడా మందగించి జ్ఞాపకశక్తి తగ్గుతుంది.",
       "subtitles": [
-        "కేవలం ఐదు నిమిషాలు *స్ట్రెచ్ చేస్తే*",
-        "శరీరంలో *ఎనర్జీ పెరుగుతుంది*"
+        "మెదడు పనితీరు *మందగించి*",
+        "జ్ఞాపకశక్తి *తగ్గుతుంది*"
       ],
-      "visual_query": "morning stretching",
-      "visual_concept": "Energetic person doing active and refreshing morning stretches"
+      "visual_query": "brain function",
+      "visual_concept": "Person holding head feeling stressed and unfocused."
     },
     {
-      "telugu_speech": "రోజూ ఉదయం క్రమం తప్పకుండా స్ట్రెచ్ చేయండి, రోజంతా ఉత్సాహంగా ఉండండి!",
+      "telugu_speech": "రోజుకు కనీసం ఇరవై నిమిషాలు నడక లేదా యోగాతో మిమ్మల్ని మీరు కాపాడుకోండి.",
       "subtitles": [
-        "రోజూ ఉదయం *స్ట్రెచ్ చేయండి*",
-        "రోజంతా *ఉత్సాహంగా ఉండండి*",
-        "*ఆరోగ్యంగా ఉండండి | సేవ్ & షేర్ చేయండి*"
+        "రోజుకు *ఇరవై నిమిషాలు*",
+        "*నడక* లేదా యోగా చేయండి",
+        "ఆరోగ్యంగా *ఉండండి*",
+        "*చురుగ్గా ఉండండి | షేర్ చేయండి*"
       ],
-      "visual_query": "healthy lifestyle",
-      "visual_concept": "Happy and active person smiling after a healthy morning routine"
+      "visual_query": "healthy lifestyle walking",
+      "visual_concept": "Smiling person walking in a green park during morning sunlight."
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-20T13:45:42.032196"
+  "created_at": "2026-11-21T13:30:19.149539"
 }
