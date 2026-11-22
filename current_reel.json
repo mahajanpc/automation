@@ -1,69 +1,67 @@
 {
-  "topic": "What happens when you stop exercising?",
+  "topic": "Correct push-up technique",
   "category": "Fitness and exercise",
-  "hook": "What happens to your body when you suddenly stop exercising?",
-  "hook_title": "🚨 వ్యాయామం ఆపేస్తే ఏమవుతుంది?",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261121_132934.mp4",
-  "video_filename": "health_reel_20261121_132934.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795267817/instagram_automation/knuhynfriom1cehjin19.mp4",
-  "caption": "Fitness manchi alavatu, kaani konni sarlu pani ఒత్తిడి valla vyayamam aapestham. Mari ala aapesthe manassu meedha, shareeram meedha ela prabhavam chupisthundo telusa? Just 2 weeks lo muscle strength thaggi, energy level padipothundi. Kaani chinna roju vari nadaka ledha yoga tho manam malli active ga undocchu! \n\nEe information mi friends ki kuda share cheyandi! \n\n#FitnessTelugu #HealthTips #WorkoutMotivation #StayActive #TeluguHealth #HeartHealth #HealthyHabits #WellnessJourney",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1795267816.png",
-  "poster_filename": "poster_1795267816.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795267818/instagram_automation/k6gdge3uidv3yrrxklwc.png",
-  "poster_caption": "What actually happens inside your body when you take a workout break? 🏋️‍♂️\n\nFitness declines faster than it builds, but knowing the biological timeline helps you plan smarter recovery without losing your gains.\n\nHere's the breakdown:\n1️⃣ Days 10–14: VO2 Max and plasma volume drop rapidly, making cardio feel noticeably harder.\n2️⃣ Weeks 2–4: Muscle mass decreases and insulin sensitivity drops as glycogen stores shrink.\n3️⃣ The Good News: Muscle memory keeps trained myonuclei intact, helping you regain strength up to 2x faster!\n\n📌 Save this guide for your daily health routine!\n\n#FitnessScience #ExercisePhysiology #WorkoutRecovery #MuscleMemory #VO2Max #DailyWellness #Arovia360 #HealthyHabits #FitnessTips #MetabolicHealth",
-  "poster_headline": "WHEN YOU STOP WORKING OUT: THE DETRAINING TIMELINE",
+  "hook": "Push-ups chest pain or wrist pain? Fix your form instantly!",
+  "hook_title": "🚨 పుష్ అప్స్ ఇలా చేస్తున్నారా?",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261122_132822.mp4",
+  "video_filename": "health_reel_20261122_132822.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795354129/instagram_automation/jonfyjwoxdhk5s1pruc8.mp4",
+  "caption": "Push-ups correct form telusukondi! Many people mistake arm position and end up with shoulder pain. Correct technique enti ante, elbows ni body ki daggaraga, 45-degree angle lo pettali. Appude chest muscles ki proper load velthundi.\n\nSave this reel for your next chest workout and share with your gym partner! 💪✨\n\n#PushUps #FitnessTelugu #WorkoutTips #GymForm #ChestWorkout #FitnessIndia #HealthyLiving #TeluguFitness",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1795354128.png",
+  "poster_filename": "poster_1795354128.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795354131/instagram_automation/ta6oow3krckuejhnclod.png",
+  "poster_caption": "Most people do push-ups entirely wrong, leading to shoulder impingement and poor muscle growth. 🛑\n\nHere is how to fix your mechanics:\n• Fix your elbow angle to protect your rotator cuff\n• Stack your wrists and engage your palms\n• Lock your core and squeeze your glutes\n\n📌 Save this guide for your next upper body workout!\n\n#FitnessTips #PushUpForm #WorkoutScience #StrengthTraining #FitnessMechanics #UpperBodyWorkout #HealthyJoints #GymTips",
+  "poster_headline": "STOP RUINING YOUR JOINTS: THE PERFECT PUSH-UP BLUEPRINT",
   "scenes": [
     {
-      "telugu_speech": "రోజూ చేసే వ్యాయామం ఆపేస్తే, మీ శరీరంలో ఏలాంటి మార్పులు వస్తాయో తెలుసా?",
+      "telugu_speech": "మీరు చేసే పుష్ అప్స్ లో ఛాతికి బదులు చేతులు నొస్తున్నాయా?",
       "subtitles": [
-        "*వ్యాయామం* ఆపేస్తే",
-        "శరీరంలో ఎలాంటి *మార్పులు* వస్తాయి?"
+        "పుష్ అప్స్ లో *చేతులు నొస్తున్నాయా*",
+        "ఛాతికి బదులు *ఇదే కారణం*"
       ],
-      "visual_query": "fitness lifestyle",
-      "visual_concept": "A person sitting tired on a couch, looking at workout shoes."
+      "visual_query": "push up workout",
+      "visual_concept": "Person struggling with wrong push-up form in a gym"
     },
     {
-      "telugu_speech": "కేవలం రెండు వారాల్లోనే మీ కండరాల బలం తగ్గి, శక్తి స్థాయిలు పడిపోతాయి.",
+      "telugu_speech": "మనం కిందకి వెళ్ళినప్పుడు మోచేతులు బయటికి వెళ్తే భుజాలపై తీవ్రమైన ఒత్తిడి పడుతుంది.",
       "subtitles": [
-        "కేవలం రెండు వారాల్లోనే",
-        "*కండరాల బలం* తగ్గిపోతుంది",
-        "*శక్తి స్థాయిలు* పడిపోతాయి"
+        "మోచేతులు *బయటికి వెళ్తే*",
+        "భుజాలపై *తీవ్రమైన ఒత్తిడి*"
       ],
-      "visual_query": "tired person",
-      "visual_concept": "Close up of person stretching feeling stiff and low energy."
+      "visual_query": "arm pain",
+      "visual_concept": "Animation or close-up showing shoulder joint strain during exercise"
     },
     {
-      "telugu_speech": "దీనివల్ల రక్తనాళాలలో కొవ్వు చేరి, గుండెపై అదనపు భారం పడుతుంది.",
+      "telugu_speech": "దీనివల్ల కండరాలు పెరగకపోగా భుజాల నొప్పులు మరియు గాయాలు వచ్చే ప్రమాదం ఉంది.",
       "subtitles": [
-        "రక్తనాళాలలో *కొవ్వు* చేరి",
-        "గుండెపై అదనపు *భారం* పడుతుంది"
+        "కండరాలు పెరగకపోగా *నొప్పులు*",
+        "గాయాలు వచ్చే *ప్రమాదం ఉంది*"
       ],
-      "visual_query": "heart health",
-      "visual_concept": "Subtle medical visualization of blood flow and heart strain."
+      "visual_query": "joint pain",
+      "visual_concept": "Person holding injured shoulder in pain"
     },
     {
-      "telugu_speech": "ఆశ్చర్యకరంగా, మెదడు పనితీరు కూడా మందగించి జ్ఞాపకశక్తి తగ్గుతుంది.",
+      "telugu_speech": "సరైన పద్ధతిలో మీ చేతులు శరీరానికి దగ్గరగా ఉంచి నలభై ఐదు డిగ్రీల కోణంలో కిందకు వెళ్ళాలి.",
       "subtitles": [
-        "మెదడు పనితీరు *మందగించి*",
-        "జ్ఞాపకశక్తి *తగ్గుతుంది*"
+        "చేతులు శరీరానికి *దగ్గరగా ఉంచి*",
+        "సరైన కోణంలో *కిందకు వెళ్ళాలి*"
       ],
-      "visual_query": "brain function",
-      "visual_concept": "Person holding head feeling stressed and unfocused."
+      "visual_query": "correct pushup",
+      "visual_concept": "Fitness trainer demonstrating correct push-up alignment"
     },
     {
-      "telugu_speech": "రోజుకు కనీసం ఇరవై నిమిషాలు నడక లేదా యోగాతో మిమ్మల్ని మీరు కాపాడుకోండి.",
+      "telugu_speech": "ఇలా చేస్తేనే ఛాతి కండరాలు బలంగా మారుతాయి. ఈ చిన్న ట్రిప్ ట్రై చేయండి!",
       "subtitles": [
-        "రోజుకు *ఇరవై నిమిషాలు*",
-        "*నడక* లేదా యోగా చేయండి",
-        "ఆరోగ్యంగా *ఉండండి*",
-        "*చురుగ్గా ఉండండి | షేర్ చేయండి*"
+        "ఛాతి కండరాలు *బలంగా మారుతాయి*",
+        "*ఈ ట్రిప్* ట్రై చేయండి",
+        "*సరిగ్గా చేయండి | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "healthy lifestyle walking",
-      "visual_concept": "Smiling person walking in a green park during morning sunlight."
+      "visual_query": "strong chest",
+      "visual_concept": "Confident person successfully completing a perfect push-up"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-21T13:30:19.149539"
+  "created_at": "2026-11-22T13:28:52.352742"
 }
