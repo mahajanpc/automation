@@ -1,67 +1,67 @@
 {
-  "topic": "Correct push-up technique",
+  "topic": "How to improve stamina",
   "category": "Fitness and exercise",
-  "hook": "Push-ups chest pain or wrist pain? Fix your form instantly!",
-  "hook_title": "🚨 పుష్ అప్స్ ఇలా చేస్తున్నారా?",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261122_132822.mp4",
-  "video_filename": "health_reel_20261122_132822.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795354129/instagram_automation/jonfyjwoxdhk5s1pruc8.mp4",
-  "caption": "Push-ups correct form telusukondi! Many people mistake arm position and end up with shoulder pain. Correct technique enti ante, elbows ni body ki daggaraga, 45-degree angle lo pettali. Appude chest muscles ki proper load velthundi.\n\nSave this reel for your next chest workout and share with your gym partner! 💪✨\n\n#PushUps #FitnessTelugu #WorkoutTips #GymForm #ChestWorkout #FitnessIndia #HealthyLiving #TeluguFitness",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1795354128.png",
-  "poster_filename": "poster_1795354128.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795354131/instagram_automation/ta6oow3krckuejhnclod.png",
-  "poster_caption": "Most people do push-ups entirely wrong, leading to shoulder impingement and poor muscle growth. 🛑\n\nHere is how to fix your mechanics:\n• Fix your elbow angle to protect your rotator cuff\n• Stack your wrists and engage your palms\n• Lock your core and squeeze your glutes\n\n📌 Save this guide for your next upper body workout!\n\n#FitnessTips #PushUpForm #WorkoutScience #StrengthTraining #FitnessMechanics #UpperBodyWorkout #HealthyJoints #GymTips",
-  "poster_headline": "STOP RUINING YOUR JOINTS: THE PERFECT PUSH-UP BLUEPRINT",
+  "hook": "Do you feel tired quickly while climbing stairs or working out? Let's fix your stamina naturally!",
+  "hook_title": "🚨 స్టామినా లేదా? ఇలా చేయండి!",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261123_135247.mp4",
+  "video_filename": "health_reel_20261123_135247.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795442029/instagram_automation/naco09j6cqo9rlss3a8x.mp4",
+  "caption": "Stamina taggipoyinda? Romba alsi pothunnara? 🏃‍♂️ Don't worry! Mee stamina ni natural ga ela penchukovalo ee reel lo chuseseyandi. Small changes in daily cardio and hydration can boost your energy levels drastically! ✨ Save chesukondi, friends tho share cheyandi.\n\n#staminaboost #fitnessTelugu #workoutTips #energyLevels #healthTelugu #cardioWorkout #stayHydrated #fitnessMotivation",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1795442028.png",
+  "poster_filename": "poster_1795442028.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795442030/instagram_automation/qqjcratyvvxfpquwir7r.png",
+  "poster_caption": "Tired of hitting a wall 15 minutes into your workout? 🫀⚡ Here is how to upgrade your stamina at the cellular level:\n\n🔑 Key Highlights:\n• 01. Build mitochondrial density with Zone 2 aerobic training.\n• 02. Increase oxygen delivery using dietary nitrates like beet juice.\n• 03. Master nasal breathing to optimize oxygen tissue delivery.\n\n📌 Save this guide for your daily health routine!\n\n#Stamina #FitnessScience #EnduranceTraining #Zone2 #Mitochondria #WorkoutTips #FitnessGoals #Arovia360 #HealthyLiving #PerformanceNutrition",
+  "poster_headline": "ALWAYS HITTING A WALL: THE CELLULAR STAMINA PROTOCOL",
   "scenes": [
     {
-      "telugu_speech": "మీరు చేసే పుష్ అప్స్ లో ఛాతికి బదులు చేతులు నొస్తున్నాయా?",
+      "telugu_speech": "మెట్లు ఎక్కగానే గుండె దడదడలాడుతోందా? కొంచెం పని చేయగానే నీరసం వచ్చేస్తోందా?",
       "subtitles": [
-        "పుష్ అప్స్ లో *చేతులు నొస్తున్నాయా*",
-        "ఛాతికి బదులు *ఇదే కారణం*"
+        "మెట్లు ఎక్కగానే *గుండె దడ*",
+        "కొంచెం పనికి *నీరసం వచ్చేస్తోందా*"
       ],
-      "visual_query": "push up workout",
-      "visual_concept": "Person struggling with wrong push-up form in a gym"
+      "visual_query": "tired person",
+      "visual_concept": "A person feeling exhausted while climbing stairs holding their chest"
     },
     {
-      "telugu_speech": "మనం కిందకి వెళ్ళినప్పుడు మోచేతులు బయటికి వెళ్తే భుజాలపై తీవ్రమైన ఒత్తిడి పడుతుంది.",
+      "telugu_speech": "అసలు సమస్య మీ ఊపిరితిత్తుల్లో కాదు, మీ కణాలకు అందాల్సిన ఆక్సిజన్ సరిగ్గా అందకపోవడమే!",
       "subtitles": [
-        "మోచేతులు *బయటికి వెళ్తే*",
-        "భుజాలపై *తీవ్రమైన ఒత్తిడి*"
+        "అసలు సమస్య *ఊపిరితిత్తుల్లో కాదు*",
+        "*ఆక్సిజన్* సరిగ్గా అందడం లేదు"
       ],
-      "visual_query": "arm pain",
-      "visual_concept": "Animation or close-up showing shoulder joint strain during exercise"
+      "visual_query": "human lungs",
+      "visual_concept": "Visual representation of internal breathing and oxygen delivery inside body"
     },
     {
-      "telugu_speech": "దీనివల్ల కండరాలు పెరగకపోగా భుజాల నొప్పులు మరియు గాయాలు వచ్చే ప్రమాదం ఉంది.",
+      "telugu_speech": "దీనివల్ల మీ కణాల్లో శక్తి ఉత్పత్తి తగ్గి, మైటోకాండ్రియా బలహీనపడి త్వరగా అలసిపోతారు.",
       "subtitles": [
-        "కండరాలు పెరగకపోగా *నొప్పులు*",
-        "గాయాలు వచ్చే *ప్రమాదం ఉంది*"
+        "శక్తి ఉత్పత్తి తగ్గి *మైటోకాండ్రియా*",
+        "త్వరగా *అలసిపోతారు*"
       ],
-      "visual_query": "joint pain",
-      "visual_concept": "Person holding injured shoulder in pain"
+      "visual_query": "blood cells",
+      "visual_concept": "Microscopic view of cells working and losing energy"
     },
     {
-      "telugu_speech": "సరైన పద్ధతిలో మీ చేతులు శరీరానికి దగ్గరగా ఉంచి నలభై ఐదు డిగ్రీల కోణంలో కిందకు వెళ్ళాలి.",
+      "telugu_speech": "కానీ రోజువారీ వ్యాయామంలో చిన్న మార్పు చేస్తే, మీ స్టామినా రెట్టింపు అవుతుందని సైన్స్ చెబుతోంది!",
       "subtitles": [
-        "చేతులు శరీరానికి *దగ్గరగా ఉంచి*",
-        "సరైన కోణంలో *కిందకు వెళ్ళాలి*"
+        "చిన్న మార్పు చేస్తే *స్టామినా*",
+        "*రెట్టింపు* అవుతుంది"
       ],
-      "visual_query": "correct pushup",
-      "visual_concept": "Fitness trainer demonstrating correct push-up alignment"
+      "visual_query": "cardio workout",
+      "visual_concept": "An energetic person jogging outdoors with great enthusiasm"
     },
     {
-      "telugu_speech": "ఇలా చేస్తేనే ఛాతి కండరాలు బలంగా మారుతాయి. ఈ చిన్న ట్రిప్ ట్రై చేయండి!",
+      "telugu_speech": "రోజూ ఉదయం పది నిమిషాల కార్డియో చేయండి, హైడ్రేటెడ్‌గా ఉండండి. మీ శక్తిని మీరే చూడండి!",
       "subtitles": [
-        "ఛాతి కండరాలు *బలంగా మారుతాయి*",
-        "*ఈ ట్రిప్* ట్రై చేయండి",
-        "*సరిగ్గా చేయండి | సేవ్ & షేర్ చేయండి*"
+        "ఉదయం పది నిమిషాలు *కార్డియో*",
+        "*హైడ్రేటెడ్‌గా* ఉండండి",
+        "*శక్తిని పెంచండి | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "strong chest",
-      "visual_concept": "Confident person successfully completing a perfect push-up"
+      "visual_query": "drinking water glass",
+      "visual_concept": "A healthy energetic person drinking water and smiling after a workout"
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-22T13:28:52.352742"
+  "created_at": "2026-11-23T13:53:51.258946"
 }
