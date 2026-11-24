@@ -1,67 +1,67 @@
 {
-  "topic": "How to improve stamina",
+  "topic": "Exercise and heart health",
   "category": "Fitness and exercise",
-  "hook": "Do you feel tired quickly while climbing stairs or working out? Let's fix your stamina naturally!",
-  "hook_title": "🚨 స్టామినా లేదా? ఇలా చేయండి!",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261123_135247.mp4",
-  "video_filename": "health_reel_20261123_135247.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795442029/instagram_automation/naco09j6cqo9rlss3a8x.mp4",
-  "caption": "Stamina taggipoyinda? Romba alsi pothunnara? 🏃‍♂️ Don't worry! Mee stamina ni natural ga ela penchukovalo ee reel lo chuseseyandi. Small changes in daily cardio and hydration can boost your energy levels drastically! ✨ Save chesukondi, friends tho share cheyandi.\n\n#staminaboost #fitnessTelugu #workoutTips #energyLevels #healthTelugu #cardioWorkout #stayHydrated #fitnessMotivation",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1795442028.png",
-  "poster_filename": "poster_1795442028.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795442030/instagram_automation/qqjcratyvvxfpquwir7r.png",
-  "poster_caption": "Tired of hitting a wall 15 minutes into your workout? 🫀⚡ Here is how to upgrade your stamina at the cellular level:\n\n🔑 Key Highlights:\n• 01. Build mitochondrial density with Zone 2 aerobic training.\n• 02. Increase oxygen delivery using dietary nitrates like beet juice.\n• 03. Master nasal breathing to optimize oxygen tissue delivery.\n\n📌 Save this guide for your daily health routine!\n\n#Stamina #FitnessScience #EnduranceTraining #Zone2 #Mitochondria #WorkoutTips #FitnessGoals #Arovia360 #HealthyLiving #PerformanceNutrition",
-  "poster_headline": "ALWAYS HITTING A WALL: THE CELLULAR STAMINA PROTOCOL",
+  "hook": "Is simple walking enough to keep your heart safe, or does your heart need moderate exercise?",
+  "hook_title": "🫀 కేవలం నడక గుండెకు సరిపోతుందా?",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261124_134726.mp4",
+  "video_filename": "health_reel_20261124_134726.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795528082/instagram_automation/hoik64negflm0bn4pxol.mp4",
+  "caption": "Kevalam casual walking mee heart health ki saripotundha? 🫀 Moderate intensity workout leda brisk walking dwara heart muscles strong avthayi! Daily 15-20 mins brisk walking chesi heart stroke risk tagginchandi. 🏃‍♂️💨\n\n#HeartHealth #FitnessTips #TeluguHealth #BriskWalking #CardioExercise #HealthyLifestyle #HeartCare #TeluguFitness",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1795528081.png",
+  "poster_filename": "poster_1795528081.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795528083/instagram_automation/vjqx43odnzqwm0eubukw.png",
+  "poster_caption": "Your heart is a powerful muscle—and targeted exercise is its most potent medicine. 🫀\n\nHere is how to optimize your movement for maximum cardiovascular resilience:\n\n🔹 01 | Zone 2 Endurance: Expands capillary networks and improves arterial compliance.\n🔹 02 | Resistance Work: Decreases arterial stiffness by improving systemic glucose disposal.\n🔹 03 | Break Up Sitting: Brief movement snacks protect endothelial function throughout the day.\n\n📌 Save this guide for your daily health routine!\n\n#HeartHealth #ExerciseScience #CardioProtocol #Zone2Training #FitnessTips #CardiovascularHealth #PreventativeHealth #HubermanStyle #Arovia360",
+  "poster_headline": "REVERSE ARTERIAL STIFFNESS NATURALLY: THE CARDIAC LONGEVITY PROTOCOL",
   "scenes": [
     {
-      "telugu_speech": "మెట్లు ఎక్కగానే గుండె దడదడలాడుతోందా? కొంచెం పని చేయగానే నీరసం వచ్చేస్తోందా?",
+      "telugu_speech": "రోజుకు పది వేల అడుగులు నెమ్మదిగా నడిస్తే మీ గుండె పూర్తిగా సురక్షితమేనా?",
       "subtitles": [
-        "మెట్లు ఎక్కగానే *గుండె దడ*",
-        "కొంచెం పనికి *నీరసం వచ్చేస్తోందా*"
+        "పదివేల *అడుగుల నడక*",
+        "గుండెకు *సరిపోతుందా?*"
       ],
-      "visual_query": "tired person",
-      "visual_concept": "A person feeling exhausted while climbing stairs holding their chest"
+      "visual_query": "man walking",
+      "visual_concept": "A person walking slowly in a park checking a smartwatch step counter."
     },
     {
-      "telugu_speech": "అసలు సమస్య మీ ఊపిరితిత్తుల్లో కాదు, మీ కణాలకు అందాల్సిన ఆక్సిజన్ సరిగ్గా అందకపోవడమే!",
+      "telugu_speech": "చాలా నెమ్మదిగా నడిస్తే గుండె కండరానికి తగినంత సవాలు లభించదు.",
       "subtitles": [
-        "అసలు సమస్య *ఊపిరితిత్తుల్లో కాదు*",
-        "*ఆక్సిజన్* సరిగ్గా అందడం లేదు"
+        "నెమ్మదిగా *నడవడం వల్ల*",
+        "గుండెకు *సవాలు ఉండదు*"
       ],
-      "visual_query": "human lungs",
-      "visual_concept": "Visual representation of internal breathing and oxygen delivery inside body"
+      "visual_query": "human heart",
+      "visual_concept": "3D visualization of human heart beating with pulse rate graphics."
     },
     {
-      "telugu_speech": "దీనివల్ల మీ కణాల్లో శక్తి ఉత్పత్తి తగ్గి, మైటోకాండ్రియా బలహీనపడి త్వరగా అలసిపోతారు.",
+      "telugu_speech": "గుండె వేగం పెరగనప్పుడు రక్తనాళాల స్థితిస్థాపకత తగ్గి రక్తప్రసరణ మందగిస్తుంది.",
       "subtitles": [
-        "శక్తి ఉత్పత్తి తగ్గి *మైటోకాండ్రియా*",
-        "త్వరగా *అలసిపోతారు*"
+        "రక్తనాళాల *స్థితిస్థాపకత తగ్గి*",
+        "రక్తప్రసరణ *మందగిస్తుంది*"
       ],
-      "visual_query": "blood cells",
-      "visual_concept": "Microscopic view of cells working and losing energy"
+      "visual_query": "blood circulation",
+      "visual_concept": "Animation showing blood flow through arteries during exercise."
     },
     {
-      "telugu_speech": "కానీ రోజువారీ వ్యాయామంలో చిన్న మార్పు చేస్తే, మీ స్టామినా రెట్టింపు అవుతుందని సైన్స్ చెబుతోంది!",
+      "telugu_speech": "రోజుకు పదిహేను నిమిషాల వేగవంతమైన వ్యాయామం గుండెపోటు ప్రమాదాన్ని ముప్పై శాతం తగ్గిస్తుంది!",
       "subtitles": [
-        "చిన్న మార్పు చేస్తే *స్టామినా*",
-        "*రెట్టింపు* అవుతుంది"
+        "15 నిమిషాల *వేగవంతమైన వ్యాయామం*",
+        "ప్రమాదం *30 శాతం తగ్గుతుంది*"
       ],
-      "visual_query": "cardio workout",
-      "visual_concept": "An energetic person jogging outdoors with great enthusiasm"
+      "visual_query": "brisk walking",
+      "visual_concept": "Fit individual doing brisk walking with energetic posture outdoors."
     },
     {
-      "telugu_speech": "రోజూ ఉదయం పది నిమిషాల కార్డియో చేయండి, హైడ్రేటెడ్‌గా ఉండండి. మీ శక్తిని మీరే చూడండి!",
+      "telugu_speech": "ఈరోజే రోజువారీగా ఇరవై నిమిషాల వేగవంతమైన నడక లేదా సైక్లింగ్ ప్రారంభించండి!",
       "subtitles": [
-        "ఉదయం పది నిమిషాలు *కార్డియో*",
-        "*హైడ్రేటెడ్‌గా* ఉండండి",
-        "*శక్తిని పెంచండి | సేవ్ & షేర్ చేయండి*"
+        "ఈరోజే *బ్రెస్క్ వాకింగ్*",
+        "మీ గుండెను *కాపాడుకోండి*",
+        "*గుండె ఆరోగ్యాన్ని కాపాడుకోండి | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "drinking water glass",
-      "visual_concept": "A healthy energetic person drinking water and smiling after a workout"
+      "visual_query": "outdoor cycling",
+      "visual_concept": "Active person cycling cheerfully outdoors in morning sunlight."
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-23T13:53:51.258946"
+  "created_at": "2026-11-24T13:48:03.515439"
 }
