@@ -1,67 +1,67 @@
 {
-  "topic": "Exercise and heart health",
+  "topic": "Importance of warm-up and cool-down",
   "category": "Fitness and exercise",
-  "hook": "Is simple walking enough to keep your heart safe, or does your heart need moderate exercise?",
-  "hook_title": "🫀 కేవలం నడక గుండెకు సరిపోతుందా?",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261124_134726.mp4",
-  "video_filename": "health_reel_20261124_134726.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795528082/instagram_automation/hoik64negflm0bn4pxol.mp4",
-  "caption": "Kevalam casual walking mee heart health ki saripotundha? 🫀 Moderate intensity workout leda brisk walking dwara heart muscles strong avthayi! Daily 15-20 mins brisk walking chesi heart stroke risk tagginchandi. 🏃‍♂️💨\n\n#HeartHealth #FitnessTips #TeluguHealth #BriskWalking #CardioExercise #HealthyLifestyle #HeartCare #TeluguFitness",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1795528081.png",
-  "poster_filename": "poster_1795528081.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795528083/instagram_automation/vjqx43odnzqwm0eubukw.png",
-  "poster_caption": "Your heart is a powerful muscle—and targeted exercise is its most potent medicine. 🫀\n\nHere is how to optimize your movement for maximum cardiovascular resilience:\n\n🔹 01 | Zone 2 Endurance: Expands capillary networks and improves arterial compliance.\n🔹 02 | Resistance Work: Decreases arterial stiffness by improving systemic glucose disposal.\n🔹 03 | Break Up Sitting: Brief movement snacks protect endothelial function throughout the day.\n\n📌 Save this guide for your daily health routine!\n\n#HeartHealth #ExerciseScience #CardioProtocol #Zone2Training #FitnessTips #CardiovascularHealth #PreventativeHealth #HubermanStyle #Arovia360",
-  "poster_headline": "REVERSE ARTERIAL STIFFNESS NATURALLY: THE CARDIAC LONGEVITY PROTOCOL",
+  "hook": "Are you skipping warm-up and cool-down during workouts? Here is why it harms your body!",
+  "hook_title": "🚨 వార్మ్-అప్ లేకుండా వర్కౌట్ చేస్తున్నారా?",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261125_135041.mp4",
+  "video_filename": "health_reel_20261125_135041.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795614676/instagram_automation/il92wrshdofscl0dwzzo.mp4",
+  "caption": "Do you skip Warm-up & Cool-down? 🚨 Here is why your muscles need it!\n\nSkipping warm-up causes muscle stiffness and increases risk of tears, while skipping cool-down leads to intense soreness (DOMS) and dizziness!\n\n💡 Simple Daily Routine:\n1️⃣ 5 mins Dynamic Warm-up (Arm circles, leg swings, light jog)\n2️⃣ Main Workout\n3️⃣ 5 mins Cool-down (Static stretches & deep breathing)\n\nProtect your joints and muscles every day! 💪\n\n#FitnessTelugu #WarmUp #CoolDown #WorkoutTips #TeluguHealth #HealthTipsTelugu #GymMotivation #InjuryPrevention",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1795614674.png",
+  "poster_filename": "poster_1795614674.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795614677/instagram_automation/z0in05jnsozgsnmgvb8d.png",
+  "poster_caption": "Skipping your warm-up and cool-down is costing you gains and setting you up for injury. 🏋️‍♂️⚡\n\nHere is how to optimize your workout transitions:\n\n• 01: Dynamic movement primes your joints with lubricating synovial fluid.\n• 02: Cold muscles lack elasticity, dramatically increasing injury risk.\n• 03: Post-workout cool-downs kickstart muscle repair by lowering cortisol.\n\n📌 Save this guide for your daily health routine!\n\n#FitnessTips #WorkoutScience #InjuryPrevention #WarmUpRoutine #CoolDown #RecoveryProtocol #AthleticPerformance #FitnessGoals #Arovia360",
+  "poster_headline": "STOP SKIPPING YOUR PRE WORKOUT: THE WARMUP AND RECOVERY PROTOCOL",
   "scenes": [
     {
-      "telugu_speech": "రోజుకు పది వేల అడుగులు నెమ్మదిగా నడిస్తే మీ గుండె పూర్తిగా సురక్షితమేనా?",
+      "telugu_speech": "మీరు వ్యాయామం నేరుగా మొదలుపెడుతున్నారా? వార్మ్ అప్ లేకుండా చేస్తే గాయాల ప్రమాదం చాలా ఎక్కువ!",
       "subtitles": [
-        "పదివేల *అడుగుల నడక*",
-        "గుండెకు *సరిపోతుందా?*"
+        "నేరుగా *వర్కౌట్* చేస్తున్నారా?",
+        "వార్మ్-అప్ లేకపోతే *గాయాల ప్రమాదం*!"
       ],
-      "visual_query": "man walking",
-      "visual_concept": "A person walking slowly in a park checking a smartwatch step counter."
+      "visual_query": "runner stretching",
+      "visual_concept": "A person jumping straight into intense exercises without warming up, showing potential strain."
     },
     {
-      "telugu_speech": "చాలా నెమ్మదిగా నడిస్తే గుండె కండరానికి తగినంత సవాలు లభించదు.",
+      "telugu_speech": "చల్లని కండరాలు ఎండిపోయిన రబ్బర్ బ్యాండ్ లాంటివి. హఠాత్తుగా లాగితే కండరాలు తీవ్రంగా దెబ్బతింటాయి.",
       "subtitles": [
-        "నెమ్మదిగా *నడవడం వల్ల*",
-        "గుండెకు *సవాలు ఉండదు*"
+        "చల్లని కండరాలు *రబ్బర్ బ్యాండ్* లాంటివి",
+        "*హఠాత్తుగా* లాగితే కండరాల గాయాలు"
       ],
-      "visual_query": "human heart",
-      "visual_concept": "3D visualization of human heart beating with pulse rate graphics."
+      "visual_query": "leg stretching",
+      "visual_concept": "Graphic or close-up of tight muscle fibers being pulled suddenly."
     },
     {
-      "telugu_speech": "గుండె వేగం పెరగనప్పుడు రక్తనాళాల స్థితిస్థాపకత తగ్గి రక్తప్రసరణ మందగిస్తుంది.",
+      "telugu_speech": "వార్మ్ అప్ రక్తప్రసరణను పెంచుతుంది. అలాగే కూల్ డౌన్ లేకపోతే మరుసటి రోజు కండరాల నొప్పులు తీవ్రమవుతాయి.",
       "subtitles": [
-        "రక్తనాళాల *స్థితిస్థాపకత తగ్గి*",
-        "రక్తప్రసరణ *మందగిస్తుంది*"
+        "*వార్మ్-అప్* రక్తప్రసరణ పెంచుతుంది",
+        "*కూల్-డౌన్* లేకపోతే తీవ్రమైన నొప్పులు"
       ],
-      "visual_query": "blood circulation",
-      "visual_concept": "Animation showing blood flow through arteries during exercise."
+      "visual_query": "blood cell flow",
+      "visual_concept": "Animation of blood flow increasing followed by a person holding an aching leg muscle."
     },
     {
-      "telugu_speech": "రోజుకు పదిహేను నిమిషాల వేగవంతమైన వ్యాయామం గుండెపోటు ప్రమాదాన్ని ముప్పై శాతం తగ్గిస్తుంది!",
+      "telugu_speech": "వర్కౌట్ ముందు ఐదు నిమిషాల వార్మ్ అప్ మీ పనితీరును పెంచి, కోలుకునే సమయాన్ని సగానికి తగ్గిస్తుంది!",
       "subtitles": [
-        "15 నిమిషాల *వేగవంతమైన వ్యాయామం*",
-        "ప్రమాదం *30 శాతం తగ్గుతుంది*"
+        "కేవలం *ఐదు నిమిషాల* వార్మ్-అప్",
+        "వేగవంతమైన *కోలుకునే శక్తి*"
       ],
-      "visual_query": "brisk walking",
-      "visual_concept": "Fit individual doing brisk walking with energetic posture outdoors."
+      "visual_query": "stopwatch countdown",
+      "visual_concept": "Athlete doing dynamic joint rotations with a stopwatch visual, showing high energy."
     },
     {
-      "telugu_speech": "ఈరోజే రోజువారీగా ఇరవై నిమిషాల వేగవంతమైన నడక లేదా సైక్లింగ్ ప్రారంభించండి!",
+      "telugu_speech": "రోజూ వ్యాయామానికి ముందు వార్మ్ అప్, తర్వాత లైట్ స్ట్రెచింగ్ చేయండి. సురక్షితంగా ఫిట్ గా ఉండండి!",
       "subtitles": [
-        "ఈరోజే *బ్రెస్క్ వాకింగ్*",
-        "మీ గుండెను *కాపాడుకోండి*",
-        "*గుండె ఆరోగ్యాన్ని కాపాడుకోండి | సేవ్ & షేర్ చేయండి*"
+        "ముందు *డైనామిక్ వార్మ్-అప్*",
+        "తర్వాత *కూల్-డౌన్* స్ట్రెచింగ్",
+        "*మీ శరీరాన్ని రక్షించుకోండి | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "outdoor cycling",
-      "visual_concept": "Active person cycling cheerfully outdoors in morning sunlight."
+      "visual_query": "yoga stretching",
+      "visual_concept": "A happy fitness enthusiast doing smooth cool-down stretches outdoors, smiling at camera."
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-24T13:48:03.515439"
+  "created_at": "2026-11-25T13:51:17.518040"
 }
