@@ -1,67 +1,67 @@
 {
-  "topic": "Sedentary lifestyle risks",
-  "category": "Fitness and exercise",
-  "hook": "Sitting all day is killing your health silently",
-  "hook_title": "🚨 రోజూ అలా కూర్చుంటున్నారా?",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261126_134927.mp4",
-  "video_filename": "health_reel_20261126_134927.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795701007/instagram_automation/admybwxgp2709bk9echn.mp4",
-  "caption": "Rožantha kurchike kurchuni panichesthunnara? Idi mee aarogyam meeda chala pedda prabhavam chupisthundi. Ekkkuvasepu kurchovadam valla raktha prasrana taggipoyi, fat accumulate avuthundi. Idi heart issues ki, diabetes ki daritiyocchu. Diniki ekaika pariskaram - prati 30 minutes ki oka sari levadam, chinnaga nadavadam! ee reel ni me friends and family tho share chesi, vallani kuda alert cheyyandi! \n\n#SedentaryLifestyle #HealthTipsTelugu #FitnessGoals #ActiveLiving #HeartHealth #WellnessTelugu #HealthyHabits #FitnessTelugu",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1795701007.png",
-  "poster_filename": "poster_1795701007.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795701010/instagram_automation/usgs69b8idhpdfmaeopw.png",
-  "poster_caption": "Did you know that prolonged sitting acts like a brake on your entire metabolic engine? 🛑\n\nWhen we sit for hours on end, our biology shifts into a low-power state:\n• Lipase production drops by 90%, halting fat burning\n• Insulin sensitivity plummets, spiking blood sugar\n• Lower limb blood flow decreases, stressing your cardiovascular system\n\nThe good news? You can easily reverse these effects with micro-movements throughout your day.\n\n📌 Save this guide for your daily health routine!\n\n#SedentaryLifestyle #FitnessScience #MetabolicHealth #DailyMovement #HealthTips #WellnessGuide #ActiveLiving #Arovia360",
-  "poster_headline": "THE SILENT HEALTH KILLER: SEDENTARY LIFESTYLE RISKS",
+  "topic": "Why adults need 7–9 hours of sleep",
+  "category": "Sleep and recovery",
+  "hook": "Do you stay awake late scrolling reels and wonder why you feel exhausted all day?",
+  "hook_title": "🚨 రోజూ సరిగ్గా నిద్రపోతున్నారా?",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261127_134734.mp4",
+  "video_filename": "health_reel_20261127_134734.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795787279/instagram_automation/s8jeqkpyz99hgn8in8je.mp4",
+  "caption": "Rathri poota nidra manesi reels chusthunnara? Idi mee arogyam meda chala pedda prabhavam chupthundi! Manam roju ki 7 nundi 9 gantala nidra povadam entha avasaramo ee reel lo chudandi. Share this with your friends who stay up late!\n\n#SleepHealth #HealthyHabits #TeluguHealth #SleepCycle #WellnessTelugu #HealthyLifestyle #DeepSleep #SelfCare",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1795787277.png",
+  "poster_filename": "poster_1795787277.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795787281/instagram_automation/waaoqmfdcvp5rphbkgcr.png",
+  "poster_caption": "Most people think sleep is just downtime. It's actually when your body performs its most critical maintenance. 💤\n\nHere is what happens when you hit that 7-9 hour sweet spot:\n• Flushes out toxic brain plaque via the glymphatic system\n• Balances hunger hormones to stop late-night cravings\n• Boosts immune defenses and cellular repair\n\n📌 Save this guide for your daily health routine!\n\n#SleepScience #Biohacking #RecoveryProtocol #HealthyHabits #SleepBetter #Longevity #WellnessTips #Arovia360",
+  "poster_headline": "WHY YOU'RE ALWAYS EXHAUSTED: THE 7-9 HOUR SLEEP BLUEPRINT",
   "scenes": [
     {
-      "telugu_speech": "రోజంతా కుర్చీకే అతుక్కుపోయి గంటల తరబడి కదలకుండా కూర్చుంటున్నారా? ఈ అలవాటు మిమ్మల్ని నిశ్శబ్దంగా ప్రమాదంలో పడేస్తోంది.",
+      "telugu_speech": "రాత్రి పూట ఫోన్ చూస్తూ తెల్లవార్లూ మెలకువగా ఉంటున్నారా? ఇది మీ ప్రాణాల మీదికి తెస్తుంది.",
       "subtitles": [
-        "రోజంతా కుర్చీకే అతుక్కుపోయి *కదలకుండా*?",
-        "ఈ అలవాటు మిమ్మల్ని *ప్రమాదంలో* పడేస్తోంది!"
+        "రాత్రి పూట *ఫోన్ చూస్తూ*",
+        "తెల్లవార్లూ *మెలకువగా ఉంటున్నారా*?"
       ],
-      "visual_query": "office worker tired",
-      "visual_concept": "A person sitting at an office desk looking exhausted and inactive for hours."
+      "visual_query": "phone dark room",
+      "visual_concept": "A person looking at a smartphone screen in a dark room with a tired face expression."
     },
     {
-      "telugu_speech": "మీరు కదలకుండా అలా ఉంటే, మీ శరీరంలో రక్త ప్రసరణ నెమ్మదిస్తుంది. కండరాలు విశ్రాంతి స్థితికి వెళ్లిపోయి, కేలరీలు కరగడం ఆగిపోతుంది.",
+      "telugu_speech": "మీరు పడుకోనప్పుడు మీ మెదడు విశ్రాంతి తీసుకోదు. లోపల వ్యర్థాలను శుభ్రం చేసుకునే ప్రక్రియ ఆగిపోతుంది.",
       "subtitles": [
-        "రక్త ప్రసరణ *నెమ్మదిస్తుంది*!",
-        "కేలరీలు కరగడం *ఆగిపోతుంది*!"
+        "మెదడు *విశ్రాంతి తీసుకోదు*",
+        "వ్యర్థాల శుభ్రత *ఆగిపోతుంది*"
       ],
-      "visual_query": "blood cells",
-      "visual_concept": "Visual representation or simulation of slowed blood circulation inside the body."
+      "visual_query": "human brain",
+      "visual_concept": "Close up animation or cinematic shot representing brain exhaustion and lack of rest."
     },
     {
-      "telugu_speech": "దీనివల్ల కొవ్వు పేరుకుపోయి, గుండె జబ్బులు మరియు మధుమేహం వచ్చే ప్రమాదం విపరీతంగా పెరుగుతుంది.",
+      "telugu_speech": "దీనివల్ల హార్మోన్లు అసమతుల్యమై, ఒత్తిడి పెరిగి, క్రమంగా గుండె జబ్బులకు దారితీస్తుంది.",
       "subtitles": [
-        "కొవ్వు పేరుకుపోయి *ప్రమాదం*!",
-        "గుండె జబ్బులు *పెరుగుతాయి*!"
+        "హార్మోన్లు *అసమతుల్యత*",
+        "గుండె జబ్బులకు *దారితీస్తుంది*"
       ],
-      "visual_query": "heart health",
-      "visual_concept": "Graphic or conceptual shot showing the internal risk of fat accumulation and heart stress."
+      "visual_query": "stress headache",
+      "visual_concept": "A person holding their head in stress, experiencing physical fatigue."
     },
     {
-      "telugu_speech": "పరిశోధనలు ఏం చెబుతున్నాయంటే, రోజువారీ వ్యాయామం ఉన్నా సరే, ఎక్కువసేపు కూర్చోవడం ప్రాణాంతక ప్రభావం చూపుతుంది.",
+      "telugu_speech": "అరవై శాతం మందికి తెలియని నిజం ఏమిటంటే, కేవలం ఏడు గంటల నిద్ర మీ ఆయుష్షును పెంచుతుంది.",
       "subtitles": [
-        "ఎక్కువసేపు కూర్చోవడం *ప్రాణాంతకం*!",
-        "పరిశోధనలు చెబుతున్న *నిజం*!"
+        "తెలియని నిజం *ఏంటంటే*",
+        "*ఏడు గంటల నిద్ర* ఆయుష్షు"
       ],
-      "visual_query": "scientific research",
-      "visual_concept": "A concerned doctor or health expert explaining the hidden dangers of a sedentary lifestyle."
+      "visual_query": "deep sleep",
+      "visual_concept": "A serene person sleeping peacefully in a comfortable, dark bedroom."
     },
     {
-      "telugu_speech": "ప్రతి ముప్పై నిమిషాలకు ఒకసారి లేచి చిన్నగా నడవండి. చిన్న మార్పే పెద్ద ఆరోగ్యాన్ని ఇస్తుంది!",
+      "telugu_speech": "ఇప్పటి నుంచే రోజూ రాత్రి ఏడు నుంచి తొమ్మిది గంటలు ప్రశాంతంగా నిద్రపోండి. ఆరోగ్యంగా ఉండండి!",
       "subtitles": [
-        "ప్రతి ముప్పై నిమిషాలకు *నడవండి*!",
-        "చిన్న మార్పు పెద్ద *ఆరోగ్యం*!",
-        "*ఆరోగ్యంగా ఉండండి | సేవ్ & షేర్ చేయండి*"
+        "రోజూ రాత్రి *ఏడు గంటలు*",
+        "ప్రశాంతంగా *నిద్రపోండి*",
+        "*ప్రశాంతంగా నిద్రపోండి | సేవ్ & షేర్ చేయండి*"
       ],
-      "visual_query": "healthy lifestyle walking",
-      "visual_concept": "An office worker taking a refreshing break to stretch and walk around indoors."
+      "visual_query": "healthy lifestyle",
+      "visual_concept": "A refreshed person waking up happily in the morning with sunlight coming through the window."
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-26T13:50:11.393939"
+  "created_at": "2026-11-27T13:48:01.556870"
 }
