@@ -1,67 +1,67 @@
 {
-  "topic": "Why adults need 7–9 hours of sleep",
+  "topic": "Effects of sleeping late",
   "category": "Sleep and recovery",
-  "hook": "Do you stay awake late scrolling reels and wonder why you feel exhausted all day?",
-  "hook_title": "🚨 రోజూ సరిగ్గా నిద్రపోతున్నారా?",
-  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261127_134734.mp4",
-  "video_filename": "health_reel_20261127_134734.mp4",
-  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795787279/instagram_automation/s8jeqkpyz99hgn8in8je.mp4",
-  "caption": "Rathri poota nidra manesi reels chusthunnara? Idi mee arogyam meda chala pedda prabhavam chupthundi! Manam roju ki 7 nundi 9 gantala nidra povadam entha avasaramo ee reel lo chudandi. Share this with your friends who stay up late!\n\n#SleepHealth #HealthyHabits #TeluguHealth #SleepCycle #WellnessTelugu #HealthyLifestyle #DeepSleep #SelfCare",
-  "poster_path": "/home/runner/work/automation/automation/output/poster_1795787277.png",
-  "poster_filename": "poster_1795787277.png",
-  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795787281/instagram_automation/waaoqmfdcvp5rphbkgcr.png",
-  "poster_caption": "Most people think sleep is just downtime. It's actually when your body performs its most critical maintenance. 💤\n\nHere is what happens when you hit that 7-9 hour sweet spot:\n• Flushes out toxic brain plaque via the glymphatic system\n• Balances hunger hormones to stop late-night cravings\n• Boosts immune defenses and cellular repair\n\n📌 Save this guide for your daily health routine!\n\n#SleepScience #Biohacking #RecoveryProtocol #HealthyHabits #SleepBetter #Longevity #WellnessTips #Arovia360",
-  "poster_headline": "WHY YOU'RE ALWAYS EXHAUSTED: THE 7-9 HOUR SLEEP BLUEPRINT",
+  "hook": "Do you stay up late scrolling your phone every night? Here is what it secretly does to your brain and body!",
+  "hook_title": "🚨 రాత్రి ఆలస్యంగా పడుకుంటున్నారా?",
+  "video_path": "/home/runner/work/automation/automation/output/health_reel_20261128_133241.mp4",
+  "video_filename": "health_reel_20261128_133241.mp4",
+  "cloudinary_url": "https://res.cloudinary.com/boe4lcof/video/upload/v1795872794/instagram_automation/xmz2fn0d5xqru5128ovk.mp4",
+  "caption": "Ratri late ga padukovadam manaku teliyakundaane mana health ni padu chestundi! 🛑 Brain toxins clear avvavu, immunity padipotundi, roju antha neerasam ga untundi. Ee chinnari marpu tho mee health ni kapadukondi. \n\nShare this with someone who sleeps late every night! 💤✨\n\n#SleepHealth #LateNightHabits #HealthyLiving #TeluguHealthTips #BrainHealth #WellnessJourney #SleepBetter #SelfCare",
+  "poster_path": "/home/runner/work/automation/automation/output/poster_1795872792.png",
+  "poster_filename": "poster_1795872792.png",
+  "poster_cloudinary_url": "https://res.cloudinary.com/boe4lcof/image/upload/v1795872795/instagram_automation/un2w9x7t1xsq5vgjkr2m.png",
+  "poster_caption": "Ever wonder why sleeping in on weekends actually leaves you feeling more exhausted? 😴📉\n\nWhen you consistently push back your sleep and wake times, you throw your internal master clock completely out of balance. Here is what is happening inside your biology:\n\n• Cortisol Spike: Triggers unnecessary physical stress.\n• Insulin Resistance: Wrecks your metabolic glucose control.\n• Detox Block: Halts essential brain waste clearance.\n\nProtect your energy by locking in a consistent wake-up time starting tomorrow.\n\n📌 Save this guide for your daily health routine!\n\n#SleepScience #CircadianRhythm #Biohacking #RecoveryTips #SleepHealth #WellnessHabits #BrainHealth #DailyWellness",
+  "poster_headline": "THE COST OF SLEEPING LATE: CIRCADIAN RHYTHM RESET GUIDE",
   "scenes": [
     {
-      "telugu_speech": "రాత్రి పూట ఫోన్ చూస్తూ తెల్లవార్లూ మెలకువగా ఉంటున్నారా? ఇది మీ ప్రాణాల మీదికి తెస్తుంది.",
+      "telugu_speech": "ప్రతిరోజు రాత్రి ఒంటిగంట వరకు మెలకువగా ఉంటున్నారా? ఈ అలవాటు మీ శరీరాన్ని ఎంతలా దెబ్బతీస్తుందో తెలుసా?",
       "subtitles": [
-        "రాత్రి పూట *ఫోన్ చూస్తూ*",
-        "తెల్లవార్లూ *మెలకువగా ఉంటున్నారా*?"
+        "రాత్రి *ఆలస్యంగా* పడుకుంటున్నారా?",
+        "శరీరాన్ని *ఎలా* దెబ్బతీస్తుంది?"
       ],
-      "visual_query": "phone dark room",
-      "visual_concept": "A person looking at a smartphone screen in a dark room with a tired face expression."
+      "visual_query": "phone night dark room",
+      "visual_concept": "A person lying in bed late at night staring brightly at a smartphone screen in a dark room."
     },
     {
-      "telugu_speech": "మీరు పడుకోనప్పుడు మీ మెదడు విశ్రాంతి తీసుకోదు. లోపల వ్యర్థాలను శుభ్రం చేసుకునే ప్రక్రియ ఆగిపోతుంది.",
+      "telugu_speech": "మీరు నిద్రపోకుండా మెలకువగా ఉన్నప్పుడు, మీ మెదడులోని వ్యర్థాలు సరిగ్గా బయటకు వెళ్ళలేవు.",
       "subtitles": [
-        "మెదడు *విశ్రాంతి తీసుకోదు*",
-        "వ్యర్థాల శుభ్రత *ఆగిపోతుంది*"
+        "మెదడులోని *వ్యర్థాలు*",
+        "బయటకు *వెళ్ళలేవు*"
       ],
-      "visual_query": "human brain",
-      "visual_concept": "Close up animation or cinematic shot representing brain exhaustion and lack of rest."
+      "visual_query": "human brain anatomy",
+      "visual_concept": "Close up graphic style view of brain cells under stress due to lack of rest."
     },
     {
-      "telugu_speech": "దీనివల్ల హార్మోన్లు అసమతుల్యమై, ఒత్తిడి పెరిగి, క్రమంగా గుండె జబ్బులకు దారితీస్తుంది.",
+      "telugu_speech": "దీనివల్ల ఉదయం లేచేసరికి విపరీతమైన నీరసం, చికాకు మరియు జ్ఞాపకశక్తి తగ్గిపోవడం జరుగుతుంది.",
       "subtitles": [
-        "హార్మోన్లు *అసమతుల్యత*",
-        "గుండె జబ్బులకు *దారితీస్తుంది*"
+        "ఉదయం *విపరీతమైన* నీరసం",
+        "జ్ఞాపకశక్తి *తగ్గిపోవడం*"
       ],
-      "visual_query": "stress headache",
-      "visual_concept": "A person holding their head in stress, experiencing physical fatigue."
+      "visual_query": "tired morning wake up",
+      "visual_concept": "A tired person waking up in the morning holding their head with a sluggish expression."
     },
     {
-      "telugu_speech": "అరవై శాతం మందికి తెలియని నిజం ఏమిటంటే, కేవలం ఏడు గంటల నిద్ర మీ ఆయుష్షును పెంచుతుంది.",
+      "telugu_speech": "శాస్త్రీయంగా చెప్పాలంటే, సరిగా నిద్రపోని వారికి రోగనిరోధక శక్తి సగానికి సగం పడిపోతుంది.",
       "subtitles": [
-        "తెలియని నిజం *ఏంటంటే*",
-        "*ఏడు గంటల నిద్ర* ఆయుష్షు"
+        "రోగనిరోధక శక్తి *పడిపోతుంది*",
+        "అనారోగ్యానికి *దారితీస్తుంది*"
       ],
-      "visual_query": "deep sleep",
-      "visual_concept": "A serene person sleeping peacefully in a comfortable, dark bedroom."
+      "visual_query": "immune system weak",
+      "visual_concept": "Visual representation showing lowered body immunity and vulnerability to sickness."
     },
     {
-      "telugu_speech": "ఇప్పటి నుంచే రోజూ రాత్రి ఏడు నుంచి తొమ్మిది గంటలు ప్రశాంతంగా నిద్రపోండి. ఆరోగ్యంగా ఉండండి!",
+      "telugu_speech": "కనీసం రాత్రి పది గంటలకు పడుకోవడం అలవాటు చేసుకోండి. మీ ఆరోగ్యాన్ని కాపాడుకోండి.",
       "subtitles": [
-        "రోజూ రాత్రి *ఏడు గంటలు*",
-        "ప్రశాంతంగా *నిద్రపోండి*",
-        "*ప్రశాంతంగా నిద్రపోండి | సేవ్ & షేర్ చేయండి*"
+        "రాత్రి *పది గంటలకు*",
+        "ఆరోగ్యాన్ని *కాపాడుకోండి*",
+        "*ప్రశాంతంగా నిద్రపోండి | ఆరోగ్యంగా ఉండండి*"
       ],
-      "visual_query": "healthy lifestyle",
-      "visual_concept": "A refreshed person waking up happily in the morning with sunlight coming through the window."
+      "visual_query": "peaceful sleeping bed",
+      "visual_concept": "A peaceful, cozy bedroom setup with warm lighting encouraging healthy sleep habits."
     }
   ],
   "status": "ready_for_review",
   "published_post_id": null,
   "poster_published_post_id": null,
-  "created_at": "2026-11-27T13:48:01.556870"
+  "created_at": "2026-11-28T13:33:16.044205"
 }
